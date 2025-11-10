@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>有情 - 素人共创生态舞作</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7D5A50',
+                        secondary: '#B4846C',
+                        accent: '#E5B299',
+                        light: '#F8EDEB',
+                        dark: '#4A4A48',
+                        earth: '#8B7355',
+                        water: '#6F8FAF',
+                        air: '#A7C5BD',
+                        fire: '#D9A566'
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif SC"', 'serif'],
+                        sans: ['"Noto Sans SC"', 'sans-serif']
+                    },
+                    height: {
+                        '128': '32rem',
+                    },
+                    backgroundImage: {
+                        'dancer-pattern': "url('https://images.unsplash.com/photo-1596462502278-21ad774817a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')",
+                    },
+                },
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            }
+            .transition-transform-slow {
+                transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            }
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+            .clip-path-slant {
+                clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            }
+        }
+    </style>
+    
+    <style>
+        /* 全局样式 */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* 渐变动画 */
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .gradient-animate {
+            background: linear-gradient(-45deg, #F8EDEB, #E5B299, #B4846C, #7D5A50);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+        }
+        
+        /* 悬停放大效果 */
+        .hover-zoom {
+            transition: transform 0.5s ease;
+        }
+        
+        .hover-zoom:hover {
+            transform: scale(1.03);
+        }
+        
+        /* 视频画廊过渡 */
+        .gallery-item {
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        /* 波浪动画 */
+        @keyframes wave {
+            0% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(-20px) translateY(-5px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
+        
+        .animate-wave {
+            animation: wave 6s ease-in-out infinite;
+        }
+        
+        /* 淡入动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+        
+        /* 延迟动画 */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+    </style>
+</head>
+<body class="font-sans text-dark bg-light">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center">
+                <img src="assets/images/youqing_logo.png" alt="有情 Logo" class="h-10 w-10 mr-2">
+                <span class="text-2xl md:text-3xl font-serif font-bold text-light text-shadow">有情</span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-light hover:text-accent transition-colors duration-300">关于我们</a>
+                <a href="#gallery" class="text-light hover:text-accent transition-colors duration-300">视频画廊</a>
+                <a href="#dancers" class="text-light hover:text-accent transition-colors duration-300">舞者故事</a>
+                <a href="#schedule" class="text-light hover:text-accent transition-colors duration-300">演出日程</a>
+                <a href="#contact" class="text-light hover:text-accent transition-colors duration-300">联系我们</a>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="mobile-menu-button" class="md:hidden flex items-center text-light text-2xl">
+                <img src="assets/images/youqing_logo.png" alt="有情 Logo" class="h-6 w-6 mr-2 hidden sm:block">
+                <i class="fa fa-bars"></i>
+            </button>
+        </nav>
+        
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-dark/95 backdrop-blur-md">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#about" class="text-light hover:text-accent py-2 border-b border-gray-700">关于我们</a>
+                <a href="#gallery" class="text-light hover:text-accent py-2 border-b border-gray-700">视频画廊</a>
+                <a href="#dancers" class="text-light hover:text-accent py-2 border-b border-gray-700">舞者故事</a>
+                <a href="#schedule" class="text-light hover:text-accent py-2 border-b border-gray-700">演出日程</a>
+                <a href="#contact" class="text-light hover:text-accent py-2">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- 背景视频/图片 -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-black/40 z-10"></div>
+            <img 
+                src="http://38.207.178.253:8081/youqing.jpg" 
+                alt="有情舞者" 
+                class="w-full h-full object-cover object-center"
+            >
+        </div>
+        
+        <!-- 内容 -->
+        <div class="container mx-auto px-4 z-20 text-center">
+            <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-serif font-bold text-light mb-6 animate-wave">
+                众生·有情
+            </h1>
+            <p class="text-[clamp(1.1rem,3vw,1.5rem)] text-light max-w-3xl mx-auto mb-8 text-shadow">
+                这是一个没有任何专业舞者的舞团，但我们与万物共舞
+            </p>
+            <a 
+                href="#about" 
+                class="inline-block px-8 py-4 bg-accent/90 text-dark font-medium rounded-full hover:bg-accent transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+            >
+                探索有情世界
+            </a>
+        </div>
+        
+        <!-- 向下滚动指示器 -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+            <a href="#about" class="text-light text-3xl opacity-80 hover:opacity-100 transition-opacity duration-300">
+                <i class="fa fa-angle-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 关于有情 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(2rem,4vw,3rem)] font-serif font-bold text-dark mb-4">关于有情</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-lg text-dark/80 max-w-3xl mx-auto">
+                    每个人都是天生的舞者，独特的身体是灵动的乐章，时刻准备与万物自然共舞。
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-serif font-semibold text-primary mb-6">项目起源</h3>
+                    <p class="text-dark/80 mb-4 leading-relaxed">
+                        二零二四年春天，永·舞团（Wing Dance Theatre）诞生五周年。每当新的关注者到来，都会在后台收到这样一句话：这是一个没有任何舞者的舞团，但我们与万物共舞。
+                    </p>
+                    <p class="text-dark/80 mb-4 leading-relaxed">
+                        是的。这个"舞团"没有一位舞者，更没有专业从事舞蹈的人。但，每当我们提出创作构想，呼吁舞者出现，各行各业、不同地域、年龄不一的朋友们就会自发前来，奔赴一个共同的艺术理想。
+                    </p>
+                    <p class="text-dark/80 mb-4 leading-relaxed">
+                        2024甲辰年春，我们发出"寻找有情人"的召唤，全球范围内招募舞者，共同为地球创作一出生命之舞。历经半年的连结、共创、排演，终于在深秋时节，于麓湖举办的成都CCC社群大会的舞台上，完成了舞作《众生·有情》（简称"有情"）面向世界的首次演出。
+                    </p>
+                </div>
+                <div class="fade-in delay-200">
+                    <div class="relative">
+                        <div class="w-full rounded-lg shadow-xl overflow-hidden hover-zoom aspect-video bg-black">
+                            <video 
+                                src="http://47.99.125.187/youqing.mp4" 
+                                controls 
+                                poster="http://47.99.125.187/youqing.jpg"
+                                class="w-full h-full object-cover"
+                                preload="metadata"
+                            >
+                                您的浏览器不支持视频播放
+                            </video>
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 w-40 h-40 bg-accent/20 rounded-lg -z-10"></div>
+                        <div class="absolute -top-6 -right-6 w-32 h-32 bg-primary/20 rounded-lg -z-10"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 项目特质 -->
+            <div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 bg-light rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 fade-in delay-100">
+                    <div class="w-16 h-16 bg-earth/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-tree text-2xl text-earth"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-dark mb-4 text-center">在地性</h3>
+                    <p class="text-dark/70 text-center">
+                        关注身边的生态环保议题，从土地和海浪中汲取创作灵感与生命力量。项目强调与当地环境、文化的深度联结。
+                    </p>
+                </div>
+                <div class="p-8 bg-light rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 fade-in delay-200">
+                    <div class="w-16 h-16 bg-water/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-users text-2xl text-water"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-dark mb-4 text-center">共创性</h3>
+                    <p class="text-dark/70 text-center">
+                        二十位来自不同地域、不同职业背景的素人共同参与创作，包括心理咨询师、大学老师、社区服务者等各行各业的普通人。
+                    </p>
+                </div>
+                <div class="p-8 bg-light rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 fade-in delay-300">
+                    <div class="w-16 h-16 bg-fire/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-heart text-2xl text-fire"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-dark mb-4 text-center">艺术性</h3>
+                    <p class="text-dark/70 text-center">
+                        没有专业舞台，自然就是最大的舞台。舞蹈全由素人舞者自己的身心发出，呈现纯粹而真诚的艺术表达。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 视频画廊 -->
+    <section id="gallery" class="py-20 bg-gradient-to-b from-light to-white clip-path-slant">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(2rem,4vw,3rem)] font-serif font-bold text-dark mb-4">视频画廊</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-lg text-dark/80 max-w-3xl mx-auto">
+                    探索我们的舞蹈作品，感受身体与自然、艺术与生命的深层连接
+                </p>
+            </div>
+            
+            <!-- 视频筛选 -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="gallery-filter-btn active px-6 py-2 rounded-full bg-primary text-white transition-all duration-300" data-filter="all">全部</button>
+                <button class="gallery-filter-btn px-6 py-2 rounded-full bg-light text-dark hover:bg-primary hover:text-white transition-all duration-300" data-filter="performance">演出</button>
+                <button class="gallery-filter-btn px-6 py-2 rounded-full bg-light text-dark hover:bg-primary hover:text-white transition-all duration-300" data-filter="rehearsal">排练</button>
+                <button class="gallery-filter-btn px-6 py-2 rounded-full bg-light text-dark hover:bg-primary hover:text-white transition-all duration-300" data-filter="documentary">纪录片</button>
+            </div>
+            
+            <!-- 视频网格 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 视频项目 1 -->
+                <div class="gallery-item" data-category="performance fade-in delay-100">
+                    <div class="relative rounded-lg overflow-hidden shadow-lg">
+                        <img 
+                            src="https://images.unsplash.com/photo-1504323705334-58ca135774ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80" 
+                            alt="众生·有情首演" 
+                            class="w-full h-64 object-cover"
+                        >
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <button class="video-play-btn w-16 h-16 bg-white/90 rounded-full flex items-center justify-center text-primary transition-transform duration-300 hover:scale-110">
+                                <i class="fa fa-play text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                            <h3 class="text-white font-medium">众生·有情首演 - 成都站</h3>
+                            <p class="text-light/80 text-sm">2024.10.26</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 视频项目 2 -->
+                <div class="gallery-item" data-category="rehearsal fade-in delay-200">
+                    <div class="relative rounded-lg overflow-hidden shadow-lg">
+                        <img 
+                            src="https://images.unsplash.com/photo-1547624532-5c98b5d7733e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80" 
+                            alt="有情排练" 
+                            class="w-full h-64 object-cover"
+                        >
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <button class="video-play-btn w-16 h-16 bg-white/90 rounded-full flex items-center justify-center text-primary transition-transform duration-300 hover:scale-110">
+                                <i class="fa fa-play text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                            <h3 class="text-white font-medium">《有情》封闭排练记录</h3>
+                            <p class="text-light/80 text-sm">2024.09</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 视频项目 3 -->
+                <div class="gallery-item" data-category="documentary fade-in delay-300">
+                    <div class="relative rounded-lg overflow-hidden shadow-lg">
+                        <img 
+                            src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" 
+                            alt="有情纪录片" 
+                            class="w-full h-64 object-cover"
+                        >
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <button class="video-play-btn w-16 h-16 bg-white/90 rounded-full flex items-center justify-center text-primary transition-transform duration-300 hover:scale-110">
+                                <i class="fa fa-play text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                            <h3 class="text-white font-medium">素人舞者的蜕变之路</h3>
+                            <p class="text-light/80 text-sm">纪录片</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 视频项目 4 -->
+                <div class="gallery-item" data-category="performance fade-in delay-400">
+                    <div class="relative rounded-lg overflow-hidden shadow-lg">
+                        <img 
+                            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80" 
+                            alt="户外演出" 
+                            class="w-full h-64 object-cover"
+                        >
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <button class="video-play-btn w-16 h-16 bg-white/90 rounded-full flex items-center justify-center text-primary transition-transform duration-300 hover:scale-110">
+                                <i class="fa fa-play text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                            <h3 class="text-white font-medium">自然中的舞蹈 - 公园快闪</h3>
+                            <p class="text-light/80 text-sm">2024.08</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 视频项目 5 -->
+                <div class="gallery-item" data-category="rehearsal fade-in delay-500">
+                    <div class="relative rounded-lg overflow-hidden shadow-lg">
+                        <img 
+                            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80" 
+                            alt="动作训练" 
+                            class="w-full h-64 object-cover"
+                        >
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <button class="video-play-btn w-16 h-16 bg-white/90 rounded-full flex items-center justify-center text-primary transition-transform duration-300 hover:scale-110">
+                                <i class="fa fa-play text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                            <h3 class="text-white font-medium">身体感知训练</h3>
+                            <p class="text-light/80 text-sm">2024.07</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 视频项目 6 -->
+                <div class="gallery-item" data-category="documentary fade-in delay-600">
+                    <div class="relative rounded-lg overflow-hidden shadow-lg">
+                        <img 
+                            src="https://images.unsplash.com/photo-1614289371518-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" 
+                            alt="音乐创作" 
+                            class="w-full h-64 object-cover"
+                        >
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <button class="video-play-btn w-16 h-16 bg-white/90 rounded-full flex items-center justify-center text-primary transition-transform duration-300 hover:scale-110">
+                                <i class="fa fa-play text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                            <h3 class="text-white font-medium">《有情觉》音乐创作历程</h3>
+                            <p class="text-light/80 text-sm">音乐纪录片</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 加载更多按钮 -->
+            <div class="text-center mt-12">
+                <button id="load-more-videos" class="px-8 py-3 bg-transparent border-2 border-primary text-primary font-medium rounded-full hover:bg-primary hover:text-white transition-all duration-300">
+                    加载更多视频
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 舞者故事 -->
+    <section id="dancers" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(2rem,4vw,3rem)] font-serif font-bold text-dark mb-4">舞者故事</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-lg text-dark/80 max-w-3xl mx-auto">
+                    来自各行各业的素人舞者，用身体书写属于自己的艺术篇章
+                </p>
+            </div>
+            
+            <!-- 舞者卡片 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- 舞者 1 -->
+                <div class="dancer-card bg-light rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover-zoom">
+                    <div class="relative h-80">
+                        <img 
+                            src="assets/images/people_heyi.jpg" 
+                            alt="何一" 
+                            class="w-full h-full object-cover object-center"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-white text-xl font-semibold">何一</h3>
+                                <p class="text-light/80">环球旅行背包客，"书益小筑"主理人</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <blockquote class="text-dark/80 italic border-l-4 border-primary pl-4 mb-4">
+                            "《有情》对素人的身体给予了非常大的信任空间，这种信任让我的身体在整个舞蹈中都能真实地流动。对于我是一种感动，一种唤醒。"
+                        </blockquote>
+                        <p class="text-dark/70">
+                            "有情"就是一种万物的底色，希望"有情"可以继续跳下去。有情如水，万物归一。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 舞者 2 -->
+                <div class="dancer-card bg-light rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover-zoom">
+                    <div class="relative h-80">
+                        <img 
+                            src="assets/images/people_xiaorong.jpg" 
+                            alt="晓蓉" 
+                            class="w-full h-full object-cover object-center"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-white text-xl font-semibold">晓蓉</h3>
+                                <p class="text-light/80">前小学老师，社区活动倡导者，环保践行者</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <blockquote class="text-dark/80 italic border-l-4 border-primary pl-4 mb-4">
+                            "一周的封闭训练与排练磨合终于交了一份圆满的演出作品。很荣幸作为在地有情人加入素人共创舞作《有情》。"
+                        </blockquote>
+                        <p class="text-dark/70">
+                            将我们对地球的关切、对生态的关注、对彼此的关心透过一场身心共振的舞蹈向世界传达。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 舞者 3 -->
+                <div class="dancer-card bg-light rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover-zoom">
+                    <div class="relative h-80">
+                        <img 
+                            src="assets/images/people_duer.jpg" 
+                            alt="都儿" 
+                            class="w-full h-full object-cover object-center"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-white text-xl font-semibold">都儿</h3>
+                                <p class="text-light/80">退休职员，身体探索者</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <blockquote class="text-dark/80 italic border-l-4 border-primary pl-4 mb-4">
+                            "我是真正的素人。这是我第一次跳舞，非常感谢跟大家一起共舞。"
+                        </blockquote>
+                        <p class="text-dark/70">
+                            通过这次体验，我重新认识了自己的身体，发现了隐藏在日常生活背后的艺术潜能。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 舞者 4 -->
+                <div class="dancer-card bg-light rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover-zoom">
+                    <div class="relative h-80">
+                        <img 
+                            src="assets/images/people_pengchen.jpg" 
+                            alt="彭晨" 
+                            class="w-full h-full object-cover object-center"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-white text-xl font-semibold">彭晨</h3>
+                                <p class="text-light/80">品牌策划、社群活动组织者</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <blockquote class="text-dark/80 italic border-l-4 border-primary pl-4 mb-4">
+                            "作品排练的时间有限，伙伴们主要进行了基本功和感觉同频的训练。也正因如此，我们才能在演出时那么真实纯粹且投入。"
+                        </blockquote>
+                        <p class="text-dark/70">
+                            我相信观众能从中体会到作品的理念——众生有情（正如它的名字）。这是一件了不起的作品。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 舞者 5 -->
+                <div class="dancer-card bg-light rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover-zoom">
+                    <div class="relative h-80">
+                        <img 
+                            src="assets/images/people_liangxiaoyan.jpg" 
+                            alt="梁小燕" 
+                            class="w-full h-full object-cover object-center"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-white text-xl font-semibold">梁小燕</h3>
+                                <p class="text-light/80">舞者、乐师、颂钵疗愈师</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <blockquote class="text-dark/80 italic border-l-4 border-primary pl-4 mb-4">
+                            "常常一个人到大自然里，聆听风的声音，感受每一朵花，每一棵树在给我传递怎样的信息。"
+                        </blockquote>
+                        <p class="text-dark/70">
+                            希望能以声音的方式，成为大自然的管道，向人们传递地球母亲对她的孩子们深深的爱。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 舞者 6 -->
+                <div class="dancer-card bg-light rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover-zoom">
+                    <div class="relative h-80">
+                        <img 
+                            src="assets/images/people_leyi.jpg" 
+                            alt="乐毅" 
+                            class="w-full h-full object-cover object-center"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                            <div class="p-6">
+                                <h3 class="text-white text-xl font-semibold">乐毅</h3>
+                                <p class="text-light/80">创业者</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <blockquote class="text-dark/80 italic border-l-4 border-primary pl-4 mb-4">
+                            "一群素人能坚持到演出圆满已是不易，但我们不能懈怠，还是要继续练功，让这股能量持续流动下去。"
+                        </blockquote>
+                        <p class="text-dark/70">
+                            所以号召伙伴们继续接龙打卡，将舞蹈融入日常生活，让"有情"的精神延续下去。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 演出日程 -->
+    <section id="schedule" class="py-20 bg-gradient-to-b from-white to-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(2rem,4vw,3rem)] font-serif font-bold text-dark mb-4">演出日程</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-lg text-dark/80 max-w-3xl mx-auto">
+                    关注我们的最新演出安排，加入这场跨越山海的艺术之旅
+                </p>
+            </div>
+            
+            <!-- 2025年活动日历 -->
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+                    <!-- 活动月份选择器 -->
+                    <div class="p-6 bg-light border-b border-gray-200">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-serif font-semibold text-dark">2025年演出安排</h3>
+                            <div class="flex space-x-2">
+                                <button class="px-4 py-2 bg-transparent border border-primary text-primary rounded hover:bg-primary hover:text-white transition-colors duration-300">
+                                    <i class="fa fa-chevron-left mr-1"></i> 上一年
+                                </button>
+                                <button class="px-4 py-2 bg-transparent border border-primary text-primary rounded hover:bg-primary hover:text-white transition-colors duration-300">
+                                    下一年 <i class="fa fa-chevron-right ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 活动列表 -->
+                    <div class="divide-y divide-gray-100">
+                        <!-- 活动 1 -->
+                        <div class="p-6 hover:bg-light transition-colors duration-300">
+                            <div class="flex flex-wrap items-start gap-6">
+                                <div class="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex flex-col items-center justify-center text-primary">
+                                    <span class="text-xl font-bold">10</span>
+                                    <span class="text-sm">10月</span>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex flex-wrap items-center justify-between gap-4 mb-2">
+                                        <h4 class="text-lg font-semibold text-dark">崇明岛开放日与演出</h4>
+                                        <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">上海 · 崇明岛</span>
+                                    </div>
+                                    <p class="text-dark/70 mb-4">
+                                        「有情」舞者将再度聚合在崇明岛，面朝大海、关心生态、携手舞蹈、祝福地球。
+                                    </p>
+                                    <div class="flex flex-wrap items-center gap-4">
+                                        <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors duration-300">
+                                            预约参与
+                                        </a>
+                                        <span class="text-dark/60 text-sm">
+                                            <i class="fa fa-calendar mr-1"></i> 2025.10.15-10.20
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 活动 2 -->
+                        <div class="p-6 hover:bg-light transition-colors duration-300">
+                            <div class="flex flex-wrap items-start gap-6">
+                                <div class="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex flex-col items-center justify-center text-primary">
+                                    <span class="text-xl font-bold">12</span>
+                                    <span class="text-sm">12月</span>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex flex-wrap items-center justify-between gap-4 mb-2">
+                                        <h4 class="text-lg font-semibold text-dark">深圳艺术节特邀演出</h4>
+                                        <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">广东 · 深圳</span>
+                                    </div>
+                                    <p class="text-dark/70 mb-4">
+                                        《有情》将作为特邀节目参与深圳艺术节，带来全新编排的生态舞蹈表演。
+                                    </p>
+                                    <div class="flex flex-wrap items-center gap-4">
+                                        <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors duration-300">
+                                            获取门票
+                                        </a>
+                                        <span class="text-dark/60 text-sm">
+                                            <i class="fa fa-calendar mr-1"></i> 2025.12.10-12.12
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 活动 3 -->
+                        <div class="p-6 hover:bg-light transition-colors duration-300">
+                            <div class="flex flex-wrap items-start gap-6">
+                                <div class="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex flex-col items-center justify-center text-primary">
+                                    <span class="text-xl font-bold">03</span>
+                                    <span class="text-sm">03月</span>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex flex-wrap items-center justify-between gap-4 mb-2">
+                                        <h4 class="text-lg font-semibold text-dark">春季自然艺术工作坊</h4>
+                                        <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">云南 · 大理</span>
+                                    </div>
+                                    <p class="text-dark/70 mb-4">
+                                        为期一周的自然艺术工作坊，探索身体与自然的连接，适合所有对舞蹈和艺术感兴趣的朋友。
+                                    </p>
+                                    <div class="flex flex-wrap items-center gap-4">
+                                        <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors duration-300">
+                                            报名参与
+                                        </a>
+                                        <span class="text-dark/60 text-sm">
+                                            <i class="fa fa-calendar mr-1"></i> 2025.03.20-03.27
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 更多活动按钮 -->
+                    <div class="p-6 bg-light text-center">
+                        <button class="px-6 py-2 bg-transparent border-2 border-primary text-primary font-medium rounded-full hover:bg-primary hover:text-white transition-all duration-300">
+                            查看更多活动安排
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据统计 -->
+    <section class="py-16 gradient-animate text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-6 fade-in delay-100">
+                    <div class="text-4xl md:text-5xl font-bold mb-2 counter">20</div>
+                    <p class="text-white/80 text-sm md:text-base">素人舞者</p>
+                </div>
+                <div class="p-6 fade-in delay-200">
+                    <div class="text-4xl md:text-5xl font-bold mb-2 counter">10+</div>
+                    <p class="text-white/80 text-sm md:text-base">城市巡演</p>
+                </div>
+                <div class="p-6 fade-in delay-300">
+                    <div class="text-4xl md:text-5xl font-bold mb-2 counter">1000+</div>
+                    <p class="text-white/80 text-sm md:text-base">观众感动</p>
+                </div>
+                <div class="p-6 fade-in delay-400">
+                    <div class="text-4xl md:text-5xl font-bold mb-2 counter">∞</div>
+                    <p class="text-white/80 text-sm md:text-base">爱的传递</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 观众反馈 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(2rem,4vw,3rem)] font-serif font-bold text-dark mb-4">观众反馈</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-lg text-dark/80 max-w-3xl mx-auto">
+                    听听现场观众对《有情》的真实感受
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 反馈 1 -->
+                <div class="bg-light p-8 rounded-lg shadow-md fade-in delay-100">
+                    <div class="flex items-center mb-6">
+                        <div class="text-accent text-xl">
+                            <i class="fa fa-quote-left"></i>
+                        </div>
+                    </div>
+                    <p class="text-dark/80 mb-6 leading-relaxed">
+                        第一次看舞蹈流泪，发生在看二十位素人舞者带来的作品《众生·有情》。说不出什么具体的理由，应该是被现场的能量共振到了。
+                    </p>
+                    <p class="text-dark/80 mb-6 leading-relaxed">
+                        老师从头至尾没有编排过动作，舞蹈全由素人舞者自己的身心发出。然而这场呈现背后的训练有着精心、系统的设计，从关注身边的生态环保议题，认识佛法中"有情"的概念，到基础动作的训练，再到自己即兴舞动，街头表演，写诗念诗……舞者说整个的创作过程是对自己的疗愈。
+                    </p>
+                    <p class="text-dark/80 mb-8 leading-relaxed">
+                        希望自己有机会也能参与一次这样的创作过程。
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-semibold">
+                            小水
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-medium text-dark">现场观众</h4>
+                            <div class="text-accent">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 反馈 2 -->
+                <div class="bg-light p-8 rounded-lg shadow-md fade-in delay-200">
+                    <div class="flex items-center mb-6">
+                        <div class="text-accent text-xl">
+                            <i class="fa fa-quote-left"></i>
+                        </div>
+                    </div>
+                    <p class="text-dark/80 mb-8 leading-relaxed">
+                        今天我虽然因其他工作安排没能在现场看见各位的演出，但是通过传递来的剧照和视频感受到了各位带给现场的感动和震撼，能体会到老师们真的是发自内心地在去触摸舞蹈的本质，所有人都非常的真诚。这是我见过的演出里最能让我感到"真"这个字眼的。
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-semibold">
+                            麓湖
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-medium text-dark">麓湖工作伙伴</h4>
+                            <div class="text-accent">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <h2 class="text-[clamp(2rem,4vw,3rem)] font-serif font-bold text-dark mb-4">联系我们</h2>
+                        <div class="w-24 h-1 bg-primary mb-8"></div>
+                        <p class="text-dark/80 mb-8 leading-relaxed">
+                            如果你希望加入我们，无论以何种身份：摄影师、舞者、场地提供者、演出主办方......欢迎与我们联络。
+                        </p>
+                        <p class="text-dark/80 mb-8 leading-relaxed">
+                            《有情》是一个没有任何资助的自发项目，所有支出由发起人和舞者自行承担。随喜本项目可扫描赞赏码布施，并请留下您的姓名。我们将会在创作纪录片与纪念画册结尾，以"有情人"名录永久珍藏。
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mt-1">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-dark">电子邮箱</h4>
+                                    <p class="text-dark/70">wingdancetheatre24@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mt-1">
+                                    <i class="fa fa-weixin"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-dark">微信公众号</h4>
+                                    <p class="text-dark/70">永·舞团 Wing Dance Theatre</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-xl fade-in delay-200">
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-6">发送消息</h3>
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-dark/80 mb-2">姓名</label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                                    placeholder="请输入您的姓名"
+                                    required
+                                >
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-dark/80 mb-2">电子邮箱</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                                    placeholder="请输入您的电子邮箱"
+                                    required
+                                >
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-dark/80 mb-2">主题</label>
+                                <select 
+                                    id="subject" 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                                    required
+                                >
+                                    <option value="">请选择联系主题</option>
+                                    <option value="participate">我想参与演出</option>
+                                    <option value="workshop">我想参加工作坊</option>
+                                    <option value="performance">邀请演出</option>
+                                    <option value="media">媒体合作</option>
+                                    <option value="donation">支持捐助</option>
+                                    <option value="other">其他</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-dark/80 mb-2">消息内容</label>
+                                <textarea 
+                                    id="message" 
+                                    rows="5" 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none"
+                                    placeholder="请输入您的消息内容"
+                                    required
+                                ></textarea>
+                            </div>
+                            
+                            <button 
+                                type="submit" 
+                                class="w-full px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
+                            >
+                                发送消息
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="assets/images/youqing_logo.png" alt="有情 Logo" class="h-8 w-8 mr-2">
+                        <h3 class="text-xl font-serif font-bold">有情</h3>
+                    </div>
+                    <p class="text-white/70 mb-6">
+                        跨越山海，利乐有情。2025乙巳年，愿携手更多有情人，同行于关爱地球、心手相连的灿烂旅途。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-medium mb-6">快速链接</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-white/70 hover:text-white transition-colors duration-300">关于我们</a></li>
+                        <li><a href="#gallery" class="text-white/70 hover:text-white transition-colors duration-300">视频画廊</a></li>
+                        <li><a href="#dancers" class="text-white/70 hover:text-white transition-colors duration-300">舞者故事</a></li>
+                        <li><a href="#schedule" class="text-white/70 hover:text-white transition-colors duration-300">演出日程</a></li>
+                        <li><a href="#contact" class="text-white/70 hover:text-white transition-colors duration-300">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-medium mb-6">参与方式</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-white/70 hover:text-white transition-colors duration-300">成为舞者</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-white transition-colors duration-300">加入工作坊</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-white transition-colors duration-300">场地支持</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-white transition-colors duration-300">媒体合作</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-white transition-colors duration-300">赞助支持</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-medium mb-6">订阅更新</h4>
+                    <p class="text-white/70 mb-4">
+                        订阅我们的通讯，获取最新的演出和活动信息。
+                    </p>
+                    <form class="space-y-4">
+                        <input 
+                            type="email" 
+                            placeholder="您的电子邮箱" 
+                            class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 text-white placeholder-white/50"
+                            required
+                        >
+                        <button 
+                            type="submit" 
+                            class="w-full px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-all duration-300"
+                        >
+                            订阅
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 mt-12 pt-8 text-center">
+                <p class="text-white/50 text-sm">
+                    ©️ 2025 WingDanceTheatre 保留所有权利
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 视频模态框 -->
+    <div id="video-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="relative w-full max-w-4xl px-4">
+            <button id="close-video" class="absolute -top-16 right-0 text-white text-3xl hover:text-accent transition-colors duration-300">
+                <i class="fa fa-times"></i>
+            </button>
+            <div class="aspect-w-16 aspect-h-9 bg-black rounded-lg overflow-hidden">
+                <iframe id="video-player" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const videoModal = document.getElementById('video-modal');
+        const videoPlayer = document.getElementById('video-player');
+        const closeVideo = document.getElementById('close-video');
+        const videoPlayButtons = document.querySelectorAll('.video-play-btn');
+        const galleryFilterButtons = document.querySelectorAll('.gallery-filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const contactForm = document.getElementById('contact-form');
+        const loadMoreVideos = document.getElementById('load-more-videos');
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-dark/95', 'backdrop-blur-md', 'shadow-lg');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('py-2');
+            } else {
+                navbar.classList.remove('bg-dark/95', 'backdrop-blur-md', 'shadow-lg');
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2');
+            }
+        });
+        
+        // 移动端菜单切换
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+        
+        // 视频模态框
+        videoPlayButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // 在实际项目中，这里会替换为真实的视频URL
+                const videoUrl = 'https://www.youtube.com/embed/dQw4w9WgXcQ';
+                videoPlayer.src = videoUrl;
+                videoModal.classList.remove('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        closeVideo.addEventListener('click', function() {
+            videoModal.classList.add('opacity-0', 'pointer-events-none');
+            videoPlayer.src = '';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // 点击模态框背景关闭
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                closeVideo.click();
+            }
+        });
+        
+        // 画廊筛选
+        galleryFilterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // 更新按钮状态
+                galleryFilterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-primary', 'text-white');
+                    btn.classList.add('bg-light', 'text-dark');
+                });
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('bg-light', 'text-dark');
+                
+                // 筛选视频
+                const filter = this.getAttribute('data-filter');
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category').includes(filter)) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // 联系表单提交
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 在实际项目中，这里会处理表单提交
+            alert('感谢您的留言！我们会尽快与您联系。');
+            contactForm.reset();
+        });
+        
+        // 加载更多视频
+        loadMoreVideos.addEventListener('click', function() {
+            this.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> 加载中...';
+            
+            // 模拟加载延迟
+            setTimeout(() => {
+                alert('已加载全部视频');
+                this.innerHTML = '加载更多视频';
+                this.disabled = true;
+                this.classList.add('opacity-50', 'cursor-not-allowed');
+            }, 2000);
+        });
+        
+        // 淡入动画
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        function checkFade() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight * 0.85) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // 初始检查
+        checkFade();
+        
+        // 滚动检查
+        window.addEventListener('scroll', checkFade);
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动端菜单
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenuButton.click();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
