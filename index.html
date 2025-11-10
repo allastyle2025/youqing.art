@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <!-- HLS.js - 用于支持m3u8格式的视频流 -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.0/dist/hls.min.js"></script>
     
     <!-- Tailwind 配置 -->
     <script>
@@ -240,7 +242,7 @@
                     <div class="relative">
                         <div class="w-full rounded-lg shadow-xl overflow-hidden hover-zoom aspect-video bg-black">
                             <video 
-                                src="http://www.djybrs.cn/static/youqing.mp4" 
+                                id="main-video"
                                 controls 
                                 poster="https://pic1.imgdb.cn/item/6911f37d3203f7be00ed94d2.jpg"
                                 class="w-full h-full object-cover"
@@ -349,11 +351,11 @@
                     </div>
                 </div>
                 
-                <!-- 视频项目 3 -->
+                <!-- 视频项目 3 https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80-->
                 <div class="gallery-item" data-category="documentary fade-in delay-300">
                     <div class="relative rounded-lg overflow-hidden shadow-lg">
                         <img 
-                            src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" 
+                            src="" 
                             alt="有情纪录片" 
                             class="w-full h-64 object-cover"
                         >
@@ -369,11 +371,11 @@
                     </div>
                 </div>
                 
-                <!-- 视频项目 4 -->
+                <!-- 视频项目 4 https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80-->
                 <div class="gallery-item" data-category="performance fade-in delay-400">
                     <div class="relative rounded-lg overflow-hidden shadow-lg">
                         <img 
-                            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80" 
+                            src="" 
                             alt="户外演出" 
                             class="w-full h-64 object-cover"
                         >
@@ -389,11 +391,11 @@
                     </div>
                 </div>
                 
-                <!-- 视频项目 5 -->
+                <!-- 视频项目 5 https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80-->
                 <div class="gallery-item" data-category="rehearsal fade-in delay-500">
                     <div class="relative rounded-lg overflow-hidden shadow-lg">
                         <img 
-                            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80" 
+                            src="" 
                             alt="动作训练" 
                             class="w-full h-64 object-cover"
                         >
@@ -1184,6 +1186,33 @@
                     }
                 }
             });
+        });
+        
+        // 初始化HLS视频播放
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('main-video');
+            const videoSrc = 'http://www.djybrs.cn/static/youqing/youqing.m3u8';
+            
+            if (video) {
+                // 检查浏览器是否原生支持HLS
+                if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = videoSrc;
+                } 
+                // 如果不支持，使用HLS.js
+                else if (Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(videoSrc);
+                    hls.attachMedia(video);
+                    
+                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                        console.log('HLS视频加载成功');
+                    });
+                    
+                    hls.on(Hls.Events.ERROR, function(event, data) {
+                        console.error('HLS视频加载错误:', data);
+                    });
+                }
+            }
         });
     </script>
 </body>
