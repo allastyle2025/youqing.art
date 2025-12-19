@@ -126,8 +126,8 @@
     <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300">
         <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="assets/images/youqing_logo.png" alt="永舞团 Logo" class="h-9 w-9">
-                <span class="text-xl font-display font-bold text-primary">永舞团 WingDanceThratre</span>
+                <img src="assets/images/youqing_logo.png" alt="有情 Logo" class="h-9 w-9">
+                <span class="text-xl font-display font-bold text-primary">有情</span>
             </div>
             
             <!-- 桌面导航 -->
@@ -378,7 +378,7 @@
                 </p>
             </div>
             
-            <div id="schedule-list" class="max-w-3xl mx-auto space-y-8">
+            <div id="schedule-list" class="max-w-3xl mx-auto space-y-4 md:space-y-8 px-0 md:px-6">
                 <!-- Schedule items will be loaded from JSON -->
             </div>
         </div>
@@ -515,20 +515,20 @@
         function renderSchedule(events) {
             const scheduleList = document.getElementById('schedule-list');
             scheduleList.innerHTML = events.map((event, index) => `
-                <div class="flex gap-8 animate-fade-in" style="animation-delay: ${index * 0.1}s">
-                    <div class="flex-shrink-0 w-32">
-                        <div class="text-center">
-                            <div class="text-3xl font-display font-bold text-accent">${event.day}</div>
-                            <div class="text-sm font-medium text-gray-500 mt-1">${event.year}.${event.month}</div>
+                <div class="flex flex-col md:flex-row gap-4 md:gap-8 animate-fade-in px-4 md:px-0 py-6 md:py-0 border-b md:border-b-0 md:pb-8" style="animation-delay: ${index * 0.1}s">
+                    <div class="flex-shrink-0 md:w-32 flex md:block gap-4 md:gap-0">
+                        <div class="text-center flex-1 md:flex-none">
+                            <div class="text-2xl md:text-3xl font-display font-bold text-accent">${event.day}</div>
+                            <div class="text-xs md:text-sm font-medium text-gray-500 mt-1">${event.year}.${event.month}</div>
                         </div>
                     </div>
-                    <div class="flex-grow pb-8 border-l-2 border-accent pl-8">
-                        <h3 class="text-xl font-display font-bold text-primary mb-2">${event.title}</h3>
-                        <p class="text-gray-700 mb-4">
+                    <div class="flex-grow md:border-l-2 md:border-accent md:pl-8 border-l-0">
+                        <h3 class="text-lg md:text-xl font-display font-bold text-primary mb-2">${event.title}</h3>
+                        <p class="text-sm md:text-base text-gray-700 mb-3 md:mb-4">
                             ${event.description}
                         </p>
-                        <p class="text-sm font-medium text-gray-600 mb-2">${event.date}</p>
-                        <p class="text-sm text-gray-600">${event.location}</p>
+                        <p class="text-xs md:text-sm font-medium text-gray-600 mb-1 md:mb-2">${event.date}</p>
+                        <p class="text-xs md:text-sm text-gray-600">${event.location}</p>
                     </div>
                 </div>
             `).join('');
@@ -588,13 +588,22 @@
             currentImageIndex = imageId;
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.remove('hidden');
+            // 禁止背景滚动
+            document.body.style.overflow = 'hidden';
             updateLightbox();
         }
 
         // 关闭灯箱
-        function closeLightbox() {
+        function closeLightbox(e) {
+            // 阻止事件冒泡，防止点击穿透
+            if (e) {
+                e.stopPropagation();
+                e.preventDefault();
+            }
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.add('hidden');
+            // 恢复背景滚动
+            document.body.style.overflow = 'auto';
         }
 
         // 更新灯箱显示
