@@ -262,14 +262,14 @@
     </section>
 
     <!-- 图片预览灯箱 -->
-    <div id="lightbox" class="hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center">
+    <div id="lightbox" class="hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center" style="touch-action: none;">
         <div class="relative w-full h-full flex flex-col items-center justify-center p-4">
             <!-- 顶部栏 -->
-            <div class="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/80 to-transparent px-6 py-4 flex items-center justify-between">
-                <div class="flex items-center gap-4">
-                    <h3 id="lightbox-description" class="text-lg font-display text-white">描述</h3>
+            <div class="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/80 to-transparent px-4 md:px-6 py-3 md:py-4 flex items-center justify-between z-10">
+                <div class="flex items-center gap-4 flex-1 min-w-0">
+                    <h3 id="lightbox-description" class="text-base md:text-lg font-display text-white truncate">描述</h3>
                 </div>
-                <button id="lightbox-close" class="text-white text-3xl hover:text-accent transition-colors">
+                <button id="lightbox-close" class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-white text-2xl md:text-3xl hover:text-accent transition-colors ml-4">
                     <i class="fa fa-times"></i>
                 </button>
             </div>
@@ -279,22 +279,22 @@
                 <img id="lightbox-image" src="" alt="Preview" class="max-w-full max-h-[calc(100vh-200px)] object-contain rounded-lg shadow-2xl">
                 
                 <!-- 上一张按钮 -->
-                <button id="lightbox-prev" class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-white/20 hover:bg-white/40 text-white text-2xl md:text-3xl rounded-full transition-all duration-300 flex items-center justify-center backdrop-blur-sm">
+                <button id="lightbox-prev" class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-white/20 hover:bg-white/40 text-white text-2xl md:text-3xl rounded-full transition-all duration-300 flex items-center justify-center backdrop-blur-sm active:bg-white/60">
                     <i class="fa fa-chevron-left"></i>
                 </button>
                 
                 <!-- 下一张按钮 -->
-                <button id="lightbox-next" class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-white/20 hover:bg-white/40 text-white text-2xl md:text-3xl rounded-full transition-all duration-300 flex items-center justify-center backdrop-blur-sm">
+                <button id="lightbox-next" class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-white/20 hover:bg-white/40 text-white text-2xl md:text-3xl rounded-full transition-all duration-300 flex items-center justify-center backdrop-blur-sm active:bg-white/60">
                     <i class="fa fa-chevron-right"></i>
                 </button>
             </div>
             
             <!-- 底部信息栏 -->
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-6 py-6 flex items-center justify-between">
-                <div class="flex-1">
-                    <p id="lightbox-date" class="text-sm text-white/80 mb-2">2025-10-15</p>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-4 md:px-6 py-4 md:py-6 flex items-center justify-between z-10">
+                <div class="flex-1 min-w-0">
+                    <p id="lightbox-date" class="text-xs md:text-sm text-white/80">2025-10-15</p>
                 </div>
-                <div class="text-white text-sm font-medium bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+                <div class="text-white text-xs md:text-sm font-medium bg-white/20 backdrop-blur-sm px-3 md:px-4 py-2 rounded-full flex-shrink-0 ml-4">
                     <span id="lightbox-counter">1 / 57</span>
                 </div>
             </div>
@@ -631,12 +631,16 @@
                     
                     // 灯箱事件监听
                     document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+                    document.getElementById('lightbox-close').addEventListener('touchstart', closeLightbox);
                     document.getElementById('lightbox-prev').addEventListener('click', prevImage);
                     document.getElementById('lightbox-next').addEventListener('click', nextImage);
                     
-                    // 点击背景关闭
+                    // 点击背景关闭 - 确保只点击lightbox容器本身
                     document.getElementById('lightbox').addEventListener('click', (e) => {
-                        if (e.target.id === 'lightbox') closeLightbox();
+                        // 只在点击最外层容器时关闭，不是内部元素
+                        if (e.target === document.getElementById('lightbox')) {
+                            closeLightbox();
+                        }
                     });
                     
                     // 键盘导航
@@ -646,6 +650,25 @@
                             if (e.key === 'ArrowLeft') prevImage();
                             if (e.key === 'ArrowRight') nextImage();
                             if (e.key === 'Escape') closeLightbox();
+                        }
+                    });
+                    
+                    // 移动设备滑动手势
+                    let touchStartX = 0;
+                    let touchEndX = 0;
+                    
+                    document.getElementById('lightbox').addEventListener('touchstart', (e) => {
+                        touchStartX = e.changedTouches[0].screenX;
+                    });
+                    
+                    document.getElementById('lightbox').addEventListener('touchend', (e) => {
+                        touchEndX = e.changedTouches[0].screenX;
+                        const lightbox = document.getElementById('lightbox');
+                        if (!lightbox.classList.contains('hidden')) {
+                            // 从右往左滑 - 下一张
+                            if (touchStartX - touchEndX > 50) nextImage();
+                            // 从左往右滑 - 上一张
+                            if (touchEndX - touchStartX > 50) prevImage();
                         }
                     });
                 })
