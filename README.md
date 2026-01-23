@@ -35,9 +35,23 @@
 
 ```
 youqing/
-├── index.html     # 主页面
-├── README.md      # 项目说明文档
-└── .gitignore     # Git忽略文件配置
+├── index.html                    # 主页面
+├── README.md                     # 项目说明文档
+├── .gitignore                    # Git忽略文件配置
+├── .nojekyll                     # GitHub Pages 配置（禁用Jekyll处理）
+├── css/
+│   └── style.css                # 全局样式
+├── js/
+│   └── main.js                  # 主脚本（画廊、日程加载等）
+├── data/
+│   ├── gallery.json             # 画廊数据
+│   └── schedule.json            # 演出日程数据
+├── docs/
+│   └── README_assets.md         # 资源管理指南
+├── assets/
+│   └── images/                  # 图片资源目录
+├── hero.html                    # 英雄区域页面（备用）
+└── hero-2.html                  # 英雄区域页面（当前使用）
 ```
 
 ## 自定义指南

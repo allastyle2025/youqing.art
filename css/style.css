@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    background: #FAFAFA;
+    color: #1A1A1A;
+}
+
+/* 精致的悬停效果 */
+.hover-lift {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* 微妙的淡入动画 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+/* 优雅的线性分隔 */
+.line-separator {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #D4A574, transparent);
+}
+
+/* 平滑滚动 */
+.scroll-smooth {
+    scroll-behavior: smooth;
+}
+
+/* 砌体布局 */
+.masonry-grid {
+    column-count: 2;
+    column-gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .masonry-grid {
+        column-count: 3;
+        column-gap: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .masonry-grid {
+        column-count: 4;
+        column-gap: 1rem;
+    }
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .masonry-item {
+        margin-bottom: 1rem;
+    }
+}
