@@ -42,15 +42,46 @@ function renderSchedule(events) {
     }).join('');
 }
 
-// 加载画廊数据
+// 加载画廊数据 - 现在加载相册而不是所有图片
 async function loadGallery() {
     try {
-        const response = await fetch('data/gallery.json');
+        const response = await fetch('data/albums.json');
         const data = await response.json();
-        renderGallery(data.gallery);
+        renderAlbums(data.albums);
     } catch (error) {
-        console.error('加载画廊失败:', error);
+        console.error('加载相册失败:', error);
     }
+}
+
+// 渲染相册卡片在主页
+function renderAlbums(albums) {
+    const container = document.getElementById('albums-display-list');
+    if (!container) return;
+    
+    container.innerHTML = albums.map((album, index) => {
+        return `
+        <a href="pages/gallery.html?album=${album.id}" class="group hover-lift cursor-pointer block">
+            <div class="relative h-64 overflow-hidden rounded-xl bg-gray-200 mb-4">
+                <img 
+                    src="${album.cover}" 
+                    alt="${album.title}" 
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                >
+                <!-- 悬停覆盖层 -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <p class="text-white font-medium text-sm">点击查看 (${album.imageCount} 张图片)</p>
+                </div>
+            </div>
+            <h3 class="text-xl md:text-2xl font-display font-bold text-primary mb-2 group-hover:text-secondary transition-colors">
+                ${album.title}
+            </h3>
+            <p class="text-accent font-medium text-sm mb-2">${album.date}</p>
+            <p class="text-gray-700 text-sm leading-relaxed">
+                ${album.description}
+            </p>
+        </a>
+    `;
+    }).join('');
 }
 
 // 加载支持方数据
@@ -182,144 +213,11 @@ function showTestimonialModal(testimonial) {
     });
 }
 
-// 渲染画廊
-function renderGallery(items) {
-    const galleryList = document.getElementById('gallery-list');
-    galleryList.innerHTML = items.map((item, index) => {
-        // 为不同索引的图片分配不同的高度，创建视觉变化
-        const heights = ['h-48', 'h-64', 'h-56', 'h-72', 'h-52', 'h-60'];
-        const height = heights[index % heights.length];
-        return `
-        <div class="masonry-item group relative overflow-hidden rounded-xl animate-fade-in cursor-pointer shadow-md hover:shadow-xl transition-all duration-300" style="animation-delay: ${index * 0.03}s" data-image-id="${index}">
-            <div class="overflow-hidden bg-gray-200 ${height}">
-                <img 
-                    src="${item.imageUrl}" 
-                    alt="Gallery ${item.id}" 
-                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                >
-            </div>
-            <!-- 悬停信息卡 -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                <p class="text-white text-sm font-medium">${item.date}</p>
-                <p class="text-accent text-sm font-display">${item.description}</p>
-            </div>
-        </div>
-    `;
-    }).join('');
-    
-    // 添加点击事件监听器
-    document.querySelectorAll('#gallery-list > div').forEach(item => {
-        item.addEventListener('click', () => {
-            const imageId = parseInt(item.getAttribute('data-image-id'));
-            openLightbox(imageId);
-        });
-    });
-}
-
-// 灯箱全局状态
-let currentImageIndex = 0;
-let galleryItems = [];
-
-// 打开灯箱
-function openLightbox(imageId) {
-    currentImageIndex = imageId;
-    const lightbox = document.getElementById('lightbox');
-    lightbox.classList.remove('hidden');
-    // 禁止背景滚动
-    document.body.style.overflow = 'hidden';
-    updateLightbox();
-}
-
-// 关闭灯箱
-function closeLightbox(e) {
-    // 阻止事件冒泡，防止点击穿透
-    if (e) {
-        e.stopPropagation();
-        e.preventDefault();
-    }
-    const lightbox = document.getElementById('lightbox');
-    lightbox.classList.add('hidden');
-    // 恢复背景滚动
-    document.body.style.overflow = 'auto';
-}
-
-// 更新灯箱显示
-function updateLightbox() {
-    const image = galleryItems[currentImageIndex];
-    document.getElementById('lightbox-image').src = image.imageUrl;
-    document.getElementById('lightbox-counter').textContent = `${currentImageIndex + 1} / ${galleryItems.length}`;
-    document.getElementById('lightbox-date').textContent = image.date || '未知日期';
-    document.getElementById('lightbox-description').textContent = image.description || '暂无描述';
-}
-
-// 上一张
-function prevImage() {
-    currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
-    updateLightbox();
-}
-
-// 下一张
-function nextImage() {
-    currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
-    updateLightbox();
-}
-
 // 页面加载时执行
 document.addEventListener('DOMContentLoaded', function() {
     loadSchedule();
     loadSupporters();
-    
-    // 加载画廊
-    fetch('data/gallery.json')
-        .then(res => res.json())
-        .then(data => {
-            galleryItems = data.gallery;
-            renderGallery(data.gallery);
-            
-            // 灯箱事件监听
-            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-            document.getElementById('lightbox-close').addEventListener('touchstart', closeLightbox);
-            document.getElementById('lightbox-prev').addEventListener('click', prevImage);
-            document.getElementById('lightbox-next').addEventListener('click', nextImage);
-            
-            // 点击背景关闭 - 确保只点击lightbox容器本身
-            document.getElementById('lightbox').addEventListener('click', (e) => {
-                // 只在点击最外层容器时关闭，不是内部元素
-                if (e.target === document.getElementById('lightbox')) {
-                    closeLightbox();
-                }
-            });
-            
-            // 键盘导航
-            document.addEventListener('keydown', (e) => {
-                const lightbox = document.getElementById('lightbox');
-                if (!lightbox.classList.contains('hidden')) {
-                    if (e.key === 'ArrowLeft') prevImage();
-                    if (e.key === 'ArrowRight') nextImage();
-                    if (e.key === 'Escape') closeLightbox();
-                }
-            });
-            
-            // 移动设备滑动手势
-            let touchStartX = 0;
-            let touchEndX = 0;
-            
-            document.getElementById('lightbox').addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-            
-            document.getElementById('lightbox').addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                const lightbox = document.getElementById('lightbox');
-                if (!lightbox.classList.contains('hidden')) {
-                    // 从右往左滑 - 下一张
-                    if (touchStartX - touchEndX > 50) nextImage();
-                    // 从左往右滑 - 上一张
-                    if (touchEndX - touchStartX > 50) prevImage();
-                }
-            });
-        })
-        .catch(err => console.error('加载画廊失败:', err));
+    loadGallery();
 });
 
 // 移动菜单

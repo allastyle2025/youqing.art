@@ -48,7 +48,7 @@
             <!-- 桌面导航 -->
             <div class="hidden md:flex items-center gap-12">
                 <a href="#about" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">关于</a>
-                <a href="#gallery" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">作品</a>
+                <a href="pages/gallery.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">作品</a>
                 <a href="#dancers" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">舞者</a>
                 <a href="#schedule" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">历程</a>
                 <a href="pages/testimonials.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">心得</a>
@@ -66,7 +66,7 @@
     <div id="mobile-menu" class="hidden md:hidden fixed inset-0 top-16 z-40 bg-white">
         <div class="flex flex-col space-y-6 p-6">
             <a href="#about" class="text-base font-medium text-dark">关于</a>
-            <a href="#gallery" class="text-base font-medium text-dark">作品</a>
+            <a href="pages/gallery.html" class="text-base font-medium text-dark">作品</a>
             <a href="#dancers" class="text-base font-medium text-dark">舞者</a>
             <a href="#schedule" class="text-base font-medium text-dark">历程</a>            <a href="pages/testimonials.html" class="text-base font-medium text-dark">心得</a>            <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-full text-center inline-block">联系我们</a>
         </div>
@@ -170,51 +170,17 @@
                 </p>
             </div>
             
-            <div id="gallery-list" class="masonry-grid">
-                <!-- Gallery items will be loaded from JSON -->
+            <div id="albums-display-list" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Album items will be loaded from JSON -->
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="pages/gallery.html" class="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-full text-lg font-medium hover:bg-secondary transition-colors">
+                    查看全部相册 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
         </div>
     </section>
-
-    <!-- 图片预览灯箱 -->
-    <div id="lightbox" class="hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center" style="touch-action: none;">
-        <div class="relative w-full h-full flex flex-col items-center justify-center p-4">
-            <!-- 顶部栏 -->
-            <div class="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/80 to-transparent px-4 md:px-6 py-3 md:py-4 flex items-center justify-between z-10">
-                <div class="flex items-center gap-4 flex-1 min-w-0">
-                    <h3 id="lightbox-description" class="text-base md:text-lg font-display text-white truncate">描述</h3>
-                </div>
-                <button id="lightbox-close" class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-white text-2xl md:text-3xl hover:text-accent transition-colors ml-4">
-                    <i class="fa fa-times"></i>
-                </button>
-            </div>
-            
-            <!-- 主要图片区域 -->
-            <div class="relative flex-1 flex items-center justify-center max-w-7xl w-full">
-                <img id="lightbox-image" src="" alt="Preview" class="max-w-full max-h-[calc(100vh-200px)] object-contain rounded-lg shadow-2xl">
-                
-                <!-- 上一张按钮 -->
-                <button id="lightbox-prev" class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-white/20 hover:bg-white/40 text-white text-2xl md:text-3xl rounded-full transition-all duration-300 flex items-center justify-center backdrop-blur-sm active:bg-white/60">
-                    <i class="fa fa-chevron-left"></i>
-                </button>
-                
-                <!-- 下一张按钮 -->
-                <button id="lightbox-next" class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-white/20 hover:bg-white/40 text-white text-2xl md:text-3xl rounded-full transition-all duration-300 flex items-center justify-center backdrop-blur-sm active:bg-white/60">
-                    <i class="fa fa-chevron-right"></i>
-                </button>
-            </div>
-            
-            <!-- 底部信息栏 -->
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-4 md:px-6 py-4 md:py-6 flex items-center justify-between z-10">
-                <div class="flex-1 min-w-0">
-                    <p id="lightbox-date" class="text-xs md:text-sm text-white/80">2025-10-15</p>
-                </div>
-                <div class="text-white text-xs md:text-sm font-medium bg-white/20 backdrop-blur-sm px-3 md:px-4 py-2 rounded-full flex-shrink-0 ml-4">
-                    <span id="lightbox-counter">1 / 57</span>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- 舞者风采 -->
     <section id="dancers" class="py-24 bg-soft">
@@ -393,7 +359,7 @@
                     <h4 class="text-sm font-semibold mb-4">页面</h4>
                     <ul class="space-y-2 text-sm">
                         <li><a href="#about" class="text-white/70 hover:text-white transition-colors">关于</a></li>
-                        <li><a href="#gallery" class="text-white/70 hover:text-white transition-colors">作品</a></li>
+                        <li><a href="pages/gallery.html" class="text-white/70 hover:text-white transition-colors">作品</a></li>
                         <li><a href="#dancers" class="text-white/70 hover:text-white transition-colors">舞者</a></li>
                         <li><a href="#schedule" class="text-white/70 hover:text-white transition-colors">演出</a></li>
                     </ul>

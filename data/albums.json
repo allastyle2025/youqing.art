@@ -1,0 +1,36 @@
+{
+    "albums": [
+        {
+            "id": 1,
+            "title": "《有情》素人舞作首度亮相",
+            "date": "2024.10.6",
+            "description": "首次呈现素人舞者的作品",
+            "cover": "https://pic1.imgdb.cn/item/694548af2ce92a4f93126ab1.jpg",
+            "imageCount": 15
+        },
+        {
+            "id": 2,
+            "title": "《有情·万物生》崇明岛首演",
+            "date": "2025.10.7",
+            "description": "在自然之地的生态舞蹈首演",
+            "cover": "https://pic1.imgdb.cn/item/694548c02ce92a4f93126ac5.jpg",
+            "imageCount": 12
+        },
+        {
+            "id": 3,
+            "title": "《有情》全國社群大會開幕式演出",
+            "date": "2024.10.26",
+            "description": "社群大会开幕式精彩演出",
+            "cover": "https://pic1.imgdb.cn/item/694548c02ce92a4f93126ac6.jpg",
+            "imageCount": 10
+        },
+        {
+            "id": 4,
+            "title": "《有情·万物生》蛇口戏剧节",
+            "date": "2025.11.8",
+            "description": "蛇口戏剧节上的精彩表演",
+            "cover": "https://pic1.imgdb.cn/item/694548bc2ce92a4f93126ac0.jpg",
+            "imageCount": 14
+        }
+    ]
+}
