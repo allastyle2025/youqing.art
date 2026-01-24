@@ -76,15 +76,19 @@ function showAlbumImages(album) {
     // 更新标题
     document.getElementById('album-title').textContent = album.title;
 
-    // 从gallery-random.json中筛选该相册的图片
-    // 为简化，使用一个合理的图片范围
-    const startIndex = (album.id - 1) * 12;
-    const endIndex = startIndex + album.imageCount;
-
-    fetch('../data/gallery-random.json')
+    // 从 gallerys.json 中按 albumId 获取该相册的图片
+    fetch('../data/gallerys.json')
         .then(res => res.json())
         .then(data => {
-            const albumImages = data.gallery.slice(startIndex, endIndex);
+            const entry = data.gallerys.find(g => g.albumId === album.id);
+            const albumImages = entry ? entry.images.map(img => ({
+                id: img.id,
+                imageUrl: img.url,
+                date: img.date || '',
+                description: img.alt || ''
+            })) : [];
+            // 保持 album.imageCount 与实际图片数一致（可选）
+            album.imageCount = albumImages.length;
             renderAlbumImages(albumImages, album);
         })
         .catch(err => console.error('加载图片失败:', err));
