@@ -1,7 +1,7 @@
 // 加载日程数据
 async function loadSchedule() {
     try {
-        const response = await fetch('data/schedule.json');
+        const response = await fetch('data/timeline.json');
         const data = await response.json();
         renderSchedule(data.events);
     } catch (error) {
@@ -12,16 +12,25 @@ async function loadSchedule() {
 // 渲染日程
 function renderSchedule(events) {
     const scheduleList = document.getElementById('schedule-list');
-    scheduleList.innerHTML = events.map((event, index) => `
+    scheduleList.innerHTML = events.map((event, index) => {
+        const titleHtml = event.link && event.link.trim() !== ''
+            ? `<a href="${event.link}" target="_blank" rel="noopener noreferrer" class="text-lg md:text-xl font-display font-bold text-primary mb-2 hover:underline inline-block">${event.title} <i class="fa fa-chevron-right ml-2" aria-hidden="true"></i></a>`
+            : `<div class="text-lg md:text-xl font-display font-bold text-primary mb-2">${event.title}</div>`;
+
+        const day = event.day || '';
+        const month = event.month || '';
+        const year = event.year || '';
+
+        return `
         <div class="flex flex-col md:flex-row gap-4 md:gap-8 animate-fade-in px-4 md:px-0 py-6 md:py-0 border-b md:border-b-0 md:pb-8" style="animation-delay: ${index * 0.1}s">
             <div class="flex-shrink-0 md:w-32 flex md:block gap-4 md:gap-0">
                 <div class="text-center flex-1 md:flex-none">
-                    <div class="text-2xl md:text-3xl font-display font-bold text-accent">${event.day}</div>
-                    <div class="text-xs md:text-sm font-medium text-gray-500 mt-1">${event.year}.${event.month}</div>
+                    <div class="text-2xl md:text-3xl font-display font-bold text-accent">${day}</div>
+                    <div class="text-xs md:text-sm font-medium text-gray-500 mt-1">${year}${month ? '.' + month : ''}</div>
                 </div>
             </div>
             <div class="flex-grow md:border-l-2 md:border-accent md:pl-8 border-l-0">
-                <h3 class="text-lg md:text-xl font-display font-bold text-primary mb-2">${event.title}</h3>
+                ${titleHtml}
                 <p class="text-sm md:text-base text-gray-700 mb-3 md:mb-4">
                     ${event.description}
                 </p>
@@ -29,7 +38,8 @@ function renderSchedule(events) {
                 <p class="text-xs md:text-sm text-gray-600">${event.location}</p>
             </div>
         </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 // 加载画廊数据
@@ -41,6 +51,135 @@ async function loadGallery() {
     } catch (error) {
         console.error('加载画廊失败:', error);
     }
+}
+
+// 加载支持方数据
+async function loadSupporters() {
+    try {
+        const response = await fetch('data/supporters.json');
+        const data = await response.json();
+        renderSupporters(data.supporters);
+    } catch (error) {
+        console.error('加载支持方失败:', error);
+    }
+}
+
+// 渲染支持方
+function renderSupporters(items) {
+    const list = document.getElementById('supporters-list');
+    if (!list) return;
+    list.innerHTML = items.map(item => `
+        <div class="bg-white rounded-xl p-6 shadow-sm flex items-start gap-4">
+            <div class="flex-1">
+                <h4 class="text-lg font-display font-bold text-primary mb-1">${item.name}</h4>
+                <p class="text-xs text-gray-500 mb-2">${item.type}</p>
+                <p class="text-sm text-gray-700">${item.description || ''}</p>
+            </div>
+            ${item.link ? `<div class="flex-shrink-0 self-center"><a href="${item.link}" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline"><i class="fa fa-external-link"></i></a></div>` : ''}
+        </div>
+    `).join('');
+}
+
+// 加载舞者心语数据
+async function loadTestimonials() {
+    try {
+        const response = await fetch('data/testimonials.json');
+        const data = await response.json();
+        renderTestimonials(data.testimonials);
+    } catch (error) {
+        console.error('加载舞者心语失败:', error);
+    }
+}
+
+// 渲染舞者心语
+function renderTestimonials(items) {
+    const list = document.getElementById('testimonials-list');
+    if (!list) return;
+    list.innerHTML = items.map((item, index) => {
+        const contentPreview = item.content.substring(0, 200) + (item.content.length > 200 ? '...' : '');
+        return `
+        <div class="bg-soft rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 animate-fade-in cursor-pointer group" style="animation-delay: ${index * 0.05}s" data-testimonial-id="${item.id}">
+            <div class="flex items-start justify-between gap-4">
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h4 class="text-lg md:text-xl font-display font-bold text-primary">${item.title}</h4>
+                        <span class="text-xs px-2 py-1 bg-accent/10 text-secondary rounded-full whitespace-nowrap">${item.year}</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">
+                        <i class="fa fa-user-circle mr-1"></i>${item.name} 
+                        <span class="text-xs text-gray-500 ml-2">${item.category}</span>
+                    </p>
+                    <p class="text-sm md:text-base text-gray-700 leading-relaxed line-clamp-3">
+                        ${contentPreview}
+                    </p>
+                </div>
+                <div class="flex-shrink-0 mt-1">
+                    <i class="fa fa-chevron-right text-accent text-lg group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </div>
+        </div>
+    `;
+    }).join('');
+
+    // 添加点击事件以展开全文
+    document.querySelectorAll('[data-testimonial-id]').forEach(card => {
+        card.addEventListener('click', () => {
+            const id = parseInt(card.getAttribute('data-testimonial-id'));
+            const testimonial = items.find(t => t.id === id);
+            if (testimonial) {
+                showTestimonialModal(testimonial);
+            }
+        });
+    });
+}
+
+// 显示舞者心语详细信息模态框
+function showTestimonialModal(testimonial) {
+    const modal = document.createElement('div');
+    modal.id = 'testimonial-modal';
+    modal.className = 'fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto';
+    modal.innerHTML = `
+        <div class="bg-white rounded-xl max-w-2xl w-full my-8 shadow-2xl animate-fade-in">
+            <div class="bg-primary text-white p-6 md:p-8 flex items-start justify-between gap-4">
+                <div class="flex-1">
+                    <h2 class="text-2xl md:text-3xl font-display font-bold mb-2">${testimonial.title}</h2>
+                    <p class="text-sm md:text-base text-white/80">
+                        <span class="font-medium">${testimonial.name}</span> · ${testimonial.year} · ${testimonial.category}
+                    </p>
+                    ${testimonial.date ? `<p class="text-xs text-white/60 mt-2">${testimonial.date}</p>` : ''}
+                </div>
+                <button id="close-testimonial-modal" class="flex-shrink-0 w-8 h-8 flex items-center justify-center text-white hover:text-accent transition-colors">
+                    <i class="fa fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="p-6 md:p-8 max-h-[calc(100vh-250px)] overflow-y-auto">
+                <div class="prose text-gray-800 leading-relaxed whitespace-pre-wrap">
+                    ${testimonial.content}
+                </div>
+                ${testimonial.link ? `
+                <div class="mt-6 pt-4 border-t border-gray-200">
+                    <a href="${testimonial.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-accent hover:underline font-medium">
+                        查看原文 <i class="fa fa-external-link text-sm"></i>
+                    </a>
+                </div>
+                ` : ''}
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+
+    document.getElementById('close-testimonial-modal').addEventListener('click', () => {
+        modal.remove();
+        document.body.style.overflow = 'auto';
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.remove();
+            document.body.style.overflow = 'auto';
+        }
+    });
 }
 
 // 渲染画廊
@@ -128,6 +267,7 @@ function nextImage() {
 // 页面加载时执行
 document.addEventListener('DOMContentLoaded', function() {
     loadSchedule();
+    loadSupporters();
     
     // 加载画廊
     fetch('data/gallery.json')

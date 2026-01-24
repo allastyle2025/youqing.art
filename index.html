@@ -50,7 +50,8 @@
                 <a href="#about" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">关于</a>
                 <a href="#gallery" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">作品</a>
                 <a href="#dancers" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">舞者</a>
-                <a href="#schedule" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">演出</a>
+                <a href="#schedule" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">历程</a>
+                <a href="pages/testimonials.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">心得</a>
                 <a href="#contact" class="px-6 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-secondary transition-colors duration-300">联系</a>
             </div>
             
@@ -67,8 +68,7 @@
             <a href="#about" class="text-base font-medium text-dark">关于</a>
             <a href="#gallery" class="text-base font-medium text-dark">作品</a>
             <a href="#dancers" class="text-base font-medium text-dark">舞者</a>
-            <a href="#schedule" class="text-base font-medium text-dark">演出</a>
-            <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-full text-center inline-block">联系我们</a>
+            <a href="#schedule" class="text-base font-medium text-dark">历程</a>            <a href="pages/testimonials.html" class="text-base font-medium text-dark">心得</a>            <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-full text-center inline-block">联系我们</a>
         </div>
     </div>
 
@@ -91,13 +91,33 @@
                     一个没有任何资助的自发项目，由来自各行各业的素人舞者共同创作与呈现
                 </p>
             </div>
+
+            <!-- 愿景与使命（简化呈现） -->
+            <div class="max-w-3xl mx-auto mb-12 px-4">
+                <div class="bg-white rounded-xl p-6 md:p-10 shadow-sm">
+                    <h3 class="text-2xl font-display font-bold text-primary mb-4">有情 — 愿景与使命</h3>
+                    <div class="prose text-gray-800 leading-relaxed">
+                        <p>「有情」是一个由素人共同发起的生态艺术行动，通过舞蹈与在地实践，连接人、社区与自然，关怀我们的地球家园。</p>
+
+                        <p><strong>以舞载道：</strong>以舞为言，重在唤醒与培育人性中的真、善、美，而非单纯追求专业技艺；舞作承载传统与当代对人与自然共生的想像。</p>
+
+                        <p><strong>修身治世：</strong>通过身体训练与自然场域的演出，滋养身心、传播对生命与土地的敬重，将个人修为与社会关怀在身体实践中落地。</p>
+
+                        <p><strong>扎根生活：</strong>把艺术带回日常，消弭艺术与生活的界限，营造共创的社区生态，让每个人在平凡中体会诗意栖居与生命的丰盛。</p>
+
+                        <p class="mt-4"><em>我们邀请天下有情人，共建共享一个团结友爱的美好新地球。</em></p>
+                    </div>
+                </div>
+            </div>
             
+
             <!-- 视频 -->
             <div class="max-w-3xl mx-auto mb-20 animate-fade-in">
                 <div class="aspect-video rounded-xl overflow-hidden shadow-lg bg-black">
                     <iframe style="width: 100%; height: 100%; border: none;" src="https://player.bilibili.com/player.html?&aid=114455828504123&bvid=BV116VrzVE9S&cid=29809053001&p=1&as_wide=1&high_quality=1&danmaku=0&autoplay=0" frameborder="no" scrolling="no" allowfullscreen="true"></iframe>
                 </div>
             </div>
+            
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
                 <div class="animate-fade-in">
@@ -266,10 +286,10 @@
     <section id="schedule" class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-2xl mx-auto text-center mb-20">
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">日程</h2>
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">有情历程</h2>
                 <div class="line-separator mb-6"></div>
                 <p class="text-lg text-gray-700">
-                    2025年的演出与工作坊安排
+                    有情 · 过往大事记 & 未来预告（2024 – 2026）
                 </p>
             </div>
             
@@ -339,6 +359,21 @@
                         <p class="text-xs text-gray-500 mt-6 text-center">永·舞团<br/>Wing Dance Theatre</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 支持方 -->
+    <section id="supporters" class="py-16 bg-soft">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center mb-10">
+                <h2 class="text-3xl font-display font-bold text-primary mb-2">支持方与合作伙伴</h2>
+                <div class="line-separator mb-6"></div>
+                <p class="text-gray-700">列出赞助支持的基金会、友好社区、场地支持与合作伙伴。</p>
+            </div>
+
+            <div id="supporters-list" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <!-- Supporters will be loaded from JSON -->
             </div>
         </div>
     </section>

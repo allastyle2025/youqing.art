@@ -1,0 +1,32 @@
+{
+    "supporters": [
+        {
+            "id": 1,
+            "type": "基金会",
+            "name": "示例赞助基金会",
+            "description": "感谢对项目早期支持与资助",
+            "link": ""
+        },
+        {
+            "id": 2,
+            "type": "友好社区",
+            "name": "成都在地共创社区",
+            "description": "提供共创场域与志愿者支持",
+            "link": ""
+        },
+        {
+            "id": 3,
+            "type": "场地支持",
+            "name": "上海 · 崇明岛管理处",
+            "description": "提供训练与演出场地支持",
+            "link": ""
+        },
+        {
+            "id": 4,
+            "type": "合作伙伴",
+            "name": "蛇口戏剧节",
+            "description": "协作演出平台与在地联动",
+            "link": "https://mp.weixin.qq.com/s/EYsLHgmFI56FyhWPZ3M2bA"
+        }
+    ]
+}
