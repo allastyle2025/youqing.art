@@ -107,6 +107,10 @@
         .content-overlay {
             background: linear-gradient(135deg, rgba(45, 27, 27, 0.85) 0%, rgba(45, 27, 27, 0.6) 50%, rgba(107, 68, 35, 0.7) 100%);
         }
+
+        .hidden{
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -138,7 +142,7 @@
                 </p>
                 
                 <!-- 按钮组 -->
-                <div class="flex flex-wrap gap-2 sm:gap-4 animate-slide-up" style="animation-delay: 0.6s">
+                <div class="hidden flex flex-wrap gap-2 sm:gap-4 animate-slide-up" style="animation-delay: 0.6s">
                     <a href="index.html#about" class="group px-5 sm:px-8 py-2.5 sm:py-3 bg-accent text-primary rounded-lg font-semibold text-sm sm:text-base hover:bg-white transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105 flex items-center gap-2">
                         了解更多
                         <i class="fa fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>

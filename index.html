@@ -48,10 +48,10 @@
             <!-- 桌面导航 -->
             <div class="hidden md:flex items-center gap-12">
                 <a href="#about" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">关于</a>
-                <a href="pages/gallery.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">作品</a>
-                <a href="#dancers" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">舞者</a>
+                <a href="pages/gallery.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">画廊</a>
+                <a href="pages/dancers.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">舞者</a>
                 <a href="#schedule" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">历程</a>
-                <a href="pages/testimonials.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">心得</a>
+                <a href="pages/testimonials.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">舞者心语</a>
                 <a href="#contact" class="px-6 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-secondary transition-colors duration-300">联系</a>
             </div>
             
@@ -66,9 +66,11 @@
     <div id="mobile-menu" class="hidden md:hidden fixed inset-0 top-16 z-40 bg-white">
         <div class="flex flex-col space-y-6 p-6">
             <a href="#about" class="text-base font-medium text-dark">关于</a>
-            <a href="pages/gallery.html" class="text-base font-medium text-dark">作品</a>
-            <a href="#dancers" class="text-base font-medium text-dark">舞者</a>
-            <a href="#schedule" class="text-base font-medium text-dark">历程</a>            <a href="pages/testimonials.html" class="text-base font-medium text-dark">心得</a>            <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-full text-center inline-block">联系我们</a>
+            <a href="pages/gallery.html" class="text-base font-medium text-dark">画廊</a>
+            <a href="pages/dancers.html" class="text-base font-medium text-dark">舞者</a>
+            <a href="#schedule" class="text-base font-medium text-dark">历程</a>
+            <a href="pages/testimonials.html" class="text-base font-medium text-dark">心得</a>
+            <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-full text-center inline-block">联系我们</a>
         </div>
     </div>
 
@@ -87,29 +89,10 @@
             <div class="max-w-2xl mx-auto text-center mb-20">
                 <h2 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">关于有情</h2>
                 <div class="line-separator mb-6"></div>
-                <p class="text-lg text-gray-700 leading-relaxed">
+                <p class=" text-lg text-gray-700 leading-relaxed">
                     一个没有任何资助的自发项目，由来自各行各业的素人舞者共同创作与呈现
                 </p>
             </div>
-
-            <!-- 愿景与使命（简化呈现） -->
-            <div class="max-w-3xl mx-auto mb-12 px-4">
-                <div class="bg-white rounded-xl p-6 md:p-10 shadow-sm">
-                    <h3 class="text-2xl font-display font-bold text-primary mb-4">有情 — 愿景与使命</h3>
-                    <div class="prose text-gray-800 leading-relaxed">
-                        <p>「有情」是一个由素人共同发起的生态艺术行动，通过舞蹈与在地实践，连接人、社区与自然，关怀我们的地球家园。</p>
-
-                        <p><strong>以舞载道：</strong>以舞为言，重在唤醒与培育人性中的真、善、美，而非单纯追求专业技艺；舞作承载传统与当代对人与自然共生的想像。</p>
-
-                        <p><strong>修身治世：</strong>通过身体训练与自然场域的演出，滋养身心、传播对生命与土地的敬重，将个人修为与社会关怀在身体实践中落地。</p>
-
-                        <p><strong>扎根生活：</strong>把艺术带回日常，消弭艺术与生活的界限，营造共创的社区生态，让每个人在平凡中体会诗意栖居与生命的丰盛。</p>
-
-                        <p class="mt-4"><em>我们邀请天下有情人，共建共享一个团结友爱的美好新地球。</em></p>
-                    </div>
-                </div>
-            </div>
-            
 
             <!-- 视频 -->
             <div class="max-w-3xl mx-auto mb-20 animate-fade-in">
@@ -117,9 +100,62 @@
                     <iframe style="width: 100%; height: 100%; border: none;" src="https://player.bilibili.com/player.html?&aid=114455828504123&bvid=BV116VrzVE9S&cid=29809053001&p=1&as_wide=1&high_quality=1&danmaku=0&autoplay=0" frameborder="no" scrolling="no" allowfullscreen="true"></iframe>
                 </div>
             </div>
+
+
+            <!-- 愿景与使命（详细呈现） -->
+            <div class="max-w-4xl mx-auto mb-12 px-4">
+                <div class="bg-white rounded-xl p-8 md:p-12 shadow-sm">
+                    <h3 class="hidden text-3xl font-display font-bold text-primary mb-8">有情 — 愿景与使命</h3>
+                    
+                    <div class="space-y-8">
+                        <!-- 以舞载道 -->
+                        <div class="pb-8 border-b border-gray-100">
+                            <h4 class="text-xl font-semibold text-secondary mb-3 flex items-center">
+                                <span class="w-2 h-2 bg-accent rounded-full mr-3"></span>
+                                以舞载道
+                            </h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                舞蹈艺术是「有情」项目的核心表达形式。「有情」追求的不是舞蹈表演技艺的专业与高超，而是人类"真善美"天性的解放、培育与完善。「有情」舞作所载之道既为传承华夏文明生生不息的精神，亦为与当代同行者参天地自然造化、共筑生态文明新地球。
+                            </p>
+                        </div>
+                        
+                        <!-- 修身治世 -->
+                        <div class="pb-8 border-b border-gray-100">
+                            <h4 class="text-xl font-semibold text-secondary mb-3 flex items-center">
+                                <span class="w-2 h-2 bg-accent rounded-full mr-3"></span>
+                                修身治世
+                            </h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                「有情」希望通过素人舞蹈的训练和自然环境演出连结舞者和观众，交流并传播对身体、生命、自然和地球万物的热爱珍惜之情。以健康体魄、恢复生机、传递温情、治愈土地、守护生态为脉络，将中国传统文化中修身治世的理想境界落实到具体入微的身体艺术实践之中。
+                            </p>
+                        </div>
+                        
+                        <!-- 扎根生活 -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-secondary mb-3 flex items-center">
+                                <span class="w-2 h-2 bg-accent rounded-full mr-3"></span>
+                                扎根生活
+                            </h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                「有情」探索的不是将艺术摆放于高级专业的艺术殿堂，而是如何将它带回平凡生活与真实生命本身，成为人类庄严自身存在、表达恣意生机的载具。「有情」希望探索营造一个舞者与观众、艺术与生活没有隔阂的社区生态，共同实现在地球家园上的"诗意栖居"、活出"身在桃源"的生命真谛。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 结语 -->
+                    <div class="mt-10 pt-8 border-t border-gray-200">
+                        <p class="text-center text-lg font-semibold text-primary italic leading-relaxed">
+                            「有情」生态艺术项目邀请天下"有情人"<br/>共建共享团结友爱的美好新地球！
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             
+
+
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
+            <div class="hidden grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
                 <div class="animate-fade-in">
                     <div class="mb-4">
                         <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
@@ -193,20 +229,21 @@
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
                 <div class="group hover-lift bg-white rounded-xl overflow-hidden">
                     <div class="relative h-64 overflow-hidden bg-gray-200">
                         <img 
-                            src="assets/images/people_heyi.jpg" 
-                            alt="何一" 
+                            src="https://cdn.djybrs.cn/uploads/youqing/dance-portrait/dancer-portrait.0.myra.jpg" 
+                            alt="Myra" 
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         >
                     </div>
                     <div class="p-6">
-                        <h3 class="text-lg font-display font-bold text-primary mb-2">何一</h3>
-                        <p class="text-sm text-gray-600 mb-4">环球旅行背包客</p>
+                        <h3 class="text-lg font-display font-bold text-primary mb-1">Myra</h3>
+                        <p class="text-xs text-gray-500 mb-2">Myra Chu 朱永潇</p>
+                        <p class="text-sm text-gray-600 mb-3">Wing Dance Theatre 永·舞团艺术总监</p>
                         <p class="text-gray-700 italic text-sm leading-relaxed">
-                            "有情"给了素人身体最大的信任空间
+                            "有情"的发心是以舞为言，唤醒人性中的真、善、美
                         </p>
                     </div>
                 </div>
@@ -214,16 +251,17 @@
                 <div class="group hover-lift bg-white rounded-xl overflow-hidden">
                     <div class="relative h-64 overflow-hidden bg-gray-200">
                         <img 
-                            src="assets/images/people_xiaorong.jpg" 
-                            alt="晓蓉" 
+                            src="https://cdn.djybrs.cn/uploads/youqing/dance-portrait/dancer-portrait.1.sdl.jpg" 
+                            alt="四点零" 
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         >
                     </div>
                     <div class="p-6">
-                        <h3 class="text-lg font-display font-bold text-primary mb-2">晓蓉</h3>
-                        <p class="text-sm text-gray-600 mb-4">社区活动倡导者</p>
+                        <h3 class="text-lg font-display font-bold text-primary mb-1">四点零</h3>
+                        <p class="text-xs text-gray-500 mb-2">60+，北京</p>
+                        <p class="text-sm text-gray-600 mb-3">跨国企业咨询管理顾问</p>
                         <p class="text-gray-700 italic text-sm leading-relaxed">
-                            作为在地有情人，为地球传达我们的关切
+                            希望分享在项目中感受到的平静与平和
                         </p>
                     </div>
                 </div>
@@ -231,24 +269,32 @@
                 <div class="group hover-lift bg-white rounded-xl overflow-hidden">
                     <div class="relative h-64 overflow-hidden bg-gray-200">
                         <img 
-                            src="assets/images/people_duer.jpg" 
-                            alt="都儿" 
+                            src="https://cdn.djybrs.cn/uploads/youqing/dance-portrait/dancer-portrait.2.xy.jpg" 
+                            alt="小雨儿" 
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         >
                     </div>
                     <div class="p-6">
-                        <h3 class="text-lg font-display font-bold text-primary mb-2">都儿</h3>
-                        <p class="text-sm text-gray-600 mb-4">身体探索者</p>
+                        <h3 class="text-lg font-display font-bold text-primary mb-1">小雨儿</h3>
+                        <p class="text-xs text-gray-500 mb-2">30+，郑州</p>
+                        <p class="text-sm text-gray-600 mb-3">儿童教育戏剧老师</p>
                         <p class="text-gray-700 italic text-sm leading-relaxed">
-                            第一次跳舞，发现了隐藏的艺术潜能
+                            我就是个"有情人"，生活中每一天都很美好
                         </p>
                     </div>
                 </div>
             </div>
+            
+            <!-- 查看更多按钮 -->
+            <div class="text-center">
+                <a href="pages/dancers.html" class="inline-block px-10 py-3 bg-primary text-white font-semibold rounded-full hover:bg-secondary transition-all duration-300 hover:shadow-lg hover:scale-105">
+                    查看全部舞者 →
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- 演出日程 -->
+    <!-- 有情历程 -->
     <section id="schedule" class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-2xl mx-auto text-center mb-20">
@@ -330,7 +376,7 @@
     </section>
 
     <!-- 支持方 -->
-    <section id="supporters" class="py-16 bg-soft">
+    <section id="supporters" class="hidden py-16 bg-soft">
         <div class="container mx-auto px-6">
             <div class="max-w-2xl mx-auto text-center mb-10">
                 <h2 class="text-3xl font-display font-bold text-primary mb-2">支持方与合作伙伴</h2>
@@ -343,6 +389,27 @@
             </div>
         </div>
     </section>
+
+
+    <!-- 支持方 -->
+    <section id="supporters" class="py-16 bg-soft">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center mb-10">
+                <h2 class="text-3xl font-display font-bold text-primary mb-2">支持方与合作伙伴</h2>
+                <div class="line-separator mb-6"></div>
+                <p class="text-gray-700">跨越山海，利乐有情</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <img 
+                    src="https://cdn.djybrs.cn/uploads/youqing/other/supporter.png" 
+                    alt="支持方与合作伙伴" 
+                    class="w-full h-auto rounded-lg shadow-lg"
+                >
+            </div>
+        </div>
+    </section>
+
 
     <!-- 页脚 -->
     <footer class="bg-primary text-white py-16">
@@ -359,9 +426,9 @@
                     <h4 class="text-sm font-semibold mb-4">页面</h4>
                     <ul class="space-y-2 text-sm">
                         <li><a href="#about" class="text-white/70 hover:text-white transition-colors">关于</a></li>
-                        <li><a href="pages/gallery.html" class="text-white/70 hover:text-white transition-colors">作品</a></li>
-                        <li><a href="#dancers" class="text-white/70 hover:text-white transition-colors">舞者</a></li>
-                        <li><a href="#schedule" class="text-white/70 hover:text-white transition-colors">演出</a></li>
+                        <li><a href="pages/gallery.html" class="text-white/70 hover:text-white transition-colors">画廊</a></li>
+                        <li><a href="pages/dancers.html" class="text-white/70 hover:text-white transition-colors">舞者</a></li>
+                        <li><a href="pages/testimonials.html" class="text-white/70 hover:text-white transition-colors">舞者心语</a></li>
                     </ul>
                 </div>
                 
@@ -369,9 +436,9 @@
                     <h4 class="text-sm font-semibold mb-4">参与</h4>
                     <ul class="space-y-2 text-sm">
                         <li><a href="#contact" class="text-white/70 hover:text-white transition-colors">成为舞者</a></li>
-                        <li><a href="#contact" class="text-white/70 hover:text-white transition-colors">工作坊</a></li>
-                        <li><a href="#contact" class="text-white/70 hover:text-white transition-colors">合作</a></li>
-                        <li><a href="#contact" class="text-white/70 hover:text-white transition-colors">支持</a></li>
+                        <li><a href="#contact" class="hidden text-white/70 hover:text-white transition-colors">工作坊</a></li>
+                        <li><a href="#contact" class="hidden text-white/70 hover:text-white transition-colors">合作</a></li>
+                        <li><a href="#contact" class="hidden text-white/70 hover:text-white transition-colors">支持</a></li>
                     </ul>
                 </div>
                 

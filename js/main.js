@@ -25,8 +25,8 @@ function renderSchedule(events) {
         <div class="flex flex-col md:flex-row gap-4 md:gap-8 animate-fade-in px-4 md:px-0 py-6 md:py-0 border-b md:border-b-0 md:pb-8" style="animation-delay: ${index * 0.1}s">
             <div class="flex-shrink-0 md:w-32 flex md:block gap-4 md:gap-0">
                 <div class="text-center flex-1 md:flex-none">
-                    <div class="text-2xl md:text-3xl font-display font-bold text-accent">${day}</div>
-                    <div class="text-xs md:text-sm font-medium text-gray-500 mt-1">${year}${month ? '.' + month : ''}</div>
+                    <div class="text-2xl md:text-3xl font-display font-bold text-accent">${year}</div>
+                    <div class="text-xs md:text-sm font-medium text-gray-500 mt-1">${month ? month + '月' : ''}${day ? day + '日' : ''}</div>
                 </div>
             </div>
             <div class="flex-grow md:border-l-2 md:border-accent md:pl-8 border-l-0">
