@@ -230,7 +230,7 @@ function renderMedia(items) {
     if (!mediaList) return;
     
     mediaList.innerHTML = `
-        <div class="relative overflow-hidden">
+        <div class="relative overflow-visible flex justify-center">
             <div class="flex gap-6 md:gap-8 transition-transform duration-300 ease-in-out" id="media-slider">
                 ${items.map((item, index) => `
                     <div class="flex-shrink-0 w-64 md:w-80 animate-fade-in" style="animation-delay: ${index * 0.1}s">
@@ -262,11 +262,11 @@ function renderMedia(items) {
             </div>
             
             <!-- 左右箭头 -->
-            <button id="media-prev" class="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center z-10 hover:bg-accent hover:text-white transition-colors">
-                <i class="fa fa-chevron-left"></i>
+            <button id="media-prev" class="absolute left-[-80px] md:left-[-120px] top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center z-10 hover:bg-accent hover:text-white transition-all duration-300">
+                <i class="fa fa-chevron-left text-xl"></i>
             </button>
-            <button id="media-next" class="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center z-10 hover:bg-accent hover:text-white transition-colors">
-                <i class="fa fa-chevron-right"></i>
+            <button id="media-next" class="absolute right-[-80px] md:right-[-120px] top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center z-10 hover:bg-accent hover:text-white transition-all duration-300">
+                <i class="fa fa-chevron-right text-xl"></i>
             </button>
         </div>
     `;

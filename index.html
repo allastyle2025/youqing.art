@@ -419,7 +419,7 @@
                 <p class="text-gray-700">关注我们的最新动态与活动，了解更多关于我们的创作与合作。</p>
             </div>
 
-            <div id="media-list" class="max-w-5xl mx-auto">
+            <div id="media-list" class="max-w-5xl mx-auto px-8 md:px-12">
                 <!-- Media items will be loaded from JSON -->
             </div>
         </div>
@@ -458,13 +458,62 @@
                 
                 <div>
                     <h4 class="text-sm font-semibold mb-4">社交</h4>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent text-white transition-colors">
-                            <i class="fa fa-weixin"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent text-white transition-colors">
-                            <i class="fa fa-weibo"></i>
-                        </a>
+                    <div class="flex gap-4 relative">
+                        <!-- 微信 -->
+                        <div class="relative group">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent text-white transition-colors">
+                                <i class="fa fa-weixin"></i>
+                            </a>
+                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <div class="bg-white p-4 rounded-lg shadow-xl" style="width: 140px;">
+                                    <img src="http://localhost:8000/assets/wingdancetheare-wechat-qrcode.png" alt="微信二维码" style="width: 120px; height: 120px; object-fit: contain; display: block; margin: 0 auto;">
+                                    <p class="text-xs text-center text-gray-600 mt-2">微信公众号</p>
+                                </div>
+                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-white"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 微博 -->
+                        <div class="hidden relative group">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent text-white transition-colors">
+                                <i class="fa fa-weibo"></i>
+                            </a>
+                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <div class="bg-white p-4 rounded-lg shadow-xl" style="width: 140px;">
+                                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Weibo%20QR%20code%20placeholder%20for%20Chinese%20dance%20group&image_size=square" alt="微博二维码" style="width: 120px; height: 120px; object-fit: contain; display: block; margin: 0 auto;">
+                                    <p class="text-xs text-center text-gray-600 mt-2">扫码关注</p>
+                                </div>
+                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-white"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- B站 -->
+                        <div class="relative group">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent text-white transition-colors">
+                                <img src="assets/icons/bilibili_icon.svg" alt="B站" class="w-6 h-6">
+                            </a>
+                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <div class="bg-white p-4 rounded-lg shadow-xl" style="width: 140px;">
+                                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Bilibili%20QR%20code%20placeholder%20for%20Chinese%20dance%20group&image_size=square" alt="B站二维码" style="width: 120px; height: 120px; object-fit: contain; display: block; margin: 0 auto;">
+                                    <p class="text-xs text-center text-gray-600 mt-2">扫码关注</p>
+                                </div>
+                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-white"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 小红书 -->
+                        <div class="relative group">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent text-white transition-colors">
+                                <img src="assets/icons/redbook.svg" alt="小红书" class="w-6 h-6">
+                            </a>
+                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <div class="bg-white p-4 rounded-lg shadow-xl" style="width: 140px;">
+                                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Xiaohongshu%20QR%20code%20placeholder%20for%20Chinese%20dance%20group&image_size=square" alt="小红书二维码" style="width: 120px; height: 120px; object-fit: contain; display: block; margin: 0 auto;">
+                                    <p class="text-xs text-center text-gray-600 mt-2">扫码关注</p>
+                                </div>
+                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-white"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
