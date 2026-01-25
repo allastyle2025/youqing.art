@@ -10,14 +10,6 @@
         },
         {
             "id": 2,
-            "title": "《有情·万物生》崇明岛首演",
-            "date": "2025.10.7",
-            "description": "在自然之地的生态舞蹈首演",
-            "cover": "https://cdn.djybrs.cn/uploads/youqing/20251007/2025-10-07.5.JPG",
-            "imageCount": 9
-        },
-        {
-            "id": 3,
             "title": "《有情》全國社群大會開幕式演出",
             "date": "2024.10.26",
             "description": "社群大会开幕式精彩演出",
@@ -25,11 +17,19 @@
             "imageCount": 16
         },
         {
+            "id": 3,
+            "title": "《有情·万物生》崇明岛首演",
+            "date": "2025.10.7",
+            "description": "在自然之地的生态舞蹈首演",
+            "cover": "https://cdn.djybrs.cn/uploads/youqing/20251007/2025-10-07.6.JPG",
+            "imageCount": 9
+        },
+        {
             "id": 4,
             "title": "《有情·万物生》蛇口戏剧节",
             "date": "2025.11.8",
             "description": "蛇口戏剧节上的精彩表演",
-            "cover": "https://cdn.djybrs.cn/uploads/youqing/20251108/2025-11-08.0.PNG",
+            "cover": "https://cdn.djybrs.cn/uploads/youqing/20251108/2025-11-08.8.JPG",
             "imageCount": 9
         }
     ]
