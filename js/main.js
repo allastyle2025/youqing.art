@@ -213,11 +213,89 @@ function showTestimonialModal(testimonial) {
     });
 }
 
+// 加载媒体报道数据
+async function loadMedia() {
+    try {
+        const response = await fetch('data/media.json');
+        const data = await response.json();
+        renderMedia(data.media);
+    } catch (error) {
+        console.error('加载媒体报道失败:', error);
+    }
+}
+
+// 渲染媒体报道
+function renderMedia(items) {
+    const mediaList = document.getElementById('media-list');
+    if (!mediaList) return;
+    
+    mediaList.innerHTML = `
+        <div class="relative overflow-hidden">
+            <div class="flex gap-6 md:gap-8 transition-transform duration-300 ease-in-out" id="media-slider">
+                ${items.map((item, index) => `
+                    <div class="flex-shrink-0 w-64 md:w-80 animate-fade-in" style="animation-delay: ${index * 0.1}s">
+                        <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="block group">
+                            <div class="relative rounded-xl overflow-hidden mb-4">
+                                <img 
+                                    src="${item.thumbnail}" 
+                                    alt="${item.title}" 
+                                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                                >
+                                ${item.type === 'video' ? `
+                                    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                                        <div class="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                            <i class="fa fa-play text-accent text-xl"></i>
+                                        </div>
+                                    </div>
+                                ` : ''}
+                            </div>
+                            <h3 class="text-lg font-display font-bold text-primary mb-2 group-hover:text-secondary transition-colors">
+                                ${item.title}
+                            </h3>
+                            <p class="text-sm text-gray-600 mb-3">${item.date}</p>
+                            <p class="text-sm text-gray-700 line-clamp-2">
+                                ${item.description}
+                            </p>
+                        </a>
+                    </div>
+                `).join('')}
+            </div>
+            
+            <!-- 左右箭头 -->
+            <button id="media-prev" class="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center z-10 hover:bg-accent hover:text-white transition-colors">
+                <i class="fa fa-chevron-left"></i>
+            </button>
+            <button id="media-next" class="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center z-10 hover:bg-accent hover:text-white transition-colors">
+                <i class="fa fa-chevron-right"></i>
+            </button>
+        </div>
+    `;
+    
+    // 添加滚动功能
+    const slider = document.getElementById('media-slider');
+    const prevBtn = document.getElementById('media-prev');
+    const nextBtn = document.getElementById('media-next');
+    let scrollPosition = 0;
+    const itemWidth = 280; // 包含间距
+    
+    prevBtn.addEventListener('click', () => {
+        scrollPosition = Math.max(0, scrollPosition - itemWidth);
+        slider.style.transform = `translateX(-${scrollPosition}px)`;
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        const maxScroll = slider.scrollWidth - slider.clientWidth;
+        scrollPosition = Math.min(maxScroll, scrollPosition + itemWidth);
+        slider.style.transform = `translateX(-${scrollPosition}px)`;
+    });
+}
+
 // 页面加载时执行
 document.addEventListener('DOMContentLoaded', function() {
     loadSchedule();
     loadSupporters();
     loadGallery();
+    loadMedia();
 });
 
 // 移动菜单
