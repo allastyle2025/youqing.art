@@ -7,9 +7,9 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.loli.net/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- 自定义样式 -->
     <link rel="stylesheet" href="css/style.css">
@@ -69,8 +69,8 @@
             <a href="pages/gallery.html" class="text-base font-medium text-dark">画廊</a>
             <a href="pages/dancers.html" class="text-base font-medium text-dark">舞者</a>
             <a href="#schedule" class="text-base font-medium text-dark">历程</a>
-            <a href="pages/testimonials.html" class="text-base font-medium text-dark">心得</a>
-            <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-full text-center inline-block">联系我们</a>
+            <a href="pages/testimonials.html" class="text-base font-medium text-dark">舞者心语</a>
+            <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-full text-center inline-block">联系</a>
         </div>
     </div>
 
@@ -363,15 +363,33 @@
                     
                     <!-- 右侧：二维码 -->
                     <div class="flex flex-col items-center justify-center animate-fade-in" style="animation-delay: 0.1s">
-                        <p class="text-sm text-gray-600 mb-6 font-medium">关注官方微信号</p>
-                        <div class="p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                            <img 
-                                src="/assets/wingdancetheare-wechat-qrcode.png" 
-                                alt="微信二维码" 
-                                class="w-40 h-40 rounded-md"
-                            >
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                            <!-- 参与共创作二维码 -->
+                            <div class="flex flex-col items-center">
+                                <p class="text-sm text-gray-600 mb-4 font-medium">参与共创</p>
+                                <div class="p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                                    <img 
+                                        src="/assets/wingdancetheare-wechat-qrcode-chat.jpg" 
+                                        alt="参与共创作二维码" 
+                                        class="w-32 h-32 rounded-md"
+                                    >
+                                </div>
+                                <p class="text-xs text-gray-500 mt-4 text-center">微信扫码添加小助理<br/>WingDanceTheatre永·舞团</p>
+                            </div>
+
+                            <!-- 官方微信号二维码 -->
+                            <div class="flex flex-col items-center">
+                                <p class="text-sm text-gray-600 mb-4 font-medium">关注官方微信号</p>
+                                <div class="p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                                    <img 
+                                        src="/assets/wingdancetheare-wechat-qrcode.png" 
+                                        alt="微信二维码" 
+                                        class="w-32 h-32 rounded-md"
+                                    >
+                                </div>
+                                <p class="text-xs text-gray-500 mt-4 text-center">永·舞团<br/>Wing Dance Theatre</p>
+                            </div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-6 text-center">永·舞团<br/>Wing Dance Theatre</p>
                     </div>
                 </div>
             </div>
@@ -464,7 +482,7 @@
                     <div class="flex gap-4 relative">
                         <!-- 微信 -->
                         <div class="relative group">
-                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent text-white transition-colors">
+                            <a href="" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent text-white transition-colors">
                                 <i class="fa fa-weixin"></i>
                             </a>
                             <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
@@ -522,7 +540,7 @@
             </div>
             
             <div class="border-t border-white/10 pt-8 text-center text-sm text-white/60">
-                <p>© 2025 Wing Dance Theatre. 保留所有权利。</p>
+                <p>© <span id="current-year">2025</span> Wing Dance Theatre. 保留所有权利。</p>
             </div>
         </div>
     </footer>

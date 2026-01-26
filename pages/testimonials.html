@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>舞者心得 - 有情</title>
+    <title>舞者心语 - 有情</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.loli.net/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- 自定义样式 -->
     <link rel="stylesheet" href="../css/style.css">
@@ -37,27 +37,28 @@
     </script>
 </head>
 <body class="font-body text-dark bg-light">
-    <!-- 导航栏 -->
-    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-md">
+    <!-- 现代化导航栏 -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300">
         <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <a href="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <a href="../index.html" class="flex items-center gap-3 hover:opacity-75 transition-opacity">
                     <img src="../assets/images/youqing_logo.png" alt="有情 Logo" class="h-9 w-9">
-                    <span class="text-xl font-display font-bold text-primary">有情</span>
+                    <span id="navbar-title" class="text-xl font-display font-bold text-white transition-colors duration-300">有情</span>
                 </a>
             </div>
             
             <!-- 桌面导航 -->
             <div class="hidden md:flex items-center gap-12">
-                <a href="../index.html#about" class="text-sm font-medium text-dark hover:text-accent transition-colors">关于</a>
-                <a href="../index.html#gallery" class="text-sm font-medium text-dark hover:text-accent transition-colors">作品</a>
-                <a href="../index.html#dancers" class="text-sm font-medium text-dark hover:text-accent transition-colors">舞者</a>
-                <a href="../pages/testimonials.html" class="text-sm font-medium text-accent border-b-2 border-accent">心得</a>
-                <a href="../index.html#contact" class="px-6 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-secondary transition-colors">联系</a>
+                <a href="../index.html#about" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">关于</a>
+                <a href="../pages/gallery.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">画廊</a>
+                <a href="../pages/dancers.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">舞者</a>
+                <a href="../index.html#schedule" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">历程</a>
+                <a href="../pages/testimonials.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">舞者心语</a>
+                <a href="../index.html#contact" class="px-6 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-secondary transition-colors duration-300">联系</a>
             </div>
             
             <!-- 移动菜单按钮 -->
-            <button id="mobile-menu-btn" class="md:hidden text-lg text-dark transition-colors">
+            <button id="mobile-menu-btn" class="md:hidden text-lg text-white navbar-icon transition-colors duration-300">
                 <i class="fa fa-bars"></i>
             </button>
         </nav>
@@ -67,10 +68,11 @@
     <div id="mobile-menu" class="hidden md:hidden fixed inset-0 top-16 z-40 bg-white">
         <div class="flex flex-col space-y-6 p-6">
             <a href="../index.html#about" class="text-base font-medium text-dark">关于</a>
-            <a href="../index.html#gallery" class="text-base font-medium text-dark">作品</a>
-            <a href="../index.html#dancers" class="text-base font-medium text-dark">舞者</a>
-            <a href="../pages/testimonials.html" class="text-base font-medium text-accent">心得</a>
-            <a href="../index.html#contact" class="px-4 py-2 bg-primary text-white rounded-full text-center inline-block">联系我们</a>
+            <a href="../pages/gallery.html" class="text-base font-medium text-dark">画廊</a>
+            <a href="../pages/dancers.html" class="text-base font-medium text-dark">舞者</a>
+            <a href="../index.html#schedule" class="text-base font-medium text-dark">历程</a>
+            <a href="../pages/testimonials.html" class="text-base font-medium text-dark">舞者心语</a>
+            <a href="../index.html#contact" class="px-4 py-2 bg-primary text-white rounded-full text-center inline-block">联系</a>
         </div>
     </div>
 
@@ -80,7 +82,7 @@
         <section class="py-12 md:py-16 bg-soft">
             <div class="container mx-auto px-6">
                 <div class="max-w-3xl mx-auto text-center">
-                    <h1 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">舞者心得</h1>
+                    <h1 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">舞者心语</h1>
                     <div class="line-separator mb-6 mx-auto"></div>
                     <p class="text-lg text-gray-700 leading-relaxed">
                         来自素人舞者的真实感悟与心路历程，记录每一次身体与灵魂的对话
@@ -127,14 +129,106 @@
     </main>
 
     <!-- 页脚 -->
-    <footer class="bg-primary text-white py-12">
-        <div class="container mx-auto px-6 text-center text-sm text-white/70">
-            <p>© 2025 Wing Dance Theatre. 保留所有权利。</p>
-            <p class="mt-2"><a href="../index.html" class="hover:text-white transition-colors">返回首页</a></p>
+    <footer class="bg-primary text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h3 class="text-lg font-display font-bold mb-4">有情</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        素人共创生态舞作，用身体传递爱与关切
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-sm font-semibold mb-4">页面</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html#about" class="text-white/70 hover:text-white transition-colors">关于</a></li>
+                        <li><a href="../pages/gallery.html" class="text-white/70 hover:text-white transition-colors">画廊</a></li>
+                        <li><a href="../pages/dancers.html" class="text-white/70 hover:text-white transition-colors">舞者</a></li>
+                        <li><a href="../pages/testimonials.html" class="text-white/70 hover:text-white transition-colors">舞者心语</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-sm font-semibold mb-4">参与</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html#contact" class="text-white/70 hover:text-white transition-colors">成为舞者</a></li>
+                        <li><a href="../index.html#contact" class="hidden text-white/70 hover:text-white transition-colors">工作坊</a></li>
+                        <li><a href="../index.html#contact" class="hidden text-white/70 hover:text-white transition-colors">合作</a></li>
+                        <li><a href="../index.html#contact" class="hidden text-white/70 hover:text-white transition-colors">支持</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-sm font-semibold mb-4">社交</h4>
+                    <div class="flex gap-4 relative">
+                        <!-- 微信 -->
+                        <div class="relative group">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent text-white transition-colors">
+                                <i class="fa fa-weixin"></i>
+                            </a>
+                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <div class="bg-white p-4 rounded-lg shadow-xl" style="width: 140px;">
+                                    <img src="../assets/wingdancetheare-wechat-qrcode.png" alt="微信二维码" style="width: 120px; height: 120px; object-fit: contain; display: block; margin: 0 auto;">
+                                    <p class="text-xs text-center text-gray-600 mt-2">微信公众号</p>
+                                </div>
+                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-white"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 微博 -->
+                        <div class="hidden relative group">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent text-white transition-colors">
+                                <i class="fa fa-weibo"></i>
+                            </a>
+                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <div class="bg-white p-4 rounded-lg shadow-xl" style="width: 140px;">
+                                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Weibo%20QR%20code%20placeholder%20for%20Chinese%20dance%20group&image_size=square" alt="微博二维码" style="width: 120px; height: 120px; object-fit: contain; display: block; margin: 0 auto;">
+                                    <p class="text-xs text-center text-gray-600 mt-2">扫码关注</p>
+                                </div>
+                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-white"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- B站 -->
+                        <div class="relative group">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent text-white transition-colors">
+                                <img src="../assets/icons/bilibili_icon.svg" alt="B站" class="w-6 h-6">
+                            </a>
+                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <div class="bg-white p-4 rounded-lg shadow-xl" style="width: 140px;">
+                                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Bilibili%20QR%20code%20placeholder%20for%20Chinese%20dance%20group&image_size=square" alt="B站二维码" style="width: 120px; height: 120px; object-fit: contain; display: block; margin: 0 auto;">
+                                    <p class="text-xs text-center text-gray-600 mt-2">扫码关注</p>
+                                </div>
+                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-white"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 小红书 -->
+                        <div class="relative group">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent text-white transition-colors">
+                                <img src="../assets/icons/redbook.svg" alt="小红书" class="w-6 h-6">
+                            </a>
+                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <div class="bg-white p-4 rounded-lg shadow-xl" style="width: 140px;">
+                                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Xiaohongshu%20QR%20code%20placeholder%20for%20Chinese%20dance%20group&image_size=square" alt="小红书二维码" style="width: 120px; height: 120px; object-fit: contain; display: block; margin: 0 auto;">
+                                    <p class="text-xs text-center text-gray-600 mt-2">扫码关注</p>
+                                </div>
+                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-white"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 text-center text-sm text-white/60">
+                <p>© <span id="current-year">2025</span> Wing Dance Theatre. 保留所有权利。</p>
+            </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
+    <script src="../js/main.js"></script>
     <script>
         let allTestimonials = [];
 
@@ -278,11 +372,6 @@
                     const filter = btn.getAttribute('data-filter');
                     filterTestimonials(filter);
                 });
-            });
-
-            // 移动菜单
-            document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.toggle('hidden');
             });
         });
     </script>

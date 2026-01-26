@@ -229,11 +229,15 @@ function renderMedia(items) {
     const mediaList = document.getElementById('media-list');
     if (!mediaList) return;
     
-    mediaList.innerHTML = `
-        <div class="relative overflow-visible flex justify-center">
-            <div class="flex gap-6 md:gap-8 transition-transform duration-300 ease-in-out" id="media-slider">
+    // 检测屏幕宽度，判断是否为移动设备
+    const isMobile = window.innerWidth < 768;
+    
+    if (isMobile) {
+        // 移动端：垂直堆叠布局
+        mediaList.innerHTML = `
+            <div class="grid grid-cols-1 gap-8" id="media-grid">
                 ${items.map((item, index) => `
-                    <div class="flex-shrink-0 w-64 md:w-80 animate-fade-in" style="animation-delay: ${index * 0.1}s">
+                    <div class="animate-fade-in" style="animation-delay: ${index * 0.1}s">
                         <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="block group">
                             <div class="relative rounded-xl overflow-hidden mb-4">
                                 <img 
@@ -260,35 +264,75 @@ function renderMedia(items) {
                     </div>
                 `).join('')}
             </div>
-            
-            <!-- 左右箭头 -->
-            <button id="media-prev" class="absolute left-[-80px] md:left-[-120px] top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center z-10 hover:bg-accent hover:text-white transition-all duration-300">
-                <i class="fa fa-chevron-left text-xl"></i>
-            </button>
-            <button id="media-next" class="absolute right-[-80px] md:right-[-120px] top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center z-10 hover:bg-accent hover:text-white transition-all duration-300">
-                <i class="fa fa-chevron-right text-xl"></i>
-            </button>
-        </div>
-    `;
-    
-    // 添加滚动功能
-    const slider = document.getElementById('media-slider');
-    const prevBtn = document.getElementById('media-prev');
-    const nextBtn = document.getElementById('media-next');
-    let scrollPosition = 0;
-    const itemWidth = 280; // 包含间距
-    
-    prevBtn.addEventListener('click', () => {
-        scrollPosition = Math.max(0, scrollPosition - itemWidth);
-        slider.style.transform = `translateX(-${scrollPosition}px)`;
-    });
-    
-    nextBtn.addEventListener('click', () => {
-        const maxScroll = slider.scrollWidth - slider.clientWidth;
-        scrollPosition = Math.min(maxScroll, scrollPosition + itemWidth);
-        slider.style.transform = `translateX(-${scrollPosition}px)`;
-    });
+        `;
+    } else {
+        // PC端：水平滚动布局
+        mediaList.innerHTML = `
+            <div class="relative overflow-visible flex justify-center">
+                <div class="flex gap-6 md:gap-8 transition-transform duration-300 ease-in-out" id="media-slider">
+                    ${items.map((item, index) => `
+                        <div class="flex-shrink-0 w-64 md:w-80 animate-fade-in" style="animation-delay: ${index * 0.1}s">
+                            <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="block group">
+                                <div class="relative rounded-xl overflow-hidden mb-4">
+                                    <img 
+                                        src="${item.thumbnail}" 
+                                        alt="${item.title}" 
+                                        class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                                    >
+                                    ${item.type === 'video' ? `
+                                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                                            <div class="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                                <i class="fa fa-play text-accent text-xl"></i>
+                                            </div>
+                                        </div>
+                                    ` : ''}
+                                </div>
+                                <h3 class="text-lg font-display font-bold text-primary mb-2 group-hover:text-secondary transition-colors">
+                                    ${item.title}
+                                </h3>
+                                <p class="text-sm text-gray-600 mb-3">${item.date}</p>
+                                <p class="text-sm text-gray-700 line-clamp-2">
+                                    ${item.description}
+                                </p>
+                            </a>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                <!-- 左右箭头 -->
+                <button id="media-prev" class="absolute left-[-80px] md:left-[-120px] top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center z-10 hover:bg-accent hover:text-white transition-all duration-300">
+                    <i class="fa fa-chevron-left text-xl"></i>
+                </button>
+                <button id="media-next" class="absolute right-[-80px] md:right-[-120px] top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center z-10 hover:bg-accent hover:text-white transition-all duration-300">
+                    <i class="fa fa-chevron-right text-xl"></i>
+                </button>
+            </div>
+        `;
+        
+        // 添加滚动功能
+        const slider = document.getElementById('media-slider');
+        const prevBtn = document.getElementById('media-prev');
+        const nextBtn = document.getElementById('media-next');
+        let scrollPosition = 0;
+        const itemWidth = 280; // 包含间距
+        
+        prevBtn.addEventListener('click', () => {
+            scrollPosition = Math.max(0, scrollPosition - itemWidth);
+            slider.style.transform = `translateX(-${scrollPosition}px)`;
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            const maxScroll = slider.scrollWidth - slider.clientWidth;
+            scrollPosition = Math.min(maxScroll, scrollPosition + itemWidth);
+            slider.style.transform = `translateX(-${scrollPosition}px)`;
+        });
+    }
 }
+
+// 添加窗口大小变化监听，实现响应式布局切换
+window.addEventListener('resize', function() {
+    loadMedia();
+});
 
 // 页面加载时执行
 document.addEventListener('DOMContentLoaded', function() {
@@ -296,18 +340,35 @@ document.addEventListener('DOMContentLoaded', function() {
     loadSupporters();
     loadGallery();
     loadMedia();
-});
+    
+    // 移动菜单
+    console.log('DOMContentLoaded - Checking mobile menu button...');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    console.log('Mobile menu button:', mobileMenuBtn);
+    console.log('Mobile menu:', mobileMenu);
+    
+    if (mobileMenuBtn && mobileMenu) {
+        console.log('Adding click event listener to mobile menu button...');
+        mobileMenuBtn.addEventListener('click', function() {
+            console.log('Mobile menu button clicked!');
+            console.log('Current mobile menu class:', mobileMenu.className);
+            mobileMenu.classList.toggle('hidden');
+            console.log('New mobile menu class:', mobileMenu.className);
+        });
 
-// 移动菜单
-document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
-});
-
-// 点击链接关闭菜单
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.add('hidden');
-    });
+        // 点击链接关闭菜单
+        console.log('Adding click event listeners to mobile menu links...');
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                console.log('Mobile menu link clicked!');
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    } else {
+        console.log('Mobile menu button or menu not found');
+    }
 });
 
 // 导航栏滚动效果 - 透明到有色转换
@@ -356,4 +417,10 @@ window.addEventListener('load', () => {
             el.style.transform = 'translateY(0)';
         }, index * 100);
     });
+    
+    // 动态更新版权年份
+    const currentYearElement = document.getElementById('current-year');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+    }
 });

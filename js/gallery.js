@@ -229,16 +229,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (touchEndX - touchStartX > 50) prevImage();
         }
     });
-});
 
-// 移动菜单
-document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
-});
+    // 移动菜单 - 已在main.js中处理，这里不需要重复添加
+    console.log('Gallery page loaded - Mobile menu handled by main.js');
 
-// 点击链接关闭菜单
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.add('hidden');
-    });
 });
