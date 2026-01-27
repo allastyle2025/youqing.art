@@ -252,6 +252,11 @@ function renderMedia(items) {
                                         </div>
                                     </div>
                                 ` : ''}
+                                ${item.mediaName ? `
+                                    <div class="absolute top-3 right-3 bg-accent text-white text-xs font-medium px-3 py-1 rounded-full shadow-md z-10">
+                                        ${item.mediaName}
+                                    </div>
+                                ` : ''}
                             </div>
                             <h3 class="text-lg font-display font-bold text-primary mb-2 group-hover:text-secondary transition-colors">
                                 ${item.title}
@@ -284,6 +289,11 @@ function renderMedia(items) {
                                             <div class="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                                 <i class="fa fa-play text-accent text-xl"></i>
                                             </div>
+                                        </div>
+                                    ` : ''}
+                                    ${item.mediaName ? `
+                                        <div class="absolute top-3 right-3 bg-accent text-white text-xs font-medium px-3 py-1 rounded-full shadow-md z-10">
+                                            ${item.mediaName}
                                         </div>
                                     ` : ''}
                                 </div>
