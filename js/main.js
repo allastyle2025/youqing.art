@@ -433,4 +433,23 @@ window.addEventListener('load', () => {
     if (currentYearElement) {
         currentYearElement.textContent = new Date().getFullYear();
     }
+    
+    // 检查URL中是否有锚点，如果有则滚动到锚点位置
+    // 这样可以确保在所有资源加载完成后，页面高度计算准确时再滚动
+    const hash = window.location.hash;
+    if (hash) {
+        setTimeout(() => {
+            const targetElement = document.querySelector(hash);
+            if (targetElement) {
+                // 计算滚动位置，考虑导航栏高度
+                const navbarHeight = document.getElementById('navbar').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 100); // 小延迟确保所有动画和计算都完成
+    }
 });
