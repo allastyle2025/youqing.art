@@ -328,7 +328,7 @@ const i18n = {
         // 更新移动版切换按钮
         const mobileBtn = document.getElementById('lang-toggle-mobile');
         if (mobileBtn) {
-            mobileBtn.textContent = this.currentLang === 'zh' ? 'English' : '中文';
+            mobileBtn.textContent = this.currentLang === 'zh' ? 'EN' : '中文';
         }
     },
     

@@ -67,10 +67,13 @@
                 <button id="lang-toggle" class="text-sm font-medium text-white hover:text-accent transition-colors duration-300" onclick="i18n.setLanguage(i18n.currentLang === 'zh' ? 'en' : 'zh')">EN</button>
             </div>
             
-            <!-- 移动菜单按钮 -->
-            <button id="mobile-menu-btn" class="md:hidden text-lg text-white navbar-icon transition-colors duration-300">
-                <i class="fa fa-bars"></i>
-            </button>
+            <!-- 移动端：语言切换 + 菜单按钮 -->
+            <div class="flex items-center gap-4 md:hidden">
+                <button id="lang-toggle-mobile" class="text-sm font-medium text-white hover:text-accent transition-colors duration-300" onclick="i18n.setLanguage(i18n.currentLang === 'zh' ? 'en' : 'zh')">EN</button>
+                <button id="mobile-menu-btn" class="text-lg text-white navbar-icon transition-colors duration-300">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
         </nav>
     </header>
 
@@ -83,7 +86,6 @@
             <a href="#schedule" class="text-base font-medium text-dark" data-i18n="nav.schedule">历程</a>
             <a href="pages/testimonials.html" class="text-base font-medium text-dark" data-i18n="nav.testimonials">舞者心语</a>
             <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-full text-center inline-block" data-i18n="nav.contact">联系</a>
-            <button id="lang-toggle-mobile" class="text-base font-medium text-dark text-left" onclick="i18n.setLanguage(i18n.currentLang === 'zh' ? 'en' : 'zh')">English</button>
         </div>
     </div>
 

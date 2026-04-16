@@ -427,6 +427,8 @@ window.addEventListener('scroll', function() {
     const navbarTitle = document.getElementById('navbar-title');
     const navbarLinks = document.querySelectorAll('.navbar-link');
     const navbarIcon = document.querySelector('.navbar-icon');
+    const langToggle = document.getElementById('lang-toggle');
+    const langToggleMobile = document.getElementById('lang-toggle-mobile');
     
     if (window.scrollY > 50) {
         // 滚动时显示背景和边框，改变文本颜色为深色
@@ -442,6 +444,12 @@ window.addEventListener('scroll', function() {
         });
         navbarIcon?.classList.remove('text-white');
         navbarIcon?.classList.add('text-dark');
+        
+        // 改变语言切换按钮颜色为深色
+        langToggle?.classList.remove('text-white');
+        langToggle?.classList.add('text-dark');
+        langToggleMobile?.classList.remove('text-white');
+        langToggleMobile?.classList.add('text-dark');
     } else {
         // 在顶部时保持透明，文本颜色为白色
         navbar.classList.remove('bg-white/95', 'backdrop-blur-sm', 'border-b', 'border-gray-100', 'shadow-md');
@@ -456,6 +464,12 @@ window.addEventListener('scroll', function() {
         });
         navbarIcon?.classList.add('text-white');
         navbarIcon?.classList.remove('text-dark');
+        
+        // 改变语言切换按钮颜色为白色
+        langToggle?.classList.add('text-white');
+        langToggle?.classList.remove('text-dark');
+        langToggleMobile?.classList.add('text-white');
+        langToggleMobile?.classList.remove('text-dark');
     }
 });
 
