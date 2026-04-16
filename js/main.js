@@ -9,33 +9,56 @@ async function loadSchedule() {
     }
 }
 
+// 获取当前语言
+function getCurrentLang() {
+    return (typeof i18n !== 'undefined' && i18n.currentLang) ? i18n.currentLang : 'zh';
+}
+
+// 获取本地化文本
+function getLocalizedText(obj, lang) {
+    if (typeof obj === 'object' && obj !== null) {
+        return obj[lang] || obj['zh'] || '';
+    }
+    return obj || '';
+}
+
 // 渲染日程
 function renderSchedule(events) {
     const scheduleList = document.getElementById('schedule-list');
+    const lang = getCurrentLang();
+    
     scheduleList.innerHTML = events.map((event, index) => {
+        const title = getLocalizedText(event.title, lang);
+        const description = getLocalizedText(event.description, lang);
+        const location = getLocalizedText(event.location, lang);
+        
         const titleHtml = event.link && event.link.trim() !== ''
-            ? `<a href="${event.link}" target="_blank" rel="noopener noreferrer" class="text-lg md:text-xl font-display font-bold text-primary mb-2 hover:underline inline-block">${event.title} <i class="fa fa-chevron-right ml-2" aria-hidden="true"></i></a>`
-            : `<div class="text-lg md:text-xl font-display font-bold text-primary mb-2">${event.title}</div>`;
+            ? `<a href="${event.link}" target="_blank" rel="noopener noreferrer" class="text-lg md:text-xl font-display font-bold text-primary mb-2 hover:underline inline-block">${title} <i class="fa fa-chevron-right ml-2" aria-hidden="true"></i></a>`
+            : `<div class="text-lg md:text-xl font-display font-bold text-primary mb-2">${title}</div>`;
 
         const day = event.day || '';
         const month = event.month || '';
         const year = event.year || '';
+        
+        // 根据语言调整日期显示
+        const monthSuffix = lang === 'zh' ? '月' : '';
+        const daySuffix = lang === 'zh' ? '日' : '';
 
         return `
         <div class="flex flex-col md:flex-row gap-4 md:gap-8 animate-fade-in px-4 md:px-0 py-6 md:py-0 border-b md:border-b-0 md:pb-8" style="animation-delay: ${index * 0.1}s">
             <div class="flex-shrink-0 md:w-32 flex md:block gap-4 md:gap-0">
                 <div class="text-center flex-1 md:flex-none">
                     <div class="text-2xl md:text-3xl font-display font-bold text-accent">${year}</div>
-                    <div class="text-xs md:text-sm font-medium text-gray-500 mt-1">${month ? month + '月' : ''}${day ? day + '日' : ''}</div>
+                    <div class="text-xs md:text-sm font-medium text-gray-500 mt-1">${month ? month + monthSuffix : ''}${day ? day + daySuffix : ''}</div>
                 </div>
             </div>
             <div class="flex-grow md:border-l-2 md:border-accent md:pl-8 border-l-0">
                 ${titleHtml}
                 <p class="text-sm md:text-base text-gray-700 mb-3 md:mb-4">
-                    ${event.description}
+                    ${description}
                 </p>
                 <p class="text-xs md:text-sm font-medium text-gray-600 mb-1 md:mb-2">${event.date}</p>
-                <p class="text-xs md:text-sm text-gray-600">${event.location}</p>
+                <p class="text-xs md:text-sm text-gray-600">${location}</p>
             </div>
         </div>
         `;
@@ -58,26 +81,33 @@ function renderAlbums(albums) {
     const container = document.getElementById('albums-display-list');
     if (!container) return;
     
+    const lang = getCurrentLang();
+    
     container.innerHTML = albums.map((album, index) => {
+        const title = getLocalizedText(album.title, lang);
+        const description = getLocalizedText(album.description, lang);
+        const viewText = lang === 'zh' ? '点击查看' : 'Click to view';
+        const imagesText = lang === 'zh' ? '张图片' : 'images';
+        
         return `
         <a href="pages/gallery.html?album=${album.id}" class="group hover-lift cursor-pointer block">
             <div class="relative h-64 overflow-hidden rounded-xl bg-gray-200 mb-4">
                 <img 
                     src="${album.cover}" 
-                    alt="${album.title}" 
+                    alt="${title}" 
                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 >
                 <!-- 悬停覆盖层 -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                    <p class="text-white font-medium text-sm">点击查看 (${album.imageCount} 张图片)</p>
+                    <p class="text-white font-medium text-sm">${viewText} (${album.imageCount} ${imagesText})</p>
                 </div>
             </div>
             <h3 class="text-xl md:text-2xl font-display font-bold text-primary mb-2 group-hover:text-secondary transition-colors">
-                ${album.title}
+                ${title}
             </h3>
             <p class="text-accent font-medium text-sm mb-2">${album.date}</p>
             <p class="text-gray-700 text-sm leading-relaxed">
-                ${album.description}
+                ${description}
             </p>
         </a>
     `;
@@ -229,6 +259,8 @@ function renderMedia(items) {
     const mediaList = document.getElementById('media-list');
     if (!mediaList) return;
     
+    const lang = getCurrentLang();
+    
     // 检测屏幕宽度，判断是否为移动设备
     const isMobile = window.innerWidth < 768;
     
@@ -236,13 +268,17 @@ function renderMedia(items) {
         // 移动端：垂直堆叠布局
         mediaList.innerHTML = `
             <div class="grid grid-cols-1 gap-8" id="media-grid">
-                ${items.map((item, index) => `
+                ${items.map((item, index) => {
+                    const title = getLocalizedText(item.title, lang);
+                    const description = getLocalizedText(item.description, lang);
+                    const mediaName = getLocalizedText(item.mediaName, lang);
+                    return `
                     <div class="animate-fade-in" style="animation-delay: ${index * 0.1}s">
                         <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="block group">
                             <div class="relative rounded-xl overflow-hidden mb-4">
                                 <img 
                                     src="${item.thumbnail}" 
-                                    alt="${item.title}" 
+                                    alt="${title}" 
                                     class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                                 >
                                 ${item.type === 'video' ? `
@@ -252,22 +288,22 @@ function renderMedia(items) {
                                         </div>
                                     </div>
                                 ` : ''}
-                                ${item.mediaName ? `
+                                ${mediaName ? `
                                     <div class="absolute top-3 right-3 bg-accent text-white text-xs font-medium px-3 py-1 rounded-full shadow-md z-10">
-                                        ${item.mediaName}
+                                        ${mediaName}
                                     </div>
                                 ` : ''}
                             </div>
                             <h3 class="text-lg font-display font-bold text-primary mb-2 group-hover:text-secondary transition-colors">
-                                ${item.title}
+                                ${title}
                             </h3>
                             <p class="text-sm text-gray-600 mb-3">${item.date}</p>
                             <p class="text-sm text-gray-700 line-clamp-2">
-                                ${item.description}
+                                ${description}
                             </p>
                         </a>
                     </div>
-                `).join('')}
+                `}).join('')}
             </div>
         `;
     } else {
@@ -275,13 +311,17 @@ function renderMedia(items) {
         mediaList.innerHTML = `
             <div class="relative overflow-visible flex justify-center">
                 <div class="flex gap-6 md:gap-8 transition-transform duration-300 ease-in-out" id="media-slider">
-                    ${items.map((item, index) => `
+                    ${items.map((item, index) => {
+                        const title = getLocalizedText(item.title, lang);
+                        const description = getLocalizedText(item.description, lang);
+                        const mediaName = getLocalizedText(item.mediaName, lang);
+                        return `
                         <div class="flex-shrink-0 w-64 md:w-80 animate-fade-in" style="animation-delay: ${index * 0.1}s">
                             <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="block group">
                                 <div class="relative rounded-xl overflow-hidden mb-4">
                                     <img 
                                         src="${item.thumbnail}" 
-                                        alt="${item.title}" 
+                                        alt="${title}" 
                                         class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                                     >
                                     ${item.type === 'video' ? `
@@ -291,22 +331,22 @@ function renderMedia(items) {
                                             </div>
                                         </div>
                                     ` : ''}
-                                    ${item.mediaName ? `
+                                    ${mediaName ? `
                                         <div class="absolute top-3 right-3 bg-accent text-white text-xs font-medium px-3 py-1 rounded-full shadow-md z-10">
-                                            ${item.mediaName}
+                                            ${mediaName}
                                         </div>
                                     ` : ''}
                                 </div>
                                 <h3 class="text-lg font-display font-bold text-primary mb-2 group-hover:text-secondary transition-colors">
-                                    ${item.title}
+                                    ${title}
                                 </h3>
                                 <p class="text-sm text-gray-600 mb-3">${item.date}</p>
                                 <p class="text-sm text-gray-700 line-clamp-2">
-                                    ${item.description}
+                                    ${description}
                                 </p>
                             </a>
                         </div>
-                    `).join('')}
+                    `}).join('')}
                 </div>
                 
                 <!-- 左右箭头 -->

@@ -4,6 +4,19 @@ function getUrlParam(param) {
     return params.get(param);
 }
 
+// 获取当前语言
+function getCurrentLang() {
+    return (typeof i18n !== 'undefined' && i18n.currentLang) ? i18n.currentLang : 'zh';
+}
+
+// 获取本地化文本
+function getLocalizedText(obj, lang) {
+    if (typeof obj === 'object' && obj !== null) {
+        return obj[lang] || obj['zh'] || '';
+    }
+    return obj || '';
+}
+
 // 加载相册列表
 async function loadAlbums() {
     try {
@@ -27,26 +40,33 @@ async function loadAlbums() {
 // 渲染相册卡片
 function renderAlbums(albums) {
     const container = document.getElementById('albums-container');
+    const lang = getCurrentLang();
+    
     container.innerHTML = albums.map((album, index) => {
+        const title = getLocalizedText(album.title, lang);
+        const description = getLocalizedText(album.description, lang);
+        const viewText = lang === 'zh' ? '点击查看' : 'Click to view';
+        const imagesText = lang === 'zh' ? '张图片' : 'images';
+        
         return `
         <div class="group hover-lift cursor-pointer" data-album-id="${album.id}">
             <div class="relative h-64 overflow-hidden rounded-xl bg-gray-200 mb-4">
                 <img 
                     src="${album.cover}" 
-                    alt="${album.title}" 
+                    alt="${title}" 
                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 >
                 <!-- 悬停覆盖层 -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                    <p class="text-white font-medium text-sm">点击查看 (${album.imageCount} 张图片)</p>
+                    <p class="text-white font-medium text-sm">${viewText} (${album.imageCount} ${imagesText})</p>
                 </div>
             </div>
             <h3 class="text-xl md:text-2xl font-display font-bold text-primary mb-2 group-hover:text-secondary transition-colors">
-                ${album.title}
+                ${title}
             </h3>
             <p class="text-accent font-medium text-sm mb-2">${album.date}</p>
             <p class="text-gray-700 text-sm leading-relaxed">
-                ${album.description}
+                ${description}
             </p>
         </div>
     `;
@@ -73,8 +93,10 @@ function showAlbumImages(album) {
     document.getElementById('albums-container').parentElement.style.display = 'none';
     document.getElementById('images-section').classList.remove('hidden');
 
-    // 更新标题
-    document.getElementById('album-title').textContent = album.title;
+    // 更新标题（使用本地化文本）
+    const lang = getCurrentLang();
+    const title = getLocalizedText(album.title, lang);
+    document.getElementById('album-title').textContent = title;
 
     // 从 gallerys.json 中按 albumId 获取该相册的图片
     fetch('../data/gallerys.json')

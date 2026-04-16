@@ -60,12 +60,13 @@
             
             <!-- 桌面导航 -->
             <div class="hidden md:flex items-center gap-12">
-                <a href="../index.html#about" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">关于</a>
-                <a href="../pages/gallery.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">画廊</a>
-                <a href="../pages/dancers.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">舞者</a>
-                <a href="../index.html#schedule" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">历程</a>
-                <a href="../pages/testimonials.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">舞者心语</a>
-                <a href="../index.html#contact" class="px-6 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-secondary transition-colors duration-300">联系</a>
+                <a href="../index.html#about" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300" data-i18n="nav.about">关于</a>
+                <a href="../pages/gallery.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300" data-i18n="nav.gallery">画廊</a>
+                <a href="../pages/dancers.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300" data-i18n="nav.dancers">舞者</a>
+                <a href="../index.html#schedule" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300" data-i18n="nav.schedule">历程</a>
+                <a href="../pages/testimonials.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300" data-i18n="nav.testimonials">舞者心语</a>
+                <a href="../index.html#contact" class="px-6 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-secondary transition-colors duration-300" data-i18n="nav.contact">联系</a>
+                <button id="lang-toggle" class="text-sm font-medium text-white hover:text-accent transition-colors duration-300" onclick="i18n.setLanguage(i18n.currentLang === 'zh' ? 'en' : 'zh')">EN</button>
             </div>
             
             <!-- 移动菜单按钮 -->
@@ -78,12 +79,13 @@
     <!-- 移动菜单 -->
     <div id="mobile-menu" class="hidden md:hidden fixed inset-0 top-16 z-40 bg-white">
         <div class="flex flex-col space-y-6 p-6">
-            <a href="../index.html#about" class="text-base font-medium text-dark">关于</a>
-            <a href="../pages/gallery.html" class="text-base font-medium text-dark">画廊</a>
-            <a href="../pages/dancers.html" class="text-base font-medium text-dark">舞者</a>
-            <a href="../index.html#schedule" class="text-base font-medium text-dark">历程</a>
-            <a href="../pages/testimonials.html" class="text-base font-medium text-dark">舞者心语</a>
-            <a href="../index.html#contact" class="px-4 py-2 bg-primary text-white rounded-full text-center inline-block">联系</a>
+            <a href="../index.html#about" class="text-base font-medium text-dark" data-i18n="nav.about">关于</a>
+            <a href="../pages/gallery.html" class="text-base font-medium text-dark" data-i18n="nav.gallery">画廊</a>
+            <a href="../pages/dancers.html" class="text-base font-medium text-dark" data-i18n="nav.dancers">舞者</a>
+            <a href="../index.html#schedule" class="text-base font-medium text-dark" data-i18n="nav.schedule">历程</a>
+            <a href="../pages/testimonials.html" class="text-base font-medium text-dark" data-i18n="nav.testimonials">舞者心语</a>
+            <a href="../index.html#contact" class="px-4 py-2 bg-primary text-white rounded-full text-center inline-block" data-i18n="nav.contact">联系</a>
+            <button id="lang-toggle-mobile" class="text-base font-medium text-dark text-left" onclick="i18n.setLanguage(i18n.currentLang === 'zh' ? 'en' : 'zh')">English</button>
         </div>
     </div>
 
@@ -93,9 +95,9 @@
         <section class="py-12 bg-white">
             <div class="container mx-auto px-6">
                 <div class="max-w-2xl mx-auto text-center mb-12">
-                    <h1 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">画廊</h1>
+                    <h1 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6" data-i18n="gallery.title">画廊</h1>
                     <div class="line-separator mb-6"></div>
-                    <p class="text-lg text-gray-700">
+                    <p class="text-lg text-gray-700" data-i18n="gallery.page.subtitle">
                         探索我们的舞蹈作品与创作过程
                     </p>
                 </div>
@@ -113,7 +115,7 @@
                 <div class="mb-8 flex items-center gap-4">
                     <button id="back-to-albums" class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-secondary transition-colors">
                         <i class="fa fa-chevron-left"></i>
-                        返回相册
+                        <span data-i18n="gallery.back">返回相册</span>
                     </button>
                     <h2 id="album-title" class="text-2xl md:text-3xl font-display font-bold text-primary"></h2>
                 </div>
@@ -170,26 +172,26 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div>
-                    <h3 class="text-lg font-display font-bold mb-4">有情</h3>
-                    <p class="text-white/70 text-sm leading-relaxed">
+                    <h3 class="text-lg font-display font-bold mb-4" data-i18n="footer.brand">有情</h3>
+                    <p class="text-white/70 text-sm leading-relaxed" data-i18n="footer.brand.desc">
                         素人共创生态舞作，用身体传递爱与关切
                     </p>
                 </div>
                 
                 <div>
-                    <h4 class="text-sm font-semibold mb-4">页面</h4>
+                    <h4 class="text-sm font-semibold mb-4" data-i18n="footer.pages">页面</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="../index.html#about" class="text-white/70 hover:text-white transition-colors">关于</a></li>
-                        <li><a href="../pages/gallery.html" class="text-white/70 hover:text-white transition-colors">画廊</a></li>
-                        <li><a href="../pages/dancers.html" class="text-white/70 hover:text-white transition-colors">舞者</a></li>
-                        <li><a href="../pages/testimonials.html" class="text-white/70 hover:text-white transition-colors">舞者心语</a></li>
+                        <li><a href="../index.html#about" class="text-white/70 hover:text-white transition-colors" data-i18n="nav.about">关于</a></li>
+                        <li><a href="../pages/gallery.html" class="text-white/70 hover:text-white transition-colors" data-i18n="nav.gallery">画廊</a></li>
+                        <li><a href="../pages/dancers.html" class="text-white/70 hover:text-white transition-colors" data-i18n="nav.dancers">舞者</a></li>
+                        <li><a href="../pages/testimonials.html" class="text-white/70 hover:text-white transition-colors" data-i18n="nav.testimonials">舞者心语</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-sm font-semibold mb-4">参与</h4>
+                    <h4 class="text-sm font-semibold mb-4" data-i18n="footer.join">参与</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="../index.html#contact" class="text-white/70 hover:text-white transition-colors">成为舞者</a></li>
+                        <li><a href="../index.html#contact" class="text-white/70 hover:text-white transition-colors" data-i18n="footer.beDancer">成为舞者</a></li>
                         <li><a href="../index.html#contact" class="hidden text-white/70 hover:text-white transition-colors">工作坊</a></li>
                         <li><a href="../index.html#contact" class="hidden text-white/70 hover:text-white transition-colors">合作</a></li>
                         <li><a href="../index.html#contact" class="hidden text-white/70 hover:text-white transition-colors">支持</a></li>
@@ -197,7 +199,7 @@
                 </div>
                 
                 <div>
-                    <h4 class="text-sm font-semibold mb-4">社交</h4>
+                    <h4 class="text-sm font-semibold mb-4" data-i18n="footer.social">社交</h4>
                     <div class="flex gap-4 relative">
                         <!-- 微信 -->
                         <div class="relative group">
@@ -273,12 +275,13 @@
             </div>
             
             <div class="border-t border-white/10 pt-8 text-center text-sm text-white/60">
-                <p>© <span id="current-year">2025</span> Wing Dance Theatre. 保留所有权利。</p>
+                <p>© <span id="current-year">2025</span> Wing Dance Theatre. <span data-i18n="footer.copyright">保留所有权利。</span></p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
+    <script src="../js/i18n.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/gallery.js"></script>
 </body>

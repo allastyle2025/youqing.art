@@ -3,120 +3,227 @@
         {
             "id": 1,
             "name": "米鹿",
+            "nameEn": "Milo",
             "year": "2024",
-            "category": "2024年演出回顾",
-            "title": "2024年参与感想",
+            "category": {
+                "zh": "2024年演出回顾",
+                "en": "2024 Performance Review"
+            },
+            "title": {
+                "zh": "2024年参与感想",
+                "en": "Reflections on 2024 Participation"
+            },
             "content": "（米鹿分享链接）",
+            "contentEn": "(Milo's sharing link)",
             "link": "https://mp.weixin.qq.com/s/DCjNYsqJb4RvjHHwd2zfWg"
         },
         {
             "id": 2,
             "name": "张舒越",
+            "nameEn": "Zhang Shuyue",
             "year": "2025",
-            "category": "深圳蛇口戏剧节",
-            "title": "2025深圳蛇口戏剧节有情舞者艺术共创《女娲》演出后的感悟",
+            "category": {
+                "zh": "深圳蛇口戏剧节",
+                "en": "Shenzhen Shekou Theatre Festival"
+            },
+            "title": {
+                "zh": "2025深圳蛇口戏剧节有情舞者艺术共创《女娲》演出后的感悟",
+                "en": "Reflections After Performing 'Nüwa' at 2025 Shekou Theatre Festival"
+            },
             "content": "11月8日是一个值得我回忆一生的日子，我不只是一名素人舞者，我是被赋予女娲的能量跨越了时空的通道，让一位远古的母神，借由我的身体，重新诉说她的故事。我的每一次呼吸，都是宇宙的吐纳，我的身体，是宇宙间第一股流动的力。每一个舒展，每一次涌动，都是在虚空中划出生命的轨迹。\n\n女娲的精神，已经像一颗种子，在我的身体里扎根、生长。创造，是每个人的本能，我们用双手创造生活，用思想创造未来，用爱创造关系，这便是女娲造人在日常中的回响。慈爱，是最坚韧的力量。守护，是我们的共同使命。这场演出，不是结束，而是一个开始。我们每个人，都可以是自己生命的女娲。",
+            "contentEn": "November 8th is a day I will remember for the rest of my life. I am not just an amateur dancer; I have been endowed with the energy of Nüwa, crossing the channel of time and space, allowing an ancient mother goddess to retell her story through my body. Every breath I take is the universe's respiration; my body is the first flowing force in the cosmos. Every stretch, every surge, traces the trajectory of life in the void.\n\nThe spirit of Nüwa has taken root and grown in my body like a seed. Creation is everyone's instinct. We create life with our hands, the future with our thoughts, and relationships with love. This is the echo of Nüwa creating humanity in daily life. Compassion is the most resilient power. Protection is our shared mission. This performance is not an end, but a beginning. Each of us can be the Nüwa of our own lives.",
             "date": "2025年11月11日",
+            "dateEn": "November 11, 2025",
             "link": ""
         },
         {
             "id": 3,
             "name": "双木",
+            "nameEn": "Shuang Mu",
             "year": "2025",
-            "category": "崇生家园演出",
-            "title": "有情2025年演出记录（双木）",
+            "category": {
+                "zh": "崇生家园演出",
+                "en": "Chongsheng Home Performance"
+            },
+            "title": {
+                "zh": "有情2025年演出记录（双木）",
+                "en": "You Qing 2025 Performance Record (Shuang Mu)"
+            },
             "content": "对比去年在麓湖大草坪上的作品，今年在崇生家园湖边沙地上的作品更向下行（更落地），从集体聚焦到个体层面。两个作品都有类似的结构：万物源头衍生出底下的形色众生，众生在痛苦中打开、窥见源头，接收到源头的召唤、启发、指引，获得力量。\n\n跟柏拉图练习,缠绵的那天晚上，身体的质感有很大的不同。这两个场景，我觉得自己进入一种近似于管道的创作状态。演出时，舞台上的静肃感一下子就出来了。每位舞台上伙伴都在支持这份静肃感，我被静肃感勾起的内心情感驱动着。",
+            "contentEn": "Compared to last year's work on the large lawn at Luhu, this year's work on the sandy ground by the lake at Chongsheng Home goes deeper (more grounded), shifting from collective focus to individual level. Both works have similar structures: the source of all things gives rise to the diverse beings below; beings open up through suffering, glimpse the source, receive its call, inspiration, and guidance, and gain strength.\n\nThe night I practiced entwining with Plato, the texture of my body was very different. In these two scenes, I felt I entered a creative state similar to being a channel. During the performance, a sense of solemn stillness immediately emerged on stage. Every partner on stage supported this stillness, and I was driven by the inner emotions evoked by this solemn feeling.",
             "date": "2025年",
+            "dateEn": "2025",
             "link": ""
         },
         {
             "id": 4,
             "name": "龚翊",
+            "nameEn": "Gong Yi",
             "year": "2025",
-            "category": "崇生家园演出",
-            "title": "有情2025年演出记录（龚翊）",
+            "category": {
+                "zh": "崇生家园演出",
+                "en": "Chongsheng Home Performance"
+            },
+            "title": {
+                "zh": "有情2025年演出记录（龚翊）",
+                "en": "You Qing 2025 Performance Record (Gong Yi)"
+            },
             "content": "第二次线上共创时，当我跟随着老师的引导照做时，泪水一下子盈满了我的眼眶。我瞬间感到有阳光照进胸膛，心中一片光明。演出时，当我渐渐长大，我尽量打开双臂、敞开胸膛，希望表达出一个生灵在盖娅母亲的花园里沐浴阳光、随风起舞的喜悦。\n\n被什么打动了？我觉得当时其实并没有完全领会他们想表达的意思，但是看到他们投入的状态，觉得打动我的是，在那个当下，我感受到了人的平凡，也感受到了他的珍贵——我们都带着局限，但这不妨碍我们葆有一颗赤子真心。",
+            "contentEn": "During the second online co-creation session, when I followed the teacher's guidance, tears suddenly filled my eyes. I instantly felt sunlight shining into my chest, and my heart was filled with light. During the performance, as I gradually grew, I tried to open my arms and chest wide, hoping to express the joy of a being bathing in sunlight in Mother Gaia's garden, dancing with the wind.\n\nWhat moved me? I think at that time, I didn't fully understand what they wanted to express, but seeing their devoted state, what touched me was that in that moment, I felt the ordinariness of people and also their preciousness—we all have limitations, but this doesn't prevent us from maintaining a pure, sincere heart.",
             "date": "2025年",
+            "dateEn": "2025",
             "link": ""
         },
         {
             "id": 5,
             "name": "鲁俐君",
+            "nameEn": "Lu Lijun",
             "year": "2025",
-            "category": "崇生家园演出",
-            "title": "2025年10月7日崇生家园, 有情素人舞作后感",
+            "category": {
+                "zh": "崇生家园演出",
+                "en": "Chongsheng Home Performance"
+            },
+            "title": {
+                "zh": "2025年10月7日崇生家园, 有情素人舞作后感",
+                "en": "Reflections on You Qing Amateur Dance at Chongsheng Home, October 7, 2025"
+            },
             "content": "当天上台前心里还是会有一点紧张，当时就想到发起人Myra是多有内核的一个女生，真的是小身板大能量。我们花园组出场的时候提醒自己发心就是为地球母亲献上一支舞，所以上台之后没有看观众，仅沉浸在和伙伴们的舞动中。\n\n我们的整个作品是从混沌初始，慢慢发展到了一个混乱阶段。好似在宇宙中抛了一个石子，荡开的涟漪我希望扩散到世界各地。来到家园的那刻，虽是线下第一次见面，但没有陌生感。印象最深刻的就属在选衣服过程中，大家会彼此交换，就好像是一种爱的传递爱的流动。",
+            "contentEn": "Before going on stage that day, I still felt a bit nervous. I thought of how Myra, the initiator, is such a powerful woman with a strong core—truly small in stature but with great energy. When our garden group came on stage, I reminded myself that my intention was to offer a dance to Mother Earth, so after going on stage, I didn't look at the audience but immersed myself in dancing with my partners.\n\nOur entire work developed from initial chaos to a stage of disorder. Like throwing a pebble into the universe, I hope the ripples spread to every corner of the world. The moment I arrived at the home, although it was our first offline meeting, there was no sense of strangeness. What impressed me most was during the clothing selection process, everyone would exchange with each other, as if it were a flow of love being passed around.",
             "date": "2025年10月13日",
+            "dateEn": "October 13, 2025",
             "link": ""
         },
         {
             "id": 6,
             "name": "黑豆妈妈",
+            "nameEn": "Black Bean Mom",
             "year": "2025",
-            "category": "深圳蛇口戏剧节",
-            "title": "2025年11月9日晨记",
+            "category": {
+                "zh": "深圳蛇口戏剧节",
+                "en": "Shenzhen Shekou Theatre Festival"
+            },
+            "title": {
+                "zh": "2025年11月9日晨记",
+                "en": "Morning Journal, November 9, 2025"
+            },
             "content": "今早闭着眼坐在马桶上时，脑袋不由自主的左歪右晃起来，似乎有一股缓慢柔软的力量还在我体内荡漾……打开窗帘，阳光照进来。我眼前浮现出坚定的目光和护佑的手势，带着光向我们走来……\n\n很特别的一次经历。而我终于躺在了女娲广场上！那些奔跑、飞翔、翻滚、匍匐、跪、爬……触摸和流泪，都留在了那个女娲广场，留在那个即将走向未来的时刻。伙伴们！未来见！",
+            "contentEn": "This morning, sitting on the toilet with my eyes closed, my head involuntarily swayed left and right, as if a slow, soft force was still rippling through my body... Opening the curtains, sunlight streamed in. Before my eyes appeared determined gazes and protective gestures, walking toward us with light...\n\nA very special experience. And I finally lay on Nüwa Square! Those runs, flights, rolls, crawls, kneels, climbs... touches and tears, all remained at that Nüwa Square, at that moment about to step into the future. Partners! See you in the future!",
             "date": "2025年11月9日",
+            "dateEn": "November 9, 2025",
             "link": ""
         },
         {
             "id": 7,
             "name": "乐毅",
+            "nameEn": "Le Yi",
             "year": "2025",
-            "category": "深圳蛇口戏剧节",
-            "title": "蛇口《女娲·万物生》之行感悟",
+            "category": {
+                "zh": "深圳蛇口戏剧节",
+                "en": "Shenzhen Shekou Theatre Festival"
+            },
+            "title": {
+                "zh": "蛇口《女娲·万物生》之行感悟",
+                "en": "Reflections on the Shekou 'Nüwa: All Things Grow' Journey"
+            },
             "content": "此次蛇口《女娲·万物生》之行，如同一场身心灵的深度涤荡，每一幕都在记忆里熠熠生辉。我们从海边捡拾垃圾开始，在浪潮与沙粒之间，弯腰俯身的刹那，仿佛也开启了一场内心的清扫仪式。\n\nMyra老师以艺术家的慧眼，将海边那截枯木点化为神木。由衷敬佩所有舞者的全情投入。大家来自五湖四海，每一次排练流下的汗水，都已深深烙印在这片土地上。感谢所有幕前幕后的伙伴，愿我们将这份难得的情意，融入日常，传递至更远的地方。",
+            "contentEn": "This journey to Shekou for 'Nüwa: All Things Grow' was like a deep cleansing of body, mind, and soul, with every scene shining brightly in memory. We started by picking up garbage by the seaside, and in the moment of bending down between waves and sand, it seemed to initiate an inner cleansing ritual.\n\nTeacher Myra, with an artist's discerning eye, transformed that piece of dead wood by the sea into a divine tree. I sincerely admire all the dancers' wholehearted dedication. Everyone came from all corners of the country; every drop of sweat shed during rehearsals has been deeply imprinted on this land. Thank you to all partners on and off stage. May we integrate this rare affection into daily life and pass it to farther places.",
             "date": "2025年",
+            "dateEn": "2025",
             "link": ""
         },
         {
             "id": 8,
             "name": "朵云",
+            "nameEn": "Duo Yun",
             "year": "2025",
-            "category": "共创心得",
-            "title": "身体的自由表达之路—2025参与有情共创心得",
+            "category": {
+                "zh": "共创心得",
+                "en": "Co-creation Insights"
+            },
+            "title": {
+                "zh": "身体的自由表达之路—2025参与有情共创心得",
+                "en": "The Path to Free Body Expression—2025 You Qing Co-creation Insights"
+            },
             "content": "从小与舞蹈无缘，2025年机缘巧合，有幸参与了两次《有情》项目的舞蹈共创。第一次在上海崇明岛见到Myra老师，发现她总是看到每个人的优点，对缺点包容。不知道为什么，我心里是打开的状态，和大家打成一片，真实的呈现自己的情绪与身体状态。\n\n印象深的是和每个人都有些连接，看到了每个人的独一无二与个性，在与大家的互动中，倾听对方，认识自己，内心变得比原来自信、平和、有力量了。一周共创里有对于演出场地雕塑女娲补天的讨论、海边做环保志愿者、参观天后庙、身体练习等等。",
+            "contentEn": "I had no connection with dance since childhood, but by chance in 2025, I was fortunate to participate twice in the You Qing project's dance co-creation. The first time I met Teacher Myra on Chongming Island, Shanghai, I found that she always sees everyone's strengths and is tolerant of weaknesses. I don't know why, but my heart was open, I got along well with everyone, and genuinely presented my emotions and physical state.\n\nWhat impressed me deeply was having some connection with everyone, seeing each person's uniqueness and personality. In interactions with everyone, listening to others and recognizing myself, my heart became more confident, peaceful, and powerful than before. During the week of co-creation, there were discussions about the Nüwa mending the sky sculpture at the performance venue, volunteering for environmental protection by the sea, visiting the Tin Hau Temple, body practice, and more.",
             "date": "2025年",
+            "dateEn": "2025",
             "link": ""
         },
         {
             "id": 9,
             "name": "鲁俐君",
+            "nameEn": "Lu Lijun",
             "year": "2025",
-            "category": "深圳蛇口戏剧节",
-            "title": "2025年11月8日蛇口有情共创女娲",
+            "category": {
+                "zh": "深圳蛇口戏剧节",
+                "en": "Shenzhen Shekou Theatre Festival"
+            },
+            "title": {
+                "zh": "2025年11月8日蛇口有情共创女娲",
+                "en": "You Qing Co-creation of Nüwa in Shekou, November 8, 2025"
+            },
             "content": "自从蛇口回来每天都要放点音乐动一下身体，不动就好似哪里不舒服！这一次和上次在上海不一样的是上海还带着神秘的面纱，而这次感觉所有的一切都像是冥冥之中注定好的。无论中途发生了什么，还是在临开场时音乐故障，这一切都不会影响到内在沉稳的那颗心。\n\n全程是放松的是享受的，体验更深刻的是和伙伴们的链接。对大家了解越深入越能发现每个人的独特。大家贡献着自己的时间精力以及对彼此的包容接受和尊重。感谢Myra发起了这么有爱的一个项目，也感谢每一位伙伴让我照见了自己。",
+            "contentEn": "Since returning from Shekou, I have to play some music and move my body every day; if I don't, I feel uncomfortable! What was different from Shanghai was that Shanghai still had a mysterious veil, but this time everything felt destined. No matter what happened in between, or even the music malfunction right before the performance, none of it affected the calmness of my inner heart.\n\nThe whole process was relaxed and enjoyable. What I experienced more deeply was the connection with my partners. The more I got to know everyone, the more I could discover each person's uniqueness. Everyone contributed their time, energy, and mutual tolerance, acceptance, and respect. Thank you to Myra for initiating such a loving project, and thank you to every partner for helping me see myself.",
             "date": "2025年11月8日",
+            "dateEn": "November 8, 2025",
             "link": ""
         },
         {
             "id": 10,
             "name": "何一",
+            "nameEn": "He Yi",
             "year": "2025",
-            "category": "共创心得",
-            "title": "有情·女娲共创",
+            "category": {
+                "zh": "共创心得",
+                "en": "Co-creation Insights"
+            },
+            "title": {
+                "zh": "有情·女娲共创",
+                "en": "You Qing · Nüwa Co-creation"
+            },
             "content": "听着有情的音乐，回想今年的两次有情共创，相比去年第一次参与，今年和有情链接更深了。为什么会参加有情？身体会有一种回响，舒服的，自由的，流动的，会荡漾出在myra和各位有情伙伴们共同营造出的有情共创场域里，那种真实身体的链接，允许，接纳，流动，尊重，是每次有情非常大的滋养。\n\n有情应该是一种召唤吧。一种和自己内在链接的召唤，一种当下、有爱的，慈悲的召唤，一种由内向外流动的召唤，一种地球，甚至是宇宙的召唤。",
+            "contentEn": "Listening to You Qing's music, recalling this year's two You Qing co-creations, compared to my first participation last year, my connection with You Qing is deeper this year. Why participate in You Qing? The body has a resonance—comfortable, free, flowing—that ripples in the You Qing co-creation field jointly created by Myra and all the You Qing partners. That real physical connection, allowance, acceptance, flow, and respect are great nourishment every time.\n\nYou Qing should be a calling. A calling to connect with one's inner self, a calling of presence, love, and compassion, a calling that flows from inside out, a calling of the Earth, even the universe.",
             "date": "2025年11月14日",
+            "dateEn": "November 14, 2025",
             "link": ""
         },
         {
             "id": 11,
             "name": "花花",
+            "nameEn": "Hua Hua",
             "year": "2025",
-            "category": "深圳蛇口戏剧节",
-            "title": "加入有情项目的蜕变之旅",
+            "category": {
+                "zh": "深圳蛇口戏剧节",
+                "en": "Shenzhen Shekou Theatre Festival"
+            },
+            "title": {
+                "zh": "加入有情项目的蜕变之旅",
+                "en": "The Transformative Journey of Joining You Qing"
+            },
             "content": "加入有情项目成为舞者，绝对会是我现在蜕变期的转折点。冥冥之中，一切都会有指引。参与的整个过程，从第一天舒越姐发言开始身体升起的暖流一直流淌到最后一天。\n\n在演出中，我感觉经历了混沌沉睡、苏醒轻盈、相联融合、好奇欢喜、害怕胆怯、勇者觉醒、无能无力、悲痛不忍、同心聚力笃定向前的力量、重归大爱、省悟内观、到最后发现自己本就是光，泪水混着汗水，又感动又释放，舒畅无比。有情是需要参与才能体悟其更多更深意义的项目。",
+            "contentEn": "Joining the You Qing project as a dancer will definitely be a turning point in my current transformative period. In the unseen, everything has guidance. Throughout the entire participation process, from the first day when Sister Shuyue spoke, the warm current rising in my body flowed continuously until the last day.\n\nDuring the performance, I felt I experienced chaos and sleep, awakening and lightness, connection and fusion, curiosity and joy, fear and timidity, the awakening of the brave, powerlessness, unbearable grief, the power of unity and determination to move forward, returning to great love, introspection and insight, and finally discovering that I myself am light. Tears mixed with sweat, moved and released, incredibly comfortable. You Qing is a project that requires participation to comprehend its deeper meanings.",
             "date": "2025年11月14日",
+            "dateEn": "November 14, 2025",
             "link": ""
         },
         {
             "id": 12,
             "name": "双木",
+            "nameEn": "Shuang Mu",
             "year": "2025",
-            "category": "深圳蛇口戏剧节",
-            "title": "蛇口之旅反思与感受",
+            "category": {
+                "zh": "深圳蛇口戏剧节",
+                "en": "Shenzhen Shekou Theatre Festival"
+            },
+            "title": {
+                "zh": "蛇口之旅反思与感受",
+                "en": "Reflections and Feelings on the Shekou Journey"
+            },
             "content": "从已经穿棉袄的北京来到十一月的深圳，一下子换上了短袖。属于广东的熟悉记忆又回来了。这次的演出场地——女娲广场，在高楼环绕的下沉广场里，在人工的硬质地上赤脚舞动，我能感觉到我的双脚明显没有被地面柔软地接纳。\n\n这次多次的极限共创过程让我真实地经验了链接当下的创作的可能性和可行性。作品共创的要义——每个人都可以平等地对主题阐发自己的想法，用身体去经验、在经验和呈现中找到可以接入主题的元素，彼此一点点地把框架搭建起来，所有人聚合在一起，那些线条最后托举出一朵花来。",
+            "contentEn": "Coming from Beijing, where we were already wearing cotton-padded clothes, to Shenzhen in November, I suddenly changed into short sleeves. The familiar memories of Guangdong returned. This performance venue—Nüwa Square, in a sunken plaza surrounded by high-rise buildings, dancing barefoot on artificial hard ground—I could clearly feel that my feet were not softly received by the ground.\n\nThis multiple extreme co-creation process allowed me to truly experience the possibility and feasibility of connecting with the present moment in creation. The essence of work co-creation—everyone can equally express their ideas about the theme, experience with the body, find elements that can connect to the theme in experience and presentation, build the framework bit by bit with each other, and when everyone gathers together, those lines finally lift up a flower.",
             "date": "2025年11月14日",
+            "dateEn": "November 14, 2025",
             "link": ""
         }
     ]

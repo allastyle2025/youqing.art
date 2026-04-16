@@ -43,6 +43,25 @@
         })();
     </script>
     
+    <!-- 国际化脚本 -->
+    <script src="js/i18n.js"></script>
+    <script>
+        // 监听来自父页面的语言切换消息
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'languageChange') {
+                i18n.setLanguage(event.data.lang);
+            }
+        });
+        
+        // 页面加载时检查父页面的语言设置
+        window.addEventListener('load', function() {
+            // 尝试从父页面获取语言设置
+            if (window.parent && window.parent.i18n) {
+                i18n.setLanguage(window.parent.i18n.currentLang);
+            }
+        });
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -138,17 +157,17 @@
             <div class="max-w-2xl w-full scale-95 sm:scale-100 md:scale-100 origin-top md:origin-center pt-24">
                 
                 <!-- 主标题 -->
-                <h1 class="text-4xl sm:text-8xl md:text-8xl lg:text-8xl font-display font-bold text-white leading-tight mb-2 md:mb-6 animate-slide-left" style="animation-delay: 0.3s; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <h1 class="text-4xl sm:text-8xl md:text-8xl lg:text-8xl font-display font-bold text-white leading-tight mb-2 md:mb-6 animate-slide-left" style="animation-delay: 0.3s; text-shadow: 0 4px 20px rgba(0,0,0,0.5);" data-i18n="hero.mainTitle" data-i18n-html>
                     众生<br/>有情
                 </h1>
                 
                 <!-- 副标题 -->
-                <p class="text-sm md:text-lg text-accent/90 font-medium mb-8 md:mb-10 max-w-xl animate-slide-left" style="animation-delay: 0.4s">
+                <p class="text-sm md:text-lg text-accent/90 font-medium mb-8 md:mb-10 max-w-xl animate-slide-left" style="animation-delay: 0.4s" data-i18n="hero.tagline">
                     一场献给地球的舞作
                 </p>
                 <p class="mb-24 md:mb-0"></p>
                 <!-- 描述文本 -->
-                <p class="text-xs sm:text-sm md:text-base text-white/85 leading-relaxed mb-8 md:mb-16 max-w-xs sm:max-w-lg font-light animate-slide-up" style="animation-delay: 0.5s">
+                <p class="text-xs sm:text-sm md:text-base text-white/85 leading-relaxed mb-8 md:mb-16 max-w-xs sm:max-w-lg font-light animate-slide-up" style="animation-delay: 0.5s" data-i18n="hero.description">
                     这是一出以「美好新地球」为蓝图的生态舞作，也是由天南海北的素人舞者自发汇集的持续性艺术行动
                 </p>
                 
@@ -167,15 +186,15 @@
                 <div class="mt-20 md:mt-16 pt-12 md:pt-6 border-t border-white/20 grid grid-cols-3 md:grid-cols-3 gap-4 md:gap-8 animate-fade-in" style="animation-delay: 0.7s">
                     <div class="text-center md:text-left">
                         <div class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-accent mb-1 md:mb-2">30+</div>
-                        <p class="text-xs md:text-sm text-white/70">位素人舞者</p>
+                        <p class="text-xs md:text-sm text-white/70" data-i18n="hero.stats.dancers">位素人舞者</p>
                     </div>
                     <div class="text-center md:text-left">
                         <div class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-accent mb-1 md:mb-2">2026</div>
-                        <p class="text-xs md:text-sm text-white/70">年度演出</p>
+                        <p class="text-xs md:text-sm text-white/70" data-i18n="hero.stats.year">年度演出</p>
                     </div>
                     <div class="text-center md:text-left">
                         <div class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-accent mb-1 md:mb-2">∞</div>
-                        <p class="text-xs md:text-sm text-white/70">无限可能</p>
+                        <p class="text-xs md:text-sm text-white/70" data-i18n="hero.stats.possibilities">无限可能</p>
                     </div>
                 </div>
             </div>
@@ -190,7 +209,7 @@
         <!-- 向下滚动指示器 -->
         <div class="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
             <div class="flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors cursor-pointer" onclick="document.querySelector('#about')?.scrollIntoView({behavior: 'smooth'})">
-                <span class="text-xs font-medium">向下探索</span>
+                <span class="text-xs font-medium" data-i18n="hero.scrollDown">向下探索</span>
                 <i class="fa fa-chevron-down text-base"></i>
             </div>
         </div>

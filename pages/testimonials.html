@@ -60,12 +60,13 @@
             
             <!-- 桌面导航 -->
             <div class="hidden md:flex items-center gap-12">
-                <a href="../index.html#about" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">关于</a>
-                <a href="../pages/gallery.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">画廊</a>
-                <a href="../pages/dancers.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">舞者</a>
-                <a href="../index.html#schedule" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">历程</a>
-                <a href="../pages/testimonials.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300">舞者心语</a>
-                <a href="../index.html#contact" class="px-6 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-secondary transition-colors duration-300">联系</a>
+                <a href="../index.html#about" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300" data-i18n="nav.about">关于</a>
+                <a href="../pages/gallery.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300" data-i18n="nav.gallery">画廊</a>
+                <a href="../pages/dancers.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300" data-i18n="nav.dancers">舞者</a>
+                <a href="../index.html#schedule" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300" data-i18n="nav.schedule">历程</a>
+                <a href="../pages/testimonials.html" class="navbar-link text-sm font-medium text-white hover:text-accent transition-colors duration-300" data-i18n="nav.testimonials">舞者心语</a>
+                <a href="../index.html#contact" class="px-6 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-secondary transition-colors duration-300" data-i18n="nav.contact">联系</a>
+                <button id="lang-toggle" class="text-sm font-medium text-white hover:text-accent transition-colors duration-300" onclick="i18n.setLanguage(i18n.currentLang === 'zh' ? 'en' : 'zh')">EN</button>
             </div>
             
             <!-- 移动菜单按钮 -->
@@ -78,12 +79,13 @@
     <!-- 移动菜单 -->
     <div id="mobile-menu" class="hidden md:hidden fixed inset-0 top-16 z-40 bg-white">
         <div class="flex flex-col space-y-6 p-6">
-            <a href="../index.html#about" class="text-base font-medium text-dark">关于</a>
-            <a href="../pages/gallery.html" class="text-base font-medium text-dark">画廊</a>
-            <a href="../pages/dancers.html" class="text-base font-medium text-dark">舞者</a>
-            <a href="../index.html#schedule" class="text-base font-medium text-dark">历程</a>
-            <a href="../pages/testimonials.html" class="text-base font-medium text-dark">舞者心语</a>
-            <a href="../index.html#contact" class="px-4 py-2 bg-primary text-white rounded-full text-center inline-block">联系</a>
+            <a href="../index.html#about" class="text-base font-medium text-dark" data-i18n="nav.about">关于</a>
+            <a href="../pages/gallery.html" class="text-base font-medium text-dark" data-i18n="nav.gallery">画廊</a>
+            <a href="../pages/dancers.html" class="text-base font-medium text-dark" data-i18n="nav.dancers">舞者</a>
+            <a href="../index.html#schedule" class="text-base font-medium text-dark" data-i18n="nav.schedule">历程</a>
+            <a href="../pages/testimonials.html" class="text-base font-medium text-dark" data-i18n="nav.testimonials">舞者心语</a>
+            <a href="../index.html#contact" class="px-4 py-2 bg-primary text-white rounded-full text-center inline-block" data-i18n="nav.contact">联系</a>
+            <button id="lang-toggle-mobile" class="text-base font-medium text-dark text-left" onclick="i18n.setLanguage(i18n.currentLang === 'zh' ? 'en' : 'zh')">English</button>
         </div>
     </div>
 
@@ -93,9 +95,9 @@
         <section class="py-12 md:py-16 bg-soft">
             <div class="container mx-auto px-6">
                 <div class="max-w-3xl mx-auto text-center">
-                    <h1 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">舞者心语</h1>
+                    <h1 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6" data-i18n="testimonials.page.title">舞者心语</h1>
                     <div class="line-separator mb-6 mx-auto"></div>
-                    <p class="text-lg text-gray-700 leading-relaxed">
+                    <p class="text-lg text-gray-700 leading-relaxed" data-i18n="testimonials.page.subtitle">
                         来自素人舞者的真实感悟与心路历程，记录每一次身体与灵魂的对话
                     </p>
                 </div>
@@ -108,16 +110,16 @@
                 <div class="max-w-4xl mx-auto">
                     <div class="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
                         <div>
-                            <p class="text-sm font-medium text-gray-600 mb-3 md:mb-0">按年份/分类过滤：</p>
+                            <p class="text-sm font-medium text-gray-600 mb-3 md:mb-0" data-i18n="testimonials.filter.label">按年份/分类过滤：</p>
                         </div>
                         <div class="flex flex-wrap gap-2">
-                            <button class="filter-btn text-sm px-4 py-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors" data-filter="all">
+                            <button class="filter-btn text-sm px-4 py-2 rounded-full bg-primary text-white hover:bg-secondary transition-colors" data-filter="all" data-i18n="testimonials.filter.all">
                                 全部
                             </button>
-                            <button class="filter-btn text-sm px-4 py-2 rounded-full bg-white border border-gray-300 text-dark hover:border-accent transition-colors" data-filter="2024">
+                            <button class="filter-btn text-sm px-4 py-2 rounded-full bg-white border border-gray-300 text-dark hover:border-accent transition-colors" data-filter="2024" data-i18n="testimonials.filter.2024">
                                 2024年
                             </button>
-                            <button class="filter-btn text-sm px-4 py-2 rounded-full bg-white border border-gray-300 text-dark hover:border-accent transition-colors" data-filter="2025">
+                            <button class="filter-btn text-sm px-4 py-2 rounded-full bg-white border border-gray-300 text-dark hover:border-accent transition-colors" data-filter="2025" data-i18n="testimonials.filter.2025">
                                 2025年
                             </button>
                         </div>
@@ -132,7 +134,7 @@
                 <div id="testimonials-container" class="max-w-4xl mx-auto space-y-6">
                     <!-- Testimonials will be loaded here -->
                     <div class="text-center py-12">
-                        <p class="text-gray-600">正在加载中...</p>
+                        <p class="text-gray-600" data-i18n="testimonials.loading">正在加载中...</p>
                     </div>
                 </div>
             </div>
@@ -144,34 +146,34 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div>
-                    <h3 class="text-lg font-display font-bold mb-4">有情</h3>
-                    <p class="text-white/70 text-sm leading-relaxed">
+                    <h3 class="text-lg font-display font-bold mb-4" data-i18n="footer.brand">有情</h3>
+                    <p class="text-white/70 text-sm leading-relaxed" data-i18n="footer.brand.desc">
                         素人共创生态舞作，用身体传递爱与关切
                     </p>
                 </div>
-                
+
                 <div>
-                    <h4 class="text-sm font-semibold mb-4">页面</h4>
+                    <h4 class="text-sm font-semibold mb-4" data-i18n="footer.pages">页面</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="../index.html#about" class="text-white/70 hover:text-white transition-colors">关于</a></li>
-                        <li><a href="../pages/gallery.html" class="text-white/70 hover:text-white transition-colors">画廊</a></li>
-                        <li><a href="../pages/dancers.html" class="text-white/70 hover:text-white transition-colors">舞者</a></li>
-                        <li><a href="../pages/testimonials.html" class="text-white/70 hover:text-white transition-colors">舞者心语</a></li>
+                        <li><a href="../index.html#about" class="text-white/70 hover:text-white transition-colors" data-i18n="nav.about">关于</a></li>
+                        <li><a href="../pages/gallery.html" class="text-white/70 hover:text-white transition-colors" data-i18n="nav.gallery">画廊</a></li>
+                        <li><a href="../pages/dancers.html" class="text-white/70 hover:text-white transition-colors" data-i18n="nav.dancers">舞者</a></li>
+                        <li><a href="../pages/testimonials.html" class="text-white/70 hover:text-white transition-colors" data-i18n="nav.testimonials">舞者心语</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
-                    <h4 class="text-sm font-semibold mb-4">参与</h4>
+                    <h4 class="text-sm font-semibold mb-4" data-i18n="footer.join">参与</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="../index.html#contact" class="text-white/70 hover:text-white transition-colors">成为舞者</a></li>
+                        <li><a href="../index.html#contact" class="text-white/70 hover:text-white transition-colors" data-i18n="footer.beDancer">成为舞者</a></li>
                         <li><a href="../index.html#contact" class="hidden text-white/70 hover:text-white transition-colors">工作坊</a></li>
                         <li><a href="../index.html#contact" class="hidden text-white/70 hover:text-white transition-colors">合作</a></li>
                         <li><a href="../index.html#contact" class="hidden text-white/70 hover:text-white transition-colors">支持</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
-                    <h4 class="text-sm font-semibold mb-4">社交</h4>
+                    <h4 class="text-sm font-semibold mb-4" data-i18n="footer.social">社交</h4>
                     <div class="flex gap-4 relative">
                         <!-- 微信 -->
                         <div class="relative group">
@@ -247,15 +249,29 @@
             </div>
             
             <div class="border-t border-white/10 pt-8 text-center text-sm text-white/60">
-                <p>© <span id="current-year">2025</span> Wing Dance Theatre. 保留所有权利。</p>
+                <p>© <span id="current-year">2025</span> Wing Dance Theatre. <span data-i18n="footer.copyright">保留所有权利。</span></p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
+    <script src="../js/i18n.js"></script>
     <script src="../js/main.js"></script>
     <script>
         let allTestimonials = [];
+
+        // 获取当前语言
+        function getCurrentLang() {
+            return (typeof i18n !== 'undefined' && i18n.currentLang) ? i18n.currentLang : 'zh';
+        }
+
+        // 获取本地化文本
+        function getLocalizedText(obj, lang) {
+            if (typeof obj === 'object' && obj !== null) {
+                return obj[lang] || obj['zh'] || '';
+            }
+            return obj || '';
+        }
 
         // 加载舞者心语数据
         async function loadTestimonials() {
@@ -266,31 +282,42 @@
                 renderTestimonials(allTestimonials);
             } catch (error) {
                 console.error('加载舞者心语失败:', error);
-                document.getElementById('testimonials-container').innerHTML = '<p class="text-red-600 text-center py-12">加载失败，请稍后重试</p>';
+                const lang = getCurrentLang();
+                const errorMsg = lang === 'zh' ? '加载失败，请稍后重试' : 'Loading failed, please try again later';
+                document.getElementById('testimonials-container').innerHTML = `<p class="text-red-600 text-center py-12">${errorMsg}</p>`;
             }
         }
 
         // 渲染舞者心语
         function renderTestimonials(items) {
             const container = document.getElementById('testimonials-container');
+            const lang = getCurrentLang();
+            
             if (items.length === 0) {
-                container.innerHTML = '<p class="text-gray-600 text-center py-12">暂无相关心语</p>';
+                const noDataMsg = lang === 'zh' ? '暂无相关心语' : 'No testimonials available';
+                container.innerHTML = `<p class="text-gray-600 text-center py-12">${noDataMsg}</p>`;
                 return;
             }
             
             container.innerHTML = items.map((item, index) => {
+                const title = getLocalizedText(item.title, lang);
+                const category = getLocalizedText(item.category, lang);
+                const name = lang === 'en' && item.nameEn ? item.nameEn : item.name;
+                const content = lang === 'en' && item.contentEn ? item.contentEn : item.content;
+                const date = lang === 'en' && item.dateEn ? item.dateEn : item.date;
+                
                 return `
                 <div class="bg-soft rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in cursor-pointer group" style="animation-delay: ${index * 0.05}s" data-testimonial-id="${item.id}">
                     <div class="flex flex-col md:flex-row items-start justify-between gap-4 mb-4">
                         <div>
                             <div class="flex items-center gap-3 mb-2 flex-wrap">
-                                <h3 class="text-lg md:text-xl font-display font-bold text-primary">${item.title}</h3>
+                                <h3 class="text-lg md:text-xl font-display font-bold text-primary">${title}</h3>
                                 <span class="text-xs px-2 py-1 bg-accent/10 text-secondary rounded-full">${item.year}</span>
                             </div>
                             <div class="text-sm text-gray-600 space-y-1">
-                                <p><i class="fa fa-user-circle mr-1"></i><span class="font-medium text-dark">${item.name}</span></p>
-                                <p><i class="fa fa-tag mr-1"></i>${item.category}</p>
-                                ${item.date ? `<p><i class="fa fa-calendar mr-1"></i>${item.date}</p>` : ''}
+                                <p><i class="fa fa-user-circle mr-1"></i><span class="font-medium text-dark">${name}</span></p>
+                                <p><i class="fa fa-tag mr-1"></i>${category}</p>
+                                ${date ? `<p><i class="fa fa-calendar mr-1"></i>${date}</p>` : ''}
                             </div>
                         </div>
                         <div class="flex-shrink-0">
@@ -298,10 +325,10 @@
                         </div>
                     </div>
                     <p class="text-sm md:text-base text-gray-700 leading-relaxed line-clamp-4">
-                        ${item.content.replace(/\n\n/g, ' ')}
+                        ${content.replace(/\n\n/g, ' ')}
                     </p>
                     <div class="mt-4 pt-4 border-t border-gray-200">
-                        <p class="hidden text-xs text-gray-500">点击查看完整心语</p>
+                        <p class="hidden text-xs text-gray-500">${lang === 'zh' ? '点击查看完整心语' : 'Click to view full testimonial'}</p>
                     </div>
                 </div>
             `;
@@ -321,6 +348,19 @@
 
         // 显示舞者心语详细信息模态框
         function showTestimonialModal(testimonial) {
+            const lang = getCurrentLang();
+            const title = getLocalizedText(testimonial.title, lang);
+            const category = getLocalizedText(testimonial.category, lang);
+            const name = lang === 'en' && testimonial.nameEn ? testimonial.nameEn : testimonial.name;
+            const content = lang === 'en' && testimonial.contentEn ? testimonial.contentEn : testimonial.content;
+            const date = lang === 'en' && testimonial.dateEn ? testimonial.dateEn : testimonial.date;
+            
+            const dancerLabel = lang === 'zh' ? '舞者' : 'Dancer';
+            const categoryLabel = lang === 'zh' ? '分类' : 'Category';
+            const yearLabel = lang === 'zh' ? '年份' : 'Year';
+            const dateLabel = lang === 'zh' ? '日期' : 'Date';
+            const viewOriginalLabel = lang === 'zh' ? '查看原文' : 'View Original';
+            
             const modal = document.createElement('div');
             modal.id = 'testimonial-modal';
             modal.className = 'fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto';
@@ -328,12 +368,12 @@
                 <div class="bg-white rounded-xl max-w-3xl w-full my-8 shadow-2xl animate-fade-in">
                     <div class="bg-primary text-white p-6 md:p-8 flex items-start justify-between gap-4">
                         <div class="flex-1">
-                            <h2 class="text-2xl md:text-3xl font-display font-bold mb-2">${testimonial.title}</h2>
+                            <h2 class="text-2xl md:text-3xl font-display font-bold mb-2">${title}</h2>
                             <p class="text-sm md:text-base text-white/80 space-y-1">
-                                <span class="block"><span class="font-medium">舞者：</span>${testimonial.name}</span>
-                                <span class="block"><span class="font-medium">分类：</span>${testimonial.category}</span>
-                                <span class="block"><span class="font-medium">年份：</span>${testimonial.year}</span>
-                                ${testimonial.date ? `<span class="block"><span class="font-medium">日期：</span>${testimonial.date}</span>` : ''}
+                                <span class="block"><span class="font-medium">${dancerLabel}：</span>${name}</span>
+                                <span class="block"><span class="font-medium">${categoryLabel}：</span>${category}</span>
+                                <span class="block"><span class="font-medium">${yearLabel}：</span>${testimonial.year}</span>
+                                ${date ? `<span class="block"><span class="font-medium">${dateLabel}：</span>${date}</span>` : ''}
                             </p>
                         </div>
                         <button id="close-testimonial-modal" class="flex-shrink-0 w-8 h-8 flex items-center justify-center text-white hover:text-accent transition-colors">
@@ -341,12 +381,12 @@
                         </button>
                     </div>
                     <div class="p-6 md:p-8 max-h-[calc(100vh-250px)] overflow-y-auto">
-                        <div class="prose prose-sm md:prose text-gray-800 leading-relaxed whitespace-pre-wrap">${testimonial.content}
+                        <div class="prose prose-sm md:prose text-gray-800 leading-relaxed whitespace-pre-wrap">${content}
                         </div>
                         ${testimonial.link ? `
                         <div class="mt-8 pt-6 border-t border-gray-200">
                             <a href="${testimonial.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-accent hover:underline font-medium">
-                                查看原文 <i class="fa fa-external-link text-sm"></i>
+                                ${viewOriginalLabel} <i class="fa fa-external-link text-sm"></i>
                             </a>
                         </div>
                         ` : ''}
