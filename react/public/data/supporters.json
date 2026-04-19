@@ -1,0 +1,79 @@
+{
+    "supporters": [
+        {
+            "id": 1,
+            "name": "成都社群大会",
+            "image": "/assets/supporters/supporter-0.png"
+        },
+        {
+            "id": 2,
+            "name": "CCC成都社群大会",
+            "image": "/assets/supporters/supporter-1.png"
+        },
+        {
+            "id": 3,
+            "name": "成都高新区社区发展治理和社会保障局",
+            "image": "/assets/supporters/supporter-2.png"
+        },
+        {
+            "id": 4,
+            "name": "成都高新区石羊街道办事处",
+            "image": "/assets/supporters/supporter-3.png"
+        },
+        {
+            "id": 5,
+            "name": "成都高新区石羊街道盛华社区",
+            "image": "/assets/supporters/supporter-4.png"
+        },
+        {
+            "id": 6,
+            "name": "成都高新区石羊街道锦城社区",
+            "image": "/assets/supporters/supporter-5.png"
+        },
+        {
+            "id": 7,
+            "name": "成都高新区石羊街道锦晖社区",
+            "image": "/assets/supporters/supporter-6.png"
+        },
+        {
+            "id": 8,
+            "name": "成都高新区石羊街道府城社区",
+            "image": "/assets/supporters/supporter-7.png"
+        },
+        {
+            "id": 9,
+            "name": "成都高新区石羊街道三元社区",
+            "image": "/assets/supporters/supporter-8.png"
+        },
+        {
+            "id": 10,
+            "name": "成都高新区石羊街道美洲花园社区",
+            "image": "/assets/supporters/supporter-9.png"
+        },
+        {
+            "id": 11,
+            "name": "成都高新区石羊街道新园社区",
+            "image": "/assets/supporters/supporter-10.png"
+        },
+        {
+            "id": 12,
+            "name": "成都高新区石羊街道新街社区",
+            "image": "/assets/supporters/supporter-11.png"
+        },
+        {
+            "id": 13,
+            "name": "成都高新区石羊街道庆安社区",
+            "image": "/assets/supporters/supporter-12.png"
+        },
+        {
+            "id": 14,
+            "name": "成都高新区石羊街道新南社区",
+            "image": "/assets/supporters/supporter-13.png"
+        },
+        {
+            "id": 15,
+            "name": "成都高新区石羊街道锦羊社区",
+            "image": "/assets/supporters/supporter-14.png"
+        }
+    ]
+}
