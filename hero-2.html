@@ -207,8 +207,8 @@
         <div class="absolute bottom-20 right-6 md:right-12 w-1 h-20 bg-gradient-to-t from-accent to-transparent opacity-60"></div>
         
         <!-- 向下滚动指示器 -->
-        <div class="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-            <div class="flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors cursor-pointer" onclick="document.querySelector('#about')?.scrollIntoView({behavior: 'smooth'})">
+        <div class="absolute bottom-6 md:bottom-8 left-0 right-0 z-20 animate-bounce">
+            <div class="flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors cursor-pointer" onclick="window.parent.document.querySelector('#about')?.scrollIntoView({behavior: 'smooth'})">
                 <span class="text-xs font-medium" data-i18n="hero.scrollDown">向下探索</span>
                 <i class="fa fa-chevron-down text-base"></i>
             </div>
