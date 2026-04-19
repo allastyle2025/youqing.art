@@ -154,11 +154,21 @@ const resources = {
   },
 };
 
+// 检测浏览器语言
+const detectLanguage = (): string => {
+  const lang = navigator.language || (navigator as unknown as { browserLanguage?: string }).browserLanguage || 'zh';
+  // 如果是中文（包括简体、繁体等），返回 zh，否则返回 en
+  if (lang.toLowerCase().startsWith('zh')) {
+    return 'zh';
+  }
+  return 'en';
+};
+
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'zh',
+    lng: detectLanguage(),
     fallbackLng: 'zh',
     interpolation: {
       escapeValue: false,
