@@ -389,7 +389,20 @@ body {
   .hero-content {
     text-align: left;
     margin-left: 5%;
-    padding-top: 6rem;
+    padding-top: 1rem;
+    /*border: 2px solid red;*/
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-heading {
+    /*border: 2px solid yellow;*/
+  }
+
+  .hero-description {
+    margin-top: 8rem;
+    font-size: 1rem !important;
   }
 }
 
