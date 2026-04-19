@@ -46,7 +46,7 @@ function LoadingSpinner() {
 }
 
 export default function Dancers() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
 
   // 模拟数据加载
