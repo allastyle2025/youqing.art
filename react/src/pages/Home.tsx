@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
@@ -13,8 +13,6 @@ import { useMeta } from '../hooks/useMeta';
 export default function Home() {
   const { t, i18n: i18nInstance } = useTranslation();
   const aboutRef = useRef<HTMLDivElement>(null);
-  const mediaSliderRef = useRef<HTMLDivElement>(null);
-  const [mediaScrollPosition, setMediaScrollPosition] = useState(0);
 
   // 动态更新页面 meta 信息（用于微信分享）
   useMeta({
