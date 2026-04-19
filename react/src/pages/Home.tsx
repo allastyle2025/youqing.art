@@ -7,10 +7,18 @@ import { dancers } from '../data/dancers';
 import { timelineEvents } from '../data/timeline';
 import { supporters } from '../data/supporters';
 import i18n from '../i18n';
+import { useMeta } from '../hooks/useMeta';
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t, i18n: i18nInstance } = useTranslation();
   const aboutRef = useRef<HTMLDivElement>(null);
+
+  // 动态更新页面 meta 信息（用于微信分享）
+  useMeta({
+    title: i18nInstance.language === 'zh'
+      ? '有情 - 素人共创生态舞作'
+      : 'Youqing - People-powered Ecological Dance',
+  });
 
   const scrollToAbout = () => {
     aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
