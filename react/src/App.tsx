@@ -10,6 +10,17 @@ import Timeline from './pages/Timeline';
 import Contact from './pages/Contact';
 import './styles/global.css';
 
+// 页面滚动到顶部组件
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
+
+  return null;
+}
+
 // 页面加载进度条组件
 function PageLoadingProgress() {
   const location = useLocation();
@@ -88,6 +99,7 @@ function PageLoadingProgress() {
 function AppContent() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <ScrollToTop />
       <PageLoadingProgress />
       <Navbar />
       <main style={{ flex: 1 }}>

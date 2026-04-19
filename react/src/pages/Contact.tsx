@@ -175,112 +175,111 @@ export default function Contact() {
         </div>
 
         {/* 二维码 - 放在下面单独一行 */}
+        <div
+          style={{
+            maxWidth: '600px',
+            margin: '0 auto',
+            padding: '0 0.75rem',
+          }}
+        >
           <div
             style={{
-              maxWidth: '600px',
-              margin: '0 auto',
-              padding: '0 1rem',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: '1rem',
+              justifyItems: 'center',
             }}
           >
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '2rem',
-                justifyItems: 'center',
-              }}
-            >
-              {/* 参与共创二维码 */}
-              <div style={{ textAlign: 'center' }}>
-                <p
+            {/* 参与共创二维码 */}
+            <div style={{ textAlign: 'center' }}>
+              <p
+                style={{
+                  fontSize: '0.8rem',
+                  color: '#6b7280',
+                  marginBottom: '0.5rem',
+                  fontWeight: 500,
+                }}
+              >
+                {i18n.language === 'zh' ? '参与共创' : 'Join Creation'}
+              </p>
+              <div
+                style={{
+                  padding: '0.5rem',
+                  background: 'white',
+                  borderRadius: '0.5rem',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                  display: 'inline-block',
+                }}
+              >
+                <img
+                  src="/assets/wingdancetheare-wechat-qrcode-chat.jpg"
+                  alt="参与共创二维码"
                   style={{
-                    fontSize: '0.875rem',
-                    color: '#6b7280',
-                    marginBottom: '1rem',
-                    fontWeight: 500,
+                    width: '90px',
+                    height: '90px',
+                    borderRadius: '0.25rem',
                   }}
-                >
-                  {i18n.language === 'zh' ? '参与共创' : 'Join Creation'}
-                </p>
-                <div
-                  style={{
-                    padding: '1rem',
-                    background: 'white',
-                    borderRadius: '0.5rem',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-                    display: 'inline-block',
-                  }}
-                >
-                  <img
-                    src="/assets/wingdancetheare-wechat-qrcode-chat.jpg"
-                    alt="参与共创二维码"
-                    style={{
-                      width: '120px',
-                      height: '120px',
-                      borderRadius: '0.25rem',
-                    }}
-                  />
-                </div>
-                <p
-                  style={{
-                    fontSize: '0.75rem',
-                    color: '#9ca3af',
-                    marginTop: '0.75rem',
-                    lineHeight: 1.5,
-                    whiteSpace: 'pre-line',
-                  }}
-                >
-                  {i18n.language === 'zh'
-                    ? '微信扫码添加小助理\nWingDanceTheatre永·舞团'
-                    : 'Scan to add assistant\nWingDanceTheatre'}
-                </p>
+                />
               </div>
+              <p
+                style={{
+                  fontSize: '0.7rem',
+                  color: '#9ca3af',
+                  marginTop: '0.5rem',
+                  lineHeight: 1.4,
+                  whiteSpace: 'pre-line',
+                }}
+              >
+                {i18n.language === 'zh'
+                  ? '微信扫码添加小助理\nWingDanceTheatre永·舞团'
+                  : 'Scan to add assistant\nWingDanceTheatre'}
+              </p>
+            </div>
 
-              {/* 关注公众号二维码 */}
-              <div style={{ textAlign: 'center' }}>
-                <p
+            {/* 关注公众号二维码 */}
+            <div style={{ textAlign: 'center' }}>
+              <p
+                style={{
+                  fontSize: '0.8rem',
+                  color: '#6b7280',
+                  marginBottom: '0.5rem',
+                  fontWeight: 500,
+                }}
+              >
+                {i18n.language === 'zh' ? '关注官方微信号' : 'Follow Official Account'}
+              </p>
+              <div
+                style={{
+                  padding: '0.5rem',
+                  background: 'white',
+                  borderRadius: '0.5rem',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                  display: 'inline-block',
+                }}
+              >
+                <img
+                  src="/assets/wingdancetheare-wechat-qrcode.png"
+                  alt="微信二维码"
                   style={{
-                    fontSize: '0.875rem',
-                    color: '#6b7280',
-                    marginBottom: '1rem',
-                    fontWeight: 500,
+                    width: '90px',
+                    height: '90px',
+                    borderRadius: '0.25rem',
                   }}
-                >
-                  {i18n.language === 'zh' ? '关注官方微信号' : 'Follow Official Account'}
-                </p>
-                <div
-                  style={{
-                    padding: '1rem',
-                    background: 'white',
-                    borderRadius: '0.5rem',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-                    display: 'inline-block',
-                  }}
-                >
-                  <img
-                    src="/assets/wingdancetheare-wechat-qrcode.png"
-                    alt="微信二维码"
-                    style={{
-                      width: '120px',
-                      height: '120px',
-                      borderRadius: '0.25rem',
-                    }}
-                  />
-                </div>
-                <p
-                  style={{
-                    fontSize: '0.75rem',
-                    color: '#9ca3af',
-                    marginTop: '0.75rem',
-                    lineHeight: 1.5,
-                    whiteSpace: 'pre-line',
-                  }}
-                >
-                  {i18n.language === 'zh'
-                    ? '永·舞团\nWing Dance Theatre'
-                    : 'Wing Dance Theatre\nOfficial Account'}
-                </p>
+                />
               </div>
+              <p
+                style={{
+                  fontSize: '0.7rem',
+                  color: '#9ca3af',
+                  marginTop: '0.5rem',
+                  lineHeight: 1.4,
+                  whiteSpace: 'pre-line',
+                }}
+              >
+                {i18n.language === 'zh'
+                  ? '永·舞团\nWing Dance Theatre'
+                  : 'Wing Dance Theatre\nOfficial Account'}
+              </p>
             </div>
           </div>
         </div>
