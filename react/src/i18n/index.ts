@@ -86,7 +86,7 @@ const resources = {
         dancers: 'Dancers',
         schedule: 'Timeline',
         testimonials: 'Testimonials',
-        contact: 'Contact',
+        contact: 'Contact Us',
       },
       hero: {
         title: 'You Qing',

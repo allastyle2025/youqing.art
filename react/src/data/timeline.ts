@@ -250,9 +250,9 @@ export const timelineEvents: TimelineEvent[] = [
   },
   {
     id: 13,
-    month: "",
+    month: "∞",
     day: "",
-    year: "∞",
+    year: "",
     title: {
       zh: "2026 · 未完待续",
       en: "2026 · To Be Continued"

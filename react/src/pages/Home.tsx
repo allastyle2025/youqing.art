@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
@@ -6,12 +6,15 @@ import { albums } from '../data/albums';
 import { dancers } from '../data/dancers';
 import { timelineEvents } from '../data/timeline';
 import { supporters } from '../data/supporters';
+import { mediaItems } from '../data/media';
 import i18n from '../i18n';
 import { useMeta } from '../hooks/useMeta';
 
 export default function Home() {
   const { t, i18n: i18nInstance } = useTranslation();
   const aboutRef = useRef<HTMLDivElement>(null);
+  const mediaSliderRef = useRef<HTMLDivElement>(null);
+  const [mediaScrollPosition, setMediaScrollPosition] = useState(0);
 
   // 动态更新页面 meta 信息（用于微信分享）
   useMeta({
@@ -76,7 +79,8 @@ export default function Home() {
 
           {/* 愿景与使命 */}
           <div style={{ maxWidth: '896px', margin: '0 auto', padding: '0 1rem' }}>
-            <div 
+            <div
+              className="vision-mission-container"
               style={{
                 background: 'white',
                 borderRadius: '0.75rem',
@@ -133,7 +137,7 @@ export default function Home() {
               </div>
 
               {/* 扎根生活 */}
-              <div>
+              <div style={{ padding: '2rem 0', borderBottom: '1px solid #f3f4f6'}}>
                 <h3 style={{
                   fontSize: '1.25rem',
                   fontWeight: 600,
@@ -157,7 +161,7 @@ export default function Home() {
               </div>
 
               {/* 结语 */}
-              <div style={{ marginTop: '2.5rem', paddingTop: '2rem', borderTop: '1px solid #e5e7eb' }}>
+              <div style={{ marginTop: '2.5rem' }}>
                 <p 
                   style={{ 
                     textAlign: 'center', 
@@ -274,6 +278,240 @@ export default function Home() {
             <Link to="/gallery" className="btn btn-primary">
               {t('gallery.viewAll')}
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 媒体报道 */}
+      <section id="media" className="section section-white">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">{t('media.title')}</h2>
+          </div>
+
+          <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+            {/* 桌面端：网格布局 */}
+            <div className="media-desktop">
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(4, 1fr)',
+                  gap: '1.5rem',
+                }}
+              >
+                {mediaItems.slice(0, 4).map((item) => {
+                  const title = item.title[i18n.language === 'zh' ? 'zh' : 'en'];
+                  const description = item.description[i18n.language === 'zh' ? 'zh' : 'en'];
+                  const mediaName = item.mediaName[i18n.language === 'zh' ? 'zh' : 'en'];
+                  return (
+                    <a
+                      key={item.id}
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'block',
+                        textDecoration: 'none',
+                        background: 'white',
+                        borderRadius: '0.75rem',
+                        overflow: 'hidden',
+                        boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-4px)';
+                        e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                      }}
+                    >
+                      <div style={{ position: 'relative', height: '160px', overflow: 'hidden' }}>
+                        <img
+                          src={item.thumbnail}
+                          alt={title}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            transition: 'transform 0.5s ease',
+                          }}
+                        />
+                        {item.type === 'video' && (
+                          <div style={{
+                            position: 'absolute',
+                            inset: 0,
+                            background: 'rgba(0,0,0,0.3)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                          }}>
+                            <div style={{
+                              width: '48px',
+                              height: '48px',
+                              borderRadius: '50%',
+                              background: 'rgba(255,255,255,0.9)',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                            }}>
+                              <i className="fa fa-play" style={{ color: 'var(--color-accent)', marginLeft: '4px' }}></i>
+                            </div>
+                          </div>
+                        )}
+                        {mediaName && (
+                          <div style={{
+                            position: 'absolute',
+                            top: '12px',
+                            right: '12px',
+                            background: 'var(--color-accent)',
+                            color: 'white',
+                            fontSize: '0.75rem',
+                            fontWeight: 500,
+                            padding: '4px 12px',
+                            borderRadius: '9999px',
+                            boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+                            zIndex: 10,
+                          }}>
+                            {mediaName}
+                          </div>
+                        )}
+                      </div>
+                      <div style={{ padding: '1rem' }}>
+                        <h3 style={{
+                          fontSize: '0.9375rem',
+                          fontWeight: 600,
+                          color: '#1f2937',
+                          lineHeight: 1.5,
+                          marginBottom: '0.5rem',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                        }}>
+                          {title}
+                        </h3>
+                        <p style={{
+                          fontSize: '0.8125rem',
+                          color: '#6b7280',
+                          lineHeight: 1.6,
+                          display: '-webkit-box',
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                        }}>
+                          {description}
+                        </p>
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* 移动端：垂直堆叠 */}
+            <div className="media-mobile" style={{
+              flexDirection: 'column',
+              gap: '1.5rem',
+              maxWidth: '1200px',
+              margin: '0 auto',
+              padding: '0 1rem',
+            }}>
+              {mediaItems.map((item, index) => {
+                const title = item.title[i18n.language === 'zh' ? 'zh' : 'en'];
+                const description = item.description[i18n.language === 'zh' ? 'zh' : 'en'];
+                const mediaName = item.mediaName[i18n.language === 'zh' ? 'zh' : 'en'];
+                return (
+                  <a
+                    key={item.id}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'block',
+                      textDecoration: 'none',
+                      background: 'white',
+                      borderRadius: '0.75rem',
+                      overflow: 'hidden',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                      animation: `fadeIn 0.5s ease forwards`,
+                      animationDelay: `${index * 0.1}s`,
+                      opacity: 0,
+                    }}
+                  >
+                    <div style={{ position: 'relative', height: '180px', overflow: 'hidden' }}>
+                      <img
+                        src={item.thumbnail}
+                        alt={title}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                        }}
+                      />
+                      {item.type === 'video' && (
+                        <div style={{
+                          position: 'absolute',
+                          inset: 0,
+                          background: 'rgba(0,0,0,0.3)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}>
+                          <div style={{
+                            width: '56px',
+                            height: '56px',
+                            borderRadius: '50%',
+                            background: 'rgba(255,255,255,0.9)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                          }}>
+                            <i className="fa fa-play" style={{ color: 'var(--color-accent)', marginLeft: '4px', fontSize: '1.25rem' }}></i>
+                          </div>
+                        </div>
+                      )}
+                      {mediaName && (
+                        <div style={{
+                          position: 'absolute',
+                          top: '12px',
+                          right: '12px',
+                          background: 'var(--color-accent)',
+                          color: 'white',
+                          fontSize: '0.75rem',
+                          fontWeight: 500,
+                          padding: '4px 12px',
+                          borderRadius: '9999px',
+                          boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+                          zIndex: 10,
+                        }}>
+                          {mediaName}
+                        </div>
+                      )}
+                    </div>
+                    <div style={{ padding: '1rem' }}>
+                      <h3 style={{
+                        fontSize: '1rem',
+                        fontWeight: 600,
+                        color: '#1f2937',
+                        lineHeight: 1.5,
+                        marginBottom: '0.5rem',
+                      }}>
+                        {title}
+                      </h3>
+                      <p style={{
+                        fontSize: '0.875rem',
+                        color: '#6b7280',
+                        lineHeight: 1.6,
+                      }}>
+                        {description}
+                      </p>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -405,15 +643,17 @@ export default function Home() {
           {/* 时间线 */}
           <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1rem' }}>
             {timelineEvents.map((event, index) => {
-              const monthSuffix = i18n.language === 'zh' ? '月' : '';
-              const daySuffix = i18n.language === 'zh' ? '日' : '';
-              const monthDay = event.month 
-                ? `${event.month}${monthSuffix}${event.day ? event.day + daySuffix : ''}`
+              const monthSuffix = '';
+              const daySuffix = '';
+              const separator = '.';
+              const monthDay = event.month
+                ? `${event.month}${monthSuffix}${event.day ? separator + event.day + daySuffix : ''}`
                 : '';
               
               return (
                 <div
                   key={event.id}
+                  className="timeline-item"
                   style={{
                     display: 'flex',
                     flexDirection: 'row',
@@ -424,19 +664,17 @@ export default function Home() {
                   }}
                 >
                   {/* 日期 */}
-                  <div style={{
+                  <div className="timeline-date" style={{
                     flexShrink: 0,
-                    width: '100px',
                     textAlign: 'center',
                   }}>
                     <div style={{
-                      fontFamily: 'var(--font-display)',
-                      fontSize: '1.75rem',
+                      fontSize: '1.5rem',
                       fontWeight: 700,
                       color: 'var(--color-accent)',
                       lineHeight: 1.2,
                     }}>
-                      {event.year}
+                      {monthDay}
                     </div>
                     <div style={{
                       fontSize: '0.875rem',
@@ -444,7 +682,7 @@ export default function Home() {
                       color: '#6b7280',
                       marginTop: '0.25rem',
                     }}>
-                      {monthDay}
+                      {event.year}
                     </div>
                   </div>
 

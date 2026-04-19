@@ -57,7 +57,68 @@ export default function Footer() {
       background: 'var(--color-primary)',
       color: 'white',
       padding: '4rem 0 2rem',
+      position: 'relative',
+      overflow: 'hidden',
     }}>
+      {/* 皮革纹理背景 */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        opacity: 0.15,
+        pointerEvents: 'none',
+        backgroundImage: `
+          radial-gradient(circle at 15% 25%, rgba(139, 115, 85, 0.4) 0%, transparent 40%),
+          radial-gradient(circle at 85% 75%, rgba(139, 115, 85, 0.3) 0%, transparent 35%),
+          radial-gradient(circle at 50% 50%, rgba(139, 115, 85, 0.25) 0%, transparent 50%),
+          radial-gradient(circle at 30% 80%, rgba(139, 115, 85, 0.35) 0%, transparent 30%),
+          radial-gradient(circle at 70% 20%, rgba(139, 115, 85, 0.3) 0%, transparent 45%)
+        `,
+      }} />
+      <svg style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        opacity: 0.12,
+        pointerEvents: 'none',
+      }}>
+        <defs>
+          <filter id="leatherNoise">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" result="noise"/>
+            <feDiffuseLighting in="noise" lightingColor="#8B7355" surfaceScale="2" result="light">
+              <feDistantLight azimuth="45" elevation="60"/>
+            </feDiffuseLighting>
+          </filter>
+          <pattern id="leatherPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+            <rect width="100" height="100" filter="url(#leatherNoise)"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#leatherPattern)"/>
+      </svg>
+      <svg style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        opacity: 0.1,
+        pointerEvents: 'none',
+      }}>
+        <defs>
+          <pattern id="leatherGrain" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+            <circle cx="10" cy="10" r="1" fill="rgba(139, 115, 85, 0.5)"/>
+            <circle cx="30" cy="25" r="0.8" fill="rgba(139, 115, 85, 0.4)"/>
+            <circle cx="45" cy="40" r="1.2" fill="rgba(139, 115, 85, 0.45)"/>
+            <circle cx="20" cy="35" r="0.6" fill="rgba(139, 115, 85, 0.35)"/>
+            <circle cx="40" cy="8" r="0.9" fill="rgba(139, 115, 85, 0.3)"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#leatherGrain)"/>
+      </svg>
       <div className="container">
         {/* 主要内容 */}
         <div style={{
