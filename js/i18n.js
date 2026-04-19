@@ -127,9 +127,9 @@ const i18n = {
             // Hero
             'hero.title': 'You Qing',
             'hero.subtitle': 'Amateur Co-creation Eco-Dance',
-            'hero.mainTitle': 'All Beings<br/>With Heart',
+            'hero.mainTitle': 'All Beings<br/>of Heart',
             'hero.tagline': 'A Dance Dedicated to the Earth',
-            'hero.description': 'This is an ecological dance work blueprinted for a "Beautiful New Earth," and an ongoing artistic initiative spontaneously gathered by amateur dancers from all corners of the world',
+            'hero.description': 'This is an ecological dance blueprinted on a "Beautiful New Earth," and a sustained artistic movement spontaneously gathered by amateur dancers from all corners of the world',
             'hero.scrollDown': 'Scroll Down',
             'hero.stats.dancers': 'Amateur Dancers',
             'hero.stats.year': 'Annual Performance',
