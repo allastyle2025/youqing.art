@@ -46,13 +46,12 @@ export default function Contact() {
             style={{
               maxWidth: '1000px',
               margin: '0 auto 3rem',
-              padding: '0 1rem',
             }}
           >
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                 gap: '2rem',
                 alignItems: 'start',
               }}

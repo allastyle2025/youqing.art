@@ -161,13 +161,13 @@ export default function Footer() {
               gap: '0.5rem',
             }}>
               <li>
-                <a href="/#contact" style={{
+                <Link to="/contact" style={{
                   fontSize: '0.875rem',
                   color: 'rgba(255,255,255,0.7)',
                   textDecoration: 'none',
                 }}>
                   {i18n.language === 'zh' ? '成为舞者' : 'Become a Dancer'}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

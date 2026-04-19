@@ -11,7 +11,7 @@ const resources = {
         dancers: '舞者',
         schedule: '历程',
         testimonials: '舞者心语',
-        contact: '联系',
+        contact: '联系我们',
       },
       hero: {
         title: '有情',
