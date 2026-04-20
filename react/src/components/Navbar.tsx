@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
+import DeviceInfoModal from './DeviceInfoModal';
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDeviceInfoOpen, setIsDeviceInfoOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -204,6 +206,26 @@ export default function Navbar() {
           </nav>
           
           <div className="mobile-menu-footer">
+            <button
+              className="mobile-device-info-btn"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsDeviceInfoOpen(true);
+              }}
+              style={{
+                marginBottom: '1rem',
+                padding: '0.75rem 1.5rem',
+                background: 'transparent',
+                border: '1px solid var(--color-primary)',
+                borderRadius: '4px',
+                color: 'var(--color-primary)',
+                fontSize: '0.875rem',
+                cursor: 'pointer',
+                width: '100%',
+              }}
+            >
+              📱 设备信息
+            </button>
             <Link
               to="/contact"
               className="mobile-contact-btn"
@@ -214,6 +236,12 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+      
+      {/* 设备信息弹窗 */}
+      <DeviceInfoModal 
+        isOpen={isDeviceInfoOpen} 
+        onClose={() => setIsDeviceInfoOpen(false)} 
+      />
     </>
   );
 }
