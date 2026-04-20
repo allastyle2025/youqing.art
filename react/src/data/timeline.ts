@@ -44,11 +44,11 @@ export const timelineEvents: TimelineEvent[] = [
     year: "2024",
     title: {
       zh: "发布「寻找有情人」推文",
-      en: "Launched 'Seeking People with Heart' Campaign"
+      en: "Published \"seeking for all beings of heart\"  recruitment article"
     },
     description: {
       zh: "正式发布「寻找有情人」项目推文，天南海北各行各业约一百名素人报名参与项目。",
-      en: "Officially launched the 'Seeking People with Heart' project. About 100 amateurs from all walks of life applied to participate."
+      en: "Officially launched the \"All Beings of Heart\" project. Approximately a hundred amateurs from all walks of life applied to participate."
     },
     location: "",
     date: "2024.05.24",
@@ -141,11 +141,11 @@ export const timelineEvents: TimelineEvent[] = [
     year: "2025",
     title: {
       zh: "发布2025年度舞者招募",
-      en: "2025 Dancer Recruitment Announced"
+      en: "2025 Dancer/Co-creator Recruitment Announced"
     },
     description: {
       zh: "「寻找有情人」正式发布2025年度舞者招募推文。",
-      en: "'Seeking People with Heart' officially announced 2025 dancer recruitment."
+      en: "\"All Beings of Heart\" (You Qing) Co-creation Eco-Art project officially announced 2025 dancer/co-creator recruitment."
     },
     location: "",
     date: "2025.07.31",
@@ -158,11 +158,11 @@ export const timelineEvents: TimelineEvent[] = [
     year: "2025",
     title: {
       zh: "2025年度启动仪式",
-      en: "2025 Annual Launch Ceremony"
+      en: "2025 Annual Project Initiation Ceremony"
     },
     description: {
       zh: "「有情」素人共创生态艺术项目2025年度启动仪式在成都举行，成都线下共创社区宣布成立。",
-      en: "You Qing Amateur Co-creation Eco-Art Project 2025 launch ceremony held in Chengdu, announcing the establishment of Chengdu offline co-creation community."
+      en: "You Qing Amateur Co-creation Eco-Art Project 2025 launch ceremony held in Chengdu, announcing the establishment of Chengdu on-site co-creation community."
     },
     location: {
       zh: "成都",
@@ -178,11 +178,11 @@ export const timelineEvents: TimelineEvent[] = [
     year: "2025",
     title: {
       zh: "发布「有情·崇生社区开放日」推文",
-      en: "Released 'You Qing · Chongsheng Community Open Day' Post"
+      en: "\"You Qing · Chongsheng Community Open Day\" activity announced"
     },
     description: {
       zh: "号召天下有情人共同探索什么是建基于爱的社区应有的模样。",
-      en: "Calling all people with heart to explore what a love-based community should look like."
+      en: "Published the  \"You Qing · Chongsheng Community Open Day\" recruitment article, inviting all beings of heart to discover together what a community built on love truly means."
     },
     location: "",
     date: "2025.09.19",
@@ -199,7 +199,7 @@ export const timelineEvents: TimelineEvent[] = [
     },
     description: {
       zh: "「有情·崇生社区开放日」在上海崇明岛顺利举行；2025年度作品《有情·万物生》于当日傍晚首演亮相。",
-      en: "You Qing · Chongsheng Community Open Day successfully held at Chongming Island, Shanghai; 2025 work 'You Qing: All Things Grow' premiered that evening."
+      en: "You Qing · Chongsheng Community Open Day successfully held at Chongming Island, Shanghai; 2025 work 'You Qing: The Awakening of All Beings' premiered that evening."
     },
     location: {
       zh: "上海 · 崇明岛",
@@ -235,11 +235,11 @@ export const timelineEvents: TimelineEvent[] = [
     year: "2025",
     title: {
       zh: "《有情·万物生》蛇口戏剧节首演",
-      en: "You Qing: All Things Grow Premiere at Shekou Theatre Festival"
+      en: "You Qing: The Awakening of All Beings Premiere at Shekou Theatre Festival"
     },
     description: {
       zh: "2025年度素人共创舞作《有情·万物生》亮相蛇口戏剧节「生活有戏」板块，现场约300名观众掌声连连。",
-      en: "2025 amateur co-creation dance work 'You Qing: All Things Grow' appeared at Shekou Theatre Festival's 'Life is Theatre' section, with about 300 audience members applauding."
+      en: "2025 amateur co-creation dance work 'You Qing: The Awakening of All Beings' appeared at Shekou Theatre Festival's 'Life is Theatre' section, with about 300 audience members applauding."
     },
     location: {
       zh: "深圳 · 蛇口戏剧节",
@@ -259,7 +259,7 @@ export const timelineEvents: TimelineEvent[] = [
     },
     description: {
       zh: "丙午马年，我们继续'跨越山海，利乐有情'...",
-      en: "In the Year of the Horse, we continue 'Across mountains and seas, benefiting all sentient beings'..."
+      en: "In the Year of the Horse, we continue the journey of 'Across hills and tides, awakening the hearts of all beings……'"
     },
     location: "",
     date: "",

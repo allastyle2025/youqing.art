@@ -46,7 +46,7 @@ export const albums: Album[] = [
     id: 3,
     title: {
       zh: "《有情·万物生》崇明岛首演",
-      en: "You Qing: All Things Grow - Chongming Island Premiere"
+      en: "You Qing: The Awakening of All Beings - Chongming Island Premiere"
     },
     date: "2025.10.7",
     description: {
@@ -60,7 +60,7 @@ export const albums: Album[] = [
     id: 4,
     title: {
       zh: "《有情·万物生》蛇口戏剧节",
-      en: "You Qing: All Things Grow at Shekou Theatre Festival"
+      en: "You Qing: The Awakening of All Beings at Shekou Theatre Festival"
     },
     date: "2025.11.8",
     description: {

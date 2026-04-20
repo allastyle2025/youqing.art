@@ -142,10 +142,10 @@ export const testimonials: Testimonial[] = [
     },
     title: {
       zh: "蛇口《女娲·万物生》之行感悟",
-      en: "Reflections on the Shekou 'Nüwa: All Things Grow' Journey"
+      en: "Reflections on the Shekou 'Nüwa: The Awakening of All Beings' Journey"
     },
     content: "此次蛇口《女娲·万物生》之行，如同一场身心灵的深度涤荡，每一幕都在记忆里熠熠生辉。我们从海边捡拾垃圾开始，在浪潮与沙粒之间，弯腰俯身的刹那，仿佛也开启了一场内心的清扫仪式。\n\nMyra老师以艺术家的慧眼，将海边那截枯木点化为神木。由衷敬佩所有舞者的全情投入。大家来自五湖四海，每一次排练流下的汗水，都已深深烙印在这片土地上。感谢所有幕前幕后的伙伴，愿我们将这份难得的情意，融入日常，传递至更远的地方。",
-    contentEn: "This journey to Shekou for 'Nüwa: All Things Grow' was like a deep cleansing of body, mind, and soul, with every scene shining brightly in memory. We started by picking up garbage by the seaside, and in the moment of bending down between waves and sand, it seemed to initiate an inner cleansing ritual.\n\nTeacher Myra, with an artist's discerning eye, transformed that piece of dead wood by the sea into a divine tree. I sincerely admire all the dancers' wholehearted dedication. Everyone came from all corners of the country; every drop of sweat shed during rehearsals has been deeply imprinted on this land. Thank you to all partners on and off stage. May we integrate this rare affection into daily life and pass it to farther places.",
+    contentEn: "This journey to Shekou for 'Nüwa: The Awakening of All Beings' was like a deep cleansing of body, mind, and soul, with every scene shining brightly in memory. We started by picking up garbage by the seaside, and in the moment of bending down between waves and sand, it seemed to initiate an inner cleansing ritual.\n\nTeacher Myra, with an artist's discerning eye, transformed that piece of dead wood by the sea into a divine tree. I sincerely admire all the dancers' wholehearted dedication. Everyone came from all corners of the country; every drop of sweat shed during rehearsals has been deeply imprinted on this land. Thank you to all partners on and off stage. May we integrate this rare affection into daily life and pass it to farther places.",
     date: "2025年",
     dateEn: "2025",
     link: ""
