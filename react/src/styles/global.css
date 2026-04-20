@@ -402,6 +402,7 @@ body {
 
   .hero-description {
     margin-top: 0rem;
+    margin-bottom: 0rem;
     font-size: 1rem !important;
   }
 
@@ -454,6 +455,14 @@ body {
 @media (max-width: 768px) {
   .hero-stat:nth-child(2) {
     text-align: center !important;
+  }
+}
+
+/* iPhone SE (375px width) */
+@media (max-width: 376px) {
+  /* iPhone SE 专用样式 */
+  .hero .hero-title {
+    font-size: 2rem !important;
   }
 }
 

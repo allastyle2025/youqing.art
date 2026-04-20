@@ -41,7 +41,7 @@ export default function Hero({ onScrollDown }: HeroProps) {
               color: '#ffc88dff',
               //color: '#ffe100ff',
               fontWeight: 500,
-              marginBottom: '2rem',
+              marginBottom: '0rem',
               opacity: 0.9,
               letterSpacing: '0.15em',
             }}
@@ -58,8 +58,9 @@ export default function Hero({ onScrollDown }: HeroProps) {
             marginBottom: '2rem',
             display: 'flex',
             flexDirection: 'column',
-            gap: '2rem',
+            gap: '0rem',
             border: '0px solid yellow',
+            //display: 'none'
           }}
         >
           {/* 描述文本 */}
@@ -71,6 +72,7 @@ export default function Hero({ onScrollDown }: HeroProps) {
               opacity: 0.85,
               fontWeight: 300,
               lineHeight: 1.7,
+              //border: '2px solid yellow',
             }}
           >
             {t('hero.description')}
@@ -80,8 +82,9 @@ export default function Hero({ onScrollDown }: HeroProps) {
           <div
             className="hero-stats"
             style={{
-              paddingTop: '1rem',
+              paddingTop: '0rem',
               borderTop: '1px solid rgba(255,255,255,0.2)',
+              //border: '2px solid yellow',
             }}
           >
             <div className="hero-stat" style={{ border: '0px solid red' }}>
