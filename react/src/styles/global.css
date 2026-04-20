@@ -459,7 +459,7 @@ body {
 }
 
 /* iPhone SE (375px width) */
-@media (max-width: 360px) {
+@media (max-width: 391px) {
   /* iPhone SE 专用样式 */
   .hero .hero-title {
     font-size: 2rem !important;
