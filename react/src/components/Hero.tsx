@@ -55,10 +55,11 @@ export default function Hero({ onScrollDown }: HeroProps) {
           className="hero-bottom-content"
           style={{
             marginTop: 'auto',
+            marginBottom: '2rem',
             display: 'flex',
             flexDirection: 'column',
             gap: '2rem',
-            //border: '2px solid yellow',
+            border: '0px solid yellow',
           }}
         >
           {/* 描述文本 */}
@@ -83,15 +84,15 @@ export default function Hero({ onScrollDown }: HeroProps) {
               borderTop: '1px solid rgba(255,255,255,0.2)',
             }}
           >
-            <div className="hero-stat">
+            <div className="hero-stat" style={{ border: '0px solid red' }}>
               <div className="hero-stat-number">30+</div>
               <div className="hero-stat-label">{t('hero.stats.dancers')}</div>
             </div>
-            <div className="hero-stat">
+            <div className="hero-stat" style={{ border: '0px solid green' }}>
               <div className="hero-stat-number">2026</div>
               <div className="hero-stat-label">{t('hero.stats.year')}</div>
             </div>
-            <div className="hero-stat">
+            <div className="hero-stat" style={{ border: '0px solid blue' }}>
               <div className="hero-stat-number">∞</div>
               <div className="hero-stat-label">{t('hero.stats.possibilities')}</div>
             </div>

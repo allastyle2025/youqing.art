@@ -427,13 +427,34 @@ body {
 
 @media (max-width: 768px) {
   .hero-stats {
-    justify-content: flex-start;
-    gap: 2rem;
+    justify-content: space-between;
+    gap: 1rem;
+    border: 0px solid yellow;
+    width: 100%;
+  }
+  
+  .hero-stat {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .hero-stat:first-child {
+    text-align: left;
+  }
+  
+  .hero-stat:last-child {
+    text-align: right;
   }
 }
 
 .hero-stat {
   text-align: left;
+}
+
+@media (max-width: 768px) {
+  .hero-stat:nth-child(2) {
+    text-align: center !important;
+  }
 }
 
 .hero-stat-number {
