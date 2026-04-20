@@ -82,7 +82,7 @@ export default function Hero({ onScrollDown }: HeroProps) {
           <div
             className="hero-stats"
             style={{
-              paddingTop: '0rem',
+              paddingTop: '2rem',
               borderTop: '1px solid rgba(255,255,255,0.2)',
               //border: '2px solid yellow',
             }}
