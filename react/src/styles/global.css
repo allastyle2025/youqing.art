@@ -324,6 +324,17 @@ body {
   background: var(--color-secondary);
 }
 
+/* 设备信息按钮 - 默认隐藏 */
+[data-device-info-btn] {
+  display: none;
+}
+
+/* 开发模式下显示设备信息按钮 */
+[data-device-info-btn].visible,
+body.show-device-info [data-device-info-btn] {
+  display: block;
+}
+
 .mobile-social {
   display: flex;
   justify-content: center;

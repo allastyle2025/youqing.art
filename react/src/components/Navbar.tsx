@@ -208,6 +208,7 @@ export default function Navbar() {
           <div className="mobile-menu-footer">
             <button
               className="mobile-device-info-btn"
+              data-device-info-btn
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 setIsDeviceInfoOpen(true);
