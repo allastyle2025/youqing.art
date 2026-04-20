@@ -28,6 +28,7 @@ export default function Hero({ onScrollDown }: HeroProps) {
               lineHeight: 1.1,
               marginBottom: '0.5rem',
               textShadow: '0 4px 20px rgba(0,0,0,0.5)',
+              letterSpacing: '0.15em',
             }}
             dangerouslySetInnerHTML={{ __html: t('hero.mainTitle').replace(/\n/g, '<br/>') }}
           />
@@ -37,52 +38,63 @@ export default function Hero({ onScrollDown }: HeroProps) {
             className="hero-tagline"
             style={{
               fontSize: 'clamp(0.875rem, 2vw, 1.125rem)',
-              color: 'var(--color-accent)',
+              color: '#ffc88dff',
+              //color: '#ffe100ff',
               fontWeight: 500,
               marginBottom: '2rem',
               opacity: 0.9,
+              letterSpacing: '0.15em',
             }}
           >
             {t('hero.tagline')}
           </p>
         </div>
         
-        {/* 描述文本 */}
-        <p
-          className="hero-description"
-          style={{
-            fontSize: 'clamp(0.75rem, 1.5vw, 1rem)',
-            maxWidth: '500px',
-            marginBottom: '3rem',
-            opacity: 0.85,
-            fontWeight: 300,
-            lineHeight: 1.7,
-          }}
-        >
-          {t('hero.description')}
-        </p>
-        
-        {/* 统计信息 - 参照 hero-2.html 的样式 */}
+        {/* 描述文本和统计信息容器 */}
         <div
-          className="hero-stats"
+          className="hero-bottom-content"
           style={{
             marginTop: 'auto',
-            marginBottom: '2rem',
-            paddingTop: '1rem',
-            borderTop: '1px solid rgba(255,255,255,0.2)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '2rem',
+            //border: '2px solid yellow',
           }}
         >
-          <div className="hero-stat">
-            <div className="hero-stat-number">30+</div>
-            <div className="hero-stat-label">{t('hero.stats.dancers')}</div>
-          </div>
-          <div className="hero-stat">
-            <div className="hero-stat-number">2026</div>
-            <div className="hero-stat-label">{t('hero.stats.year')}</div>
-          </div>
-          <div className="hero-stat">
-            <div className="hero-stat-number">∞</div>
-            <div className="hero-stat-label">{t('hero.stats.possibilities')}</div>
+          {/* 描述文本 */}
+          <p
+            className="hero-description"
+            style={{
+              fontSize: 'clamp(0.75rem, 1.5vw, 1rem)',
+              maxWidth: '500px',
+              opacity: 0.85,
+              fontWeight: 300,
+              lineHeight: 1.7,
+            }}
+          >
+            {t('hero.description')}
+          </p>
+          
+          {/* 统计信息 - 参照 hero-2.html 的样式 */}
+          <div
+            className="hero-stats"
+            style={{
+              paddingTop: '1rem',
+              borderTop: '1px solid rgba(255,255,255,0.2)',
+            }}
+          >
+            <div className="hero-stat">
+              <div className="hero-stat-number">30+</div>
+              <div className="hero-stat-label">{t('hero.stats.dancers')}</div>
+            </div>
+            <div className="hero-stat">
+              <div className="hero-stat-number">2026</div>
+              <div className="hero-stat-label">{t('hero.stats.year')}</div>
+            </div>
+            <div className="hero-stat">
+              <div className="hero-stat-number">∞</div>
+              <div className="hero-stat-label">{t('hero.stats.possibilities')}</div>
+            </div>
           </div>
         </div>
       </div>

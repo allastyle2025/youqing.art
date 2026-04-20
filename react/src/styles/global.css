@@ -380,15 +380,15 @@ body {
   max-width: 700px;
   width: 100%;
   text-align: left;
-  margin-left: 12%;
+  margin-left: 3%;
   padding-top: 4rem;
-  /*border: 2px solid yellow;*/
+  border: 0px solid yellow;
 }
 
 @media (max-width: 768px) {
   .hero-content {
     text-align: left;
-    margin-left: 5%;
+    /*margin-left: 5%;*/
     padding-top: 1rem;
     /*border: 2px solid red;*/
     min-height: 80vh;
@@ -397,11 +397,11 @@ body {
   }
 
   .hero-heading {
-    /*border: 2px solid yellow;*/
+    border: 0px solid yellow;
   }
 
   .hero-description {
-    margin-top: 8rem;
+    margin-top: 0rem;
     font-size: 1rem !important;
   }
 

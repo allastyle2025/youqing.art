@@ -30,7 +30,7 @@ export const mediaItems: MediaItem[] = [
     date: "2024-10-25",
     description: {
       zh: "历经近半年的线上交流、编舞与10天实地排练，这群素人舞者在崇明岛堡镇码头的风雨中，演出了一曲《有情》舞作",
-      en: "After nearly half a year of online exchange, choreography, and 10 days of on-site rehearsal, these amateur dancers performed a 'You Qing' dance work in the wind and rain at Chongming Island's Bao Town Wharf"
+      en: "After nearly half a year of online exchange, choreography, and 10 days of on-site rehearsal, these amateur dancers performed a \"You Qing\" dance work in the wind and rain at Chongming Island's Bao Town Wharf"
     },
     link: "https://www.thepaper.cn/newsDetail_forward_29132092",
     mediaName: {

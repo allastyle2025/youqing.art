@@ -34,7 +34,7 @@ export const dancers: Dancer[] = [
     },
     quote: {
       zh: "作为素人舞作，「有情」不会、也不能呈现完美的肢体，以高超的视觉引得观者的耳目之愉。",
-      en: "As an amateur dance work, 'You Qing' cannot and does not aim to present perfect body movements."
+      en: "As an amateur dance work, \"You Qing\" cannot and does not aim to present perfect body movements."
     }
   },
   {
@@ -50,7 +50,7 @@ export const dancers: Dancer[] = [
     },
     quote: {
       zh: "「有情」这个项目，相信会给这个世界带去很多的安稳、平静与安宁。",
-      en: "I believe the 'You Qing' project will bring much stability and peace to this world."
+      en: "I believe the \"You Qing\" project will bring much stability and peace to this world."
     }
   },
   {
@@ -94,11 +94,11 @@ export const dancers: Dancer[] = [
     image: `${CDN_BASE_URL}dancer-portrait.4.hy.jpg`,
     profession: {
       zh: "环球旅行背包客，'书益小筑'主理人。「有情」项目共创舞者",
-      en: "Global Travel Backpacker, Manager of 'Shuyi Xiaozhu', You Qing Dancer"
+      en: "Global Travel Backpacker, Manager of \"Shuyi Xiaozhu\", You Qing Dancer"
     },
     quote: {
       zh: "「有情」对素人的身体给予了非常大的信任空间，这种信任让我的身体在整个舞蹈中都能真实地流动。",
-      en: "'You Qing' gives amateur bodies a great deal of trust space."
+      en: "\"You Qing\" gives amateur bodies a great deal of trust space."
     }
   },
   {
@@ -210,7 +210,7 @@ export const dancers: Dancer[] = [
     },
     quote: {
       zh: "被'有情'的发心和初衷吸引，对与身体动作有关的活动感兴趣。",
-      en: "Attracted by the intention of 'You Qing', interested in body movement activities."
+      en: "Attracted by the intention of \"You Qing\", interested in body movement activities."
     }
   },
   {

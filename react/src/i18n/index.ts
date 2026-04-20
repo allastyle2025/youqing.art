@@ -92,8 +92,8 @@ const resources = {
         title: 'You Qing',
         subtitle: 'Co-created Ecological Dance',
         mainTitle: 'All Beings\nof Heart',
-        tagline: 'A Dance Offering for the Earth',
-        description: 'This is an ecological dance blueprinted on a "Beautiful New Earth," and a sustained artistic movement spontaneously gathered by amateur dancers from all corners of the world',
+        tagline: 'A Dance Dedicated to the Earth',
+        description: 'This is an ecological dance blueprinted on a "Beautiful New Earth," and a sustained artistic movement spontaneously gathered by amateur dancers from all corners of the world.',
         scrollDown: 'Scroll Down',
         stats: {
           dancers: 'Amateur Dancers',
