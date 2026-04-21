@@ -158,6 +158,47 @@ export default function Home() {
                 </p>
               </div>
 
+              {/* Bilibili 视频 */}
+              <div style={{ marginTop: '3rem', textAlign: 'center' }}>
+                <h4 
+                  style={{ 
+                    fontSize: '1rem', 
+                    color: '#6b7280', 
+                    marginBottom: '1rem',
+                    fontWeight: 500,
+                  }}
+                >
+                  {i18n.language === 'zh' ? '「有情觉」' : 'Watch Video Introduction'}
+                </h4>
+                <div 
+                  style={{
+                    position: 'relative',
+                    maxWidth: '400px',
+                    margin: '0 auto',
+                    paddingBottom: '177.78%', // 16:9 的反向 = 9/16 = 56.25%, 竖屏 9:16 = 16/9 = 177.78%
+                    height: 0,
+                    overflow: 'hidden',
+                    borderRadius: '0.75rem',
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                  }}
+                >
+                  <iframe
+                    src="//player.bilibili.com/player.html?isOutside=true&aid=115774517746203&bvid=BV1DAB7BZEsb&cid=34953691553&p=1"
+                    scrolling="no"
+                    frameBorder="0"
+                    allowFullScreen
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                    }}
+                    title="You Qing Video"
+                  />
+                </div>
+              </div>
+
               {/* 结语 */}
               <div style={{ marginTop: '2.5rem' }}>
                 <p 
