@@ -50,6 +50,14 @@ export default function Footer() {
       qrcode: '/assets/youtube-qrcode.jpg',
       qrcodeLabel: 'YouTube',
     },
+    {
+      id: 'weibo',
+      name: '微博',
+      href: 'https://m.weibo.cn/u/7412730132',
+      icon: <i className="fa fa-weibo"></i>,
+      qrcode: '/assets/weibo-qrcode.jpg',
+      qrcodeLabel: '微博',
+    },
   ];
 
   return (
@@ -143,8 +151,8 @@ export default function Footer() {
               lineHeight: 1.6,
             }}>
               {i18n.language === 'zh'
-                ? '素人共创生态舞作，用身体传递爱与关切'
-                : 'Amateur co-creation eco-dance, conveying love and care through the body'}
+                ? '素人共创生态艺术项目，用身体传递爱与关切'
+                : 'Amateur co-creation eco-art project, conveying love and care through the body'}
             </p>
           </div>
 
@@ -227,7 +235,7 @@ export default function Footer() {
                   color: 'rgba(255,255,255,0.7)',
                   textDecoration: 'none',
                 }}>
-                  {i18n.language === 'zh' ? '成为舞者' : 'Become a Dancer'}
+                  {i18n.language === 'zh' ? '成为舞者 / 共创者 / 社群建设者' : 'Become a Dancer'}
                 </Link>
               </li>
             </ul>

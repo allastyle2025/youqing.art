@@ -45,6 +45,7 @@ export default function Navbar() {
     { to: '/dancers', label: t('nav.dancers'), isAnchor: false },
     { to: '/timeline', label: t('nav.schedule'), isAnchor: false },
     { to: '/testimonials', label: t('nav.testimonials'), isAnchor: false },
+    { to: '/guestbook', label: i18n.language === 'zh' ? '留言板' : 'Guestbook', isAnchor: false },
   ];
 
   // 处理锚点链接点击

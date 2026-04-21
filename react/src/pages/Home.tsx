@@ -809,8 +809,8 @@ export default function Home() {
                 marginBottom: '2rem',
               }}>
                 {i18n.language === 'zh'
-                  ? '作为共创艺术，「有情」是一个不会终止的舞作。我们希望继续身体的旅程，去到世界各地，为世界带去慈悲与爱的讯息。如果你希望加入我们，无论以何种身份：摄影师、舞者、场地提供者、演出主办方...欢迎与我们联络。'
-                  : 'As a co-creation art, "You Qing" is an ongoing dance work. We hope to continue our physical journey to different parts of the world, bringing messages of compassion and love. If you wish to join us, in any capacity: photographer, dancer, venue provider, performance organizer... please contact us.'}
+                  ? '作为共创艺术项目，「有情」是一个持续不断的创作过程。我们希望继续身体的旅程，去往世界各地的山川河流，为每颗心灵带去慈悲与爱的讯息。如果你希望加入我们，无论以何种身份：摄影师、舞者、场地提供者、社区建设者、演出主办方……欢迎与我们联络。'
+                  : 'As a collaborative art project, "You Qing" is an ongoing dance creation and community building process. We hope to continue our physical journey to different parts of the world, bringing messages of compassion and love to every heart. If you wish to join us, in any capacity: photographer, dancer, venue provider, community builder, performance organizer... please contact us.'}
               </p>
 
               {/* 联系方式 */}
@@ -981,7 +981,7 @@ export default function Home() {
               {i18n.language === 'zh' ? '支持方与合作伙伴' : 'Supporters & Partners'}
             </h2>
             <p className="section-subtitle">
-              {i18n.language === 'zh' ? '跨越山海，利乐有情' : 'Across mountains and seas, benefiting all sentient beings'}
+              {i18n.language === 'zh' ? '跨越山海，利乐有情' : 'Across hills and tides, awakening the hearts of all beings'}
             </p>
           </div>
 

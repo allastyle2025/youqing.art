@@ -8,6 +8,7 @@ import Gallery from './pages/Gallery';
 import Testimonials from './pages/Testimonials';
 import Timeline from './pages/Timeline';
 import Contact from './pages/Contact';
+import Guestbook from './pages/Guestbook';
 import './styles/global.css';
 
 // 页面滚动到顶部组件
@@ -110,6 +111,7 @@ function AppContent() {
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/timeline" element={<Timeline />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/guestbook" element={<Guestbook />} />
         </Routes>
       </main>
       <Footer />
