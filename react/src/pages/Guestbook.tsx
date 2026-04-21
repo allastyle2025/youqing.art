@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import WalineComment from '../components/WalineComment';
 
 export default function Guestbook() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   return (
     <div style={{ paddingTop: '5rem' }}>
