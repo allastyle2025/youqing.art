@@ -83,7 +83,8 @@ export default function Guestbook() {
 
             {/* Waline 评论组件 */}
             <WalineComment
-              serverURL="https://youqing-4wjsw9qka-guoruis-projects.vercel.app/"
+              //serverURL="https://youqing-4wjsw9qka-guoruis-projects.vercel.app/"
+              serverURL="https://www.youqing.art/"
               path="/guestbook"
             />
           </div>
