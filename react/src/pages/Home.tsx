@@ -158,47 +158,6 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Bilibili 视频 */}
-              <div style={{ marginTop: '3rem', textAlign: 'center' }}>
-                <h4 
-                  style={{ 
-                    fontSize: '1rem', 
-                    color: '#6b7280', 
-                    marginBottom: '1rem',
-                    fontWeight: 500,
-                  }}
-                >
-                  {i18n.language === 'zh' ? '「有情觉」' : 'Watch Video Introduction'}
-                </h4>
-                <div 
-                  style={{
-                    position: 'relative',
-                    maxWidth: '400px',
-                    margin: '0 auto',
-                    paddingBottom: '177.78%', // 16:9 的反向 = 9/16 = 56.25%, 竖屏 9:16 = 16/9 = 177.78%
-                    height: 0,
-                    overflow: 'hidden',
-                    borderRadius: '0.75rem',
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                  }}
-                >
-                  <iframe
-                    src="//player.bilibili.com/player.html?isOutside=true&aid=115774517746203&bvid=BV1DAB7BZEsb&cid=34953691553&p=1"
-                    scrolling="no"
-                    frameBorder="0"
-                    allowFullScreen
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '100%',
-                    }}
-                    title="You Qing Video"
-                  />
-                </div>
-              </div>
-
               {/* 结语 */}
               <div style={{ marginTop: '2.5rem' }}>
                 <p 
@@ -667,6 +626,136 @@ export default function Home() {
             <Link to="/dancers" className="btn btn-primary">
               {t('dancers.viewAll')}
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 《有情觉》MV */}
+      <section className="section section-soft">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">
+              {i18n.language === 'zh' ? '原创音乐' : 'Original Music'}
+            </h2>
+            <h3
+              style={{
+                fontSize: '1.5rem',
+                fontWeight: 600,
+                color: 'var(--color-primary)',
+                marginBottom: '1rem',
+              }}
+            >
+              《有情觉》MV
+            </h3>
+            <p className="section-subtitle">
+              {i18n.language === 'zh'
+                ? '「有情」舞者们以赤裸强烈的呼吸与心跳，携手表达我们对地球、对人类、对万物的悲悯与慈爱。'
+                : 'You Qing dancers express our compassion and love for the Earth, humanity, and all beings with raw breath and heartbeat.'}
+            </p>
+          </div>
+
+          {/* MV 视频 */}
+          <div style={{ maxWidth: '400px', margin: '0 auto 3rem' }}>
+            <div
+              style={{
+                position: 'relative',
+                paddingBottom: '177.78%',
+                height: 0,
+                overflow: 'hidden',
+                borderRadius: '0.75rem',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+              }}
+            >
+              <iframe
+                src="//player.bilibili.com/player.html?isOutside=true&aid=115774517746203&bvid=BV1DAB7BZEsb&cid=34953691553&p=1"
+                scrolling="no"
+                frameBorder="0"
+                allowFullScreen
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                }}
+                title="有情觉 MV"
+              />
+            </div>
+          </div>
+
+          {/* 制作信息 */}
+          <div
+            style={{
+              maxWidth: '600px',
+              margin: '0 auto',
+              padding: '2rem',
+              background: 'white',
+              borderRadius: '0.75rem',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
+            }}
+          >
+            <h3
+              style={{
+                fontSize: '1.125rem',
+                fontWeight: 600,
+                color: 'var(--color-primary)',
+                marginBottom: '1.5rem',
+                textAlign: 'center',
+              }}
+            >
+              {i18n.language === 'zh' ? '制作团队' : 'Production Team'}
+            </h3>
+            <div
+              style={{
+                fontSize: '0.875rem',
+                color: '#4b5563',
+                lineHeight: 2,
+                textAlign: 'center',
+              }}
+            >
+              <p>
+                <strong>
+                  {i18n.language === 'zh' ? '作曲/唱诵/古筝：' : 'Composition/Chant/Gu Zheng: '}
+                </strong>
+                {i18n.language === 'zh' ? '即非' : 'Ji Fei'}
+              </p>
+              <p>
+                <strong>
+                  {i18n.language === 'zh' ? '编曲/改编/录音缩混工程师：' : 'Arrangement/Adaptation/Recording & Mixing Engineer: '}
+                </strong>
+                {i18n.language === 'zh' ? '晏敏敏' : 'Yan Minmin'}
+              </p>
+              <p>
+                <strong>
+                  {i18n.language === 'zh' ? '小提琴：' : 'Violin: '}
+                </strong>
+                {i18n.language === 'zh' ? 'Rebecca Sabine（美国）' : 'Rebecca Sabine (USA)'}
+              </p>
+              <p>
+                <strong>
+                  {i18n.language === 'zh' ? '小提琴录音工程师：' : 'Violin Recording Engineer: '}
+                </strong>
+                {i18n.language === 'zh' ? 'Aaron Ramsey（美国）' : 'Aaron Ramsey (USA)'}
+              </p>
+              <p>
+                <strong>
+                  {i18n.language === 'zh' ? '二胡：' : 'Erhu: '}
+                </strong>
+                {i18n.language === 'zh' ? '刘子维' : 'Liu Ziwei'}
+              </p>
+              <p>
+                <strong>
+                  {i18n.language === 'zh' ? '音乐制作：' : 'Music Production: '}
+                </strong>
+                {i18n.language === 'zh' ? '北京芬特音乐工作室' : 'Beijing Fente Music Studio'}
+              </p>
+              <p>
+                <strong>
+                  {i18n.language === 'zh' ? '策划：' : 'Planning: '}
+                </strong>
+                {i18n.language === 'zh' ? '北京仁息工作室 (Metaxy Studio Beijing)' : 'Metaxy Studio Beijing'}
+              </p>
+            </div>
           </div>
         </div>
       </section>
